@@ -16,7 +16,7 @@ export const info = {
     initials: "aryanRaj", 
     position: "AI/ML Enthusiast and Web Developer",
     selfPortrait: self, 
-    gradient: `-webkit-linear-gradient(135deg, ${colors})`, // don't change this either
+    gradient: `-webkit-linear-gradient(135deg, ${colors})`, 
     baseColor: colors[0],
     miniBio: [ 
         {
@@ -29,7 +29,7 @@ export const info = {
         },
         {
             emoji: "♟️",
-            text: "I love Playing Chess."
+            text: "I love playing Chess."
         },
         {
             emoji: "📧",

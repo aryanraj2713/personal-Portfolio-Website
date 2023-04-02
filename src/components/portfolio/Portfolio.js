@@ -5,6 +5,10 @@ import {info} from "../../info/Info";
 
 export default function Portfolio() {
     return (
+        <>
+        <div class="alert alert-danger" role="alert">
+            This page is under maintainence, projects are not updated. Soon,I will be updating the projects. Till then checkout my Github Profie for more information.
+        </div>
         <Box>
             <Grid container display={'flex'} justifyContent={'center'}>
                 {info.portfolio.map((project, index) => (
@@ -14,5 +18,6 @@ export default function Portfolio() {
                 ))}
             </Grid>
         </Box>
+        </>
     );
 };

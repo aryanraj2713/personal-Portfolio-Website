@@ -129,6 +129,17 @@ export const RESUME_DATA = {
       },
     },
     {
+      title: "ThriveStart",
+      techStack: ["RAG","Next.JS","ShadCN","Python","FastAPI","TailwindCSS","Tensorflow","Groq","Mistral","CREWS"],
+      description:
+        "Unta﻿ngle the Startup Labyrinth with AI-powered Matching, Real-Time Analytics & Smart Growth ",
+      logo: ParabolLogo,
+      link: {
+        label: "github.com",
+        href: "https://github.com/aryanraj2713/ThriveStart",
+      },
+    },
+    {
       title: "Educative.AI",
       techStack: [
         "2nd Position-Hack Nova",

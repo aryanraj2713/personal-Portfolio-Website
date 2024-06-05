@@ -63,6 +63,17 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Emendo",
+      link: "https://emendo.ai",
+      badges: ["Remote"],
+      title: "SWE Intern",
+      logo: ParabolLogo,
+      start: "2024",
+      end: "Present",
+      description:
+        "Emendo is a startup based in California, USA. Emendo aims to revolutionalize renovation and construction work. Worked on a serverless application and AWS to build AI based sollution to catrer the clients need.",
+    },
+    {
       company: "Indian Institute of Technology, Madras",
       link: "https://www.iitm.ac.in/",
       badges: ["On-Site"],

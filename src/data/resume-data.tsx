@@ -151,6 +151,17 @@ export const RESUME_DATA = {
       },
     },
     {
+      title: "Llama Scholar",
+      techStack: ["LLM", "Python", "FastAPI", "Qdrant", "RAG","Next.js","WhatsApp API"],
+      description:
+        "Whatsapp based exam helper.",
+      logo: CDGOLogo,
+      link: {
+        label: "github.com",
+        href: "https://github.com/aryanraj2713/Llama-Scholar",
+      },
+    },
+    {
       title: "ThriveStart",
       techStack: ["RAG","Next.JS","ShadCN","Python","FastAPI","TailwindCSS","Tensorflow","Groq","Mistral","CREWS"],
       description:

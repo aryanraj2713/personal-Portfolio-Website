@@ -88,7 +88,7 @@ export const RESUME_DATA = {
       company: "Indian Institute of Technology, Madras",
       link: "https://www.iitm.ac.in/",
       badges: ["On-Site"],
-      title: "Research Intern",
+      title: "Deep Learning Research Intern",
       logo: ParabolLogo,
       start: "2023",
       end: "2023",

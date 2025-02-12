@@ -18,18 +18,19 @@ import {
   YearProgressLogo,
 } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { start } from "repl";
 
 export const RESUME_DATA = {
   name: "Aryan Raj",
-  initials: "AR",
-  location: "Chennai,India",
+  initials: "Aryan Raj",
+  location: "Bengaluru, India",
   locationLink:
     "https://www.google.com/maps/place/SRM+Institute+of+Science+and+Technology/@12.823033,80.0418411,17z/data=!3m1!4b1!4m6!3m5!1s0x3a52f712b82a78d9:0xfdb944a3aee53831!8m2!3d12.823033!4d80.044416!16zL20vMGJwNzl6?entry=ttu",
   about:
     "Undergraduate student with majors in Computer Science and Engineering. Machine Learning enthuiast and exploring new fields in software developement.",
   summary: "",
   avatarUrl:
-    "https://media.licdn.com/dms/image/D5603AQF5UrN86hmnOw/profile-displayphoto-shrink_400_400/0/1676481374524?e=1716422400&v=beta&t=w4avcSwXMMcw8KTqiDWhFCTbW7kN54fMQcQFVv-P59k",
+    "https://media.licdn.com/dms/image/v2/D4D03AQFTTQxUQkVsJw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721766976683?e=1744848000&v=beta&t=6b9_2-kKn6xDG7EnWYXvDaEReriqwvfXrbAE2Q5xnhA",
   personalWebsiteUrl: "",
   contact: {
     email: "aryanraj2713@gmail.com",
@@ -63,13 +64,23 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "HyperVerge",
+      link: "https://www.hyperverge.co",
+      badges: ["On-Site"],
+      title: "Machine Learning Engineer Intern",
+      logo: AmbitLogo,
+      start: "Aug 2024",
+      end: "Present",
+      description: "Spearheaded advanced deep learning solutions to automate KYC verification and fraud detection, including specialized systems for color-printout detection and photo forgery identification. Engineered state-of-the-art models using image processing, transformers, and neural networks, optimizing performance to reduce FAR/FRR levels to <1% while ensuring regulatory compliance and scalability." 
+    },
+    {
       company: "Emendo",
       link: "https://emendo.ai",
       badges: ["Remote"],
-      title: "SWE Intern",
+      title: "Machine Learning Engineer Intern",
       logo: ParabolLogo,
       start: "2024",
-      end: "Present",
+      end: "Aug 2024",
       description:
         "Emendo is a startup based in California, USA. Emendo aims to revolutionalize renovation and construction work. Worked on a serverless application and AWS to build AI based sollution to catrer the clients need.",
     },

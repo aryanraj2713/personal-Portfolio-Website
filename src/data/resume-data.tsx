@@ -99,7 +99,7 @@ export const RESUME_DATA = {
       company: "Next Tech Lab",
       link: "https://www.nexttechlab.in",
       badges: ["Research Lab"],
-      title: "Member- Norman and McCarthy Lab",
+      title: "Researcher(Member)- Norman and McCarthy Lab",
       logo: ClevertechLogo,
       start: "2021",
       end: "2025",

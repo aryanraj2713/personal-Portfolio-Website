@@ -82,7 +82,7 @@ export const RESUME_DATA = {
       start: "2024",
       end: "Aug 2024",
       description:
-        "Emendo is a startup based in California, USA. Emendo aims to revolutionalize renovation and construction work. Worked on a serverless application and AWS to build AI based sollution to catrer the clients need.",
+        "At Emendo (CA-based PropTech startup), engineered agentic AI systems and GenAI solutions using serverless AWS microservices, slashing costs by 40%. Integrated vector databases and fine-tuned LLMs (Llama-2, GPT-3.5) to automate construction workflows and enhance domain-specific accuracy." 
     },
     {
       company: "Indian Institute of Technology, Madras",

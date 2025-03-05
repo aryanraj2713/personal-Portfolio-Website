@@ -55,12 +55,20 @@ export const RESUME_DATA = {
   },
   education: [
     {
-      school: "SRM Institute of Science and Technology",
+      school: "SRM Institute of Science and Technology,Chennai",
       degree:
         "B.Tech-Computer Science and Engineering with specialization in Software Engineering",
       start: "2021",
       end: "2025",
     },
+    {
+      school: "Ganga International School,New Delhi",
+      degree:
+        "Senior Secondary School",
+      start: "2007",
+      end: "2021",
+    },
+
   ],
   work: [
     {
@@ -95,32 +103,11 @@ export const RESUME_DATA = {
       description:
         "Engaged with the Department of Ocean Engineering to design and implement an anti-collision system utilizing Machine Learning techniques and increasing accuracy of existing systems by over 28%.Developed marine object detection, tracking, and localization systems using Stereo camera technology.",
     },
-    {
-      company: "Next Tech Lab",
-      link: "https://www.nexttechlab.in",
-      badges: ["Research Lab"],
-      title: "Researcher(Member)- Norman and McCarthy Lab",
-      logo: ClevertechLogo,
-      start: "2021",
-      end: "2025",
-      description:
-        "Contributed to a portfolio of web and ML based projects, gaining proficiency in various web and ML technologies. Collaborated with McCarthy Lab (ML/DL) for over a year, making substantial contributions to multiple projects.",
-    },
-    {
-      company: "Data Science Community SRM",
-      link: "dscommunity.in",
-      badges: ["Club/Community"],
-      title: "Technical Director",
-      logo: JojoMobileLogo,
-      start: "2022",
-      end: "2023",
-      description:
-        "Served as a member and technical director of one the the most prestigious technical club in the university. Organised a number of technical events,workshops and hackathons.Organised and montored hackathon like DS hack 2.0. ",
-    },
   ],
   skills: [
-    "JavaScript",
     "Python",
+    "JavaScript",
+    "TypeScript",
     "C/C++",
     "Tensorflow",
     "Pytorch",
@@ -129,6 +116,7 @@ export const RESUME_DATA = {
     "Django",
     "MySQL",
     "LLM and GenAI",
+    "Amazon Web Services",
   ],
   projects: [
     {
@@ -300,13 +288,13 @@ export const RESUME_DATA = {
   achievements: [
     {
       title: "achievements",
-      description: ["Spearheaded advanced deep learning solutions to automate KYC verification and fraud detection, including specialized systems for color-printout detection and photo forgery identification. Engineered state-of-the-art models using image processing, transformers, and neural networks, optimizing performance to reduce FAR/FRR levels to <1% while ensuring regulatory compliance and scalability." ]
+      description: ["Secured first place at the Standard Chartered Hackathon for developing OpenKYC, an innovative know-your-customer solution that streamlined identity verification processes.","Won second place at Hack Nova 2024 with Educative.AI, an educational technology project that was subsequently selected to represent at Innverve 2023, held at Army Institute of Technology (AIT) in Pune.","Received the best project award in the Open Innovation category at MLH Meso Hack 2022 for the project AI-Roadguard." ]
     },
   ],
   clubs: [
     {
       title: "clubs",
-      description: ["Spearheaded advanced deep learning solutions to automate KYC verification and fraud detection, including specialized systems for color-printout detection and photo forgery identification. Engineered state-of-the-art models using image processing, transformers, and neural networks, optimizing performance to reduce FAR/FRR levels to <1% while ensuring regulatory compliance and scalability."]
+      description: ["Conducted research at Next Tech Lab (2021-2025) as a member of Norman and McCarthy Lab, collaborating on multiple web and machine learning projects with specialization in deep learning for image-related tasks.","Served as Technical Director at Data Science Community SRM (2022-2023), organizing technical events, workshops, and hackathons including DS Hack 2.0, while contributing to one of the university's most prestigious technical clubs.","Led machine learning initiatives at SRM Quantum Computing Club, heading projects at the intersection of quantum computing and machine learning, while organizing specialized events such as talks and the Qqantathon 2.0 hackathon.",]
     },
   ],
 

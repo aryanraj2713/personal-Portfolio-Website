@@ -184,7 +184,7 @@ export default function Page() {
           </div>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Work Experience & Responsibilities</h2>
+          <h2 className="text-xl font-bold">Achievements and Updates</h2>
           {RESUME_DATA.achievements.map((achievement) => {
             return (
               <Card key={achievement.title}>

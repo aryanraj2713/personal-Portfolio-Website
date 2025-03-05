@@ -297,4 +297,17 @@ export const RESUME_DATA = {
       },
     },
   ],
+  achievements: [
+    {
+      title: "achievements",
+      description: ["Spearheaded advanced deep learning solutions to automate KYC verification and fraud detection, including specialized systems for color-printout detection and photo forgery identification. Engineered state-of-the-art models using image processing, transformers, and neural networks, optimizing performance to reduce FAR/FRR levels to <1% while ensuring regulatory compliance and scalability." ]
+    },
+  ],
+  clubs: [
+    {
+      title: "clubs",
+      description: ["Spearheaded advanced deep learning solutions to automate KYC verification and fraud detection, including specialized systems for color-printout detection and photo forgery identification. Engineered state-of-the-art models using image processing, transformers, and neural networks, optimizing performance to reduce FAR/FRR levels to <1% while ensuring regulatory compliance and scalability."]
+    },
+  ],
+
 } as const;

@@ -183,6 +183,38 @@ export default function Page() {
             })}
           </div>
         </Section>
+        <Section>
+          <h2 className="text-xl font-bold">Work Experience & Responsibilities</h2>
+          {RESUME_DATA.achievements.map((achievement) => {
+            return (
+              <Card key={achievement.title}>
+                <CardContent className="text-xs">
+                <ul className="list-disc pl-6 space-y-1">
+                    {achievement.description.map((item, index) => (
+                      <li key={index} className=" marker:text-lg">{item}</li>
+                    ))}
+                    </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </Section>
+        <Section>
+          <h2 className="text-xl font-bold">Clubs and Societies</h2>
+          {RESUME_DATA.clubs.map((club) => {
+            return (
+              <Card key={club.title}>
+                <CardContent className="text-xs">
+                    <ul className="list-disc pl-6 space-y-1">
+                    {club.description.map((item, index) => (
+                      <li key={index} className=" marker:text-lg">{item}</li>
+                    ))}
+                    </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </Section>
       </section>
 
       <CommandMenu

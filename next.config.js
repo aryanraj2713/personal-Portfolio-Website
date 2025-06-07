@@ -24,12 +24,8 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   
-  // Bundle analyzer for production builds
-  bundlePagesRouterDependencies: true,
-  
   // Experimental features for better performance
   experimental: {
-    optimizeCss: true, // Enable CSS optimization
     optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
   },
   

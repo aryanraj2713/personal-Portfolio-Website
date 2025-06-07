@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
   },
   verification: {
-    google: '', // Add Google Search Console verification code when available
+    google: 'cRgIWr43Ax_DNTaFQ8VOkdNWt6jkjmG5jpqJYm5tAn0',
   },
   alternates: {
     canonical: 'https://aryanraj.dev',

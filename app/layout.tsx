@@ -2,8 +2,14 @@ import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { PerformanceOptimizer } from '@/components/ui/performance-optimizer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // Improve font loading performance
+  preload: true,
+  fallback: ['system-ui', 'arial']
+})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -122,6 +128,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <PerformanceOptimizer />
         {children}
       </body>
     </html>

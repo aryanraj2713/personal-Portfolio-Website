@@ -1,0 +1,11 @@
+# Modern browsers only - reduces polyfills and legacy JavaScript
+> 0.5%
+last 2 versions
+not dead
+not IE 11
+not op_mini all
+# Focus on modern ES6+ browsers
+Chrome >= 60
+Firefox >= 60
+Safari >= 12
+Edge >= 79 

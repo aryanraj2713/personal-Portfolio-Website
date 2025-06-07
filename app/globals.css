@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 8%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 100% 97%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl relative overflow-hidden;
+  }
+  
+  .glass::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full transition-transform duration-1000;
+  }
+  
+  .glass:hover::before {
+    @apply translate-x-full;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/10 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold mb-8 gradient-text;
+  }
+  
+  .fancy-card {
+    @apply glass glass-hover rounded-xl p-6 relative;
+  }
+  
+  .fancy-card::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-400/0 via-cyan-400/0 to-blue-400/0 
+           group-hover:from-emerald-400/5 group-hover:via-cyan-400/5 group-hover:to-blue-400/5 
+           transition-all duration-500;
+  }
+  
+  .skill-tag {
+    @apply px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-sm transition-all duration-300 
+           hover:scale-110 hover:shadow-lg cursor-default;
+  }
+} 

@@ -1,0 +1,21 @@
+{
+  "name": "Aryan Raj - ML Engineer & Backend Developer",
+  "short_name": "Aryan Raj",
+  "description": "Portfolio of Aryan Raj - Machine Learning Engineer & Backend Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

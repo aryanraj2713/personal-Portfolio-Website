@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 /* Critical CSS - loaded first for faster rendering */
+/* Fix text selection and rendering issues */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize rendering performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.contain-layout {
+  contain: layout;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
 :root {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
@@ -41,6 +64,10 @@ body {
   color: hsl(var(--foreground));
   /* Use system fonts as fallback while custom font loads */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Critical layout styles */
@@ -80,6 +107,11 @@ html {
   -webkit-text-fill-color: transparent;
   background-size: 400% 400%;
   contain: paint; /* Improve rendering performance */
+  /* Fix text clipping issues */
+  line-height: 1.2;
+  padding: 0.1em 0;
+  /* Fallback for browsers that don't support background-clip */
+  color: #10b981;
 }
 
 /* Optimize animations for performance */
@@ -140,6 +172,22 @@ html {
   }
 }
 
+/* Fix text rendering issues on different devices */
+@supports not (-webkit-background-clip: text) {
+  .gradient-text,
+  .section-title {
+    color: #10b981 !important;
+    background: none !important;
+  }
+}
+
+/* Improve text rendering on retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -172,10 +220,18 @@ html {
   
   .gradient-text {
     @apply bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent;
+    /* Fix text clipping issues */
+    line-height: 1.2;
+    padding: 0.1em 0;
+    /* Fallback for browsers that don't support background-clip */
+    color: #10b981;
   }
   
   .section-title {
     @apply text-3xl font-bold mb-8 gradient-text;
+    /* Ensure proper text rendering */
+    line-height: 1.3;
+    letter-spacing: -0.02em;
   }
   
   .fancy-card {

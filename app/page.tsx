@@ -10,7 +10,7 @@ export default function Home() {
       <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div id="home" className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">
             Aryan Raj
           </h1>
           <p className="text-xl text-gray-300 mb-6">

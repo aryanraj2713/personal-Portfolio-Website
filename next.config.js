@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Performance optimizations
-  swcMinify: true, // Use SWC for minification (faster than Terser)
+  // Note: swcMinify is enabled by default in Next.js 13+
   
   // Compiler optimizations
   compiler: {
@@ -27,17 +27,40 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
+    webpackBuildWorker: true, // Enable webpack build worker
+    optimizeCss: true, // Enable CSS optimization
   },
   
-  // Headers for better caching
+  // Headers for better caching and security
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/static/(.*)',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },

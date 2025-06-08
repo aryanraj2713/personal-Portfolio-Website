@@ -15,7 +15,9 @@ export function PerformanceOptimizer() {
 
       // Preload critical images if any
       const criticalImages: string[] = [
-        // Add any critical images here
+        '/og-image.jpg',
+        '/icon-192.png',
+        '/icon-512.png'
       ]
 
       criticalImages.forEach((src: string) => {
@@ -23,6 +25,21 @@ export function PerformanceOptimizer() {
         link.rel = 'preload'
         link.href = src
         link.as = 'image'
+        document.head.appendChild(link)
+      })
+
+      // Prefetch external domains
+      const externalDomains = [
+        'https://www.linkedin.com',
+        'https://github.com',
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com'
+      ]
+
+      externalDomains.forEach((domain: string) => {
+        const link = document.createElement('link')
+        link.rel = 'dns-prefetch'
+        link.href = domain
         document.head.appendChild(link)
       })
     }

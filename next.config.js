@@ -43,8 +43,24 @@ const nextConfig = {
           },
         ],
       },
+      // Allow PDF files to be loaded in iframes
       {
-        source: '/(.*)',
+        source: '/(.*\\.pdf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          // Remove X-Frame-Options for PDFs to allow iframe loading
+        ],
+      },
+      // Security headers for all other routes
+      {
+        source: '/((?!.*\\.pdf).*)',
         headers: [
           {
             key: 'X-Frame-Options',

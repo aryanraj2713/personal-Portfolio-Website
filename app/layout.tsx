@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { PerformanceOptimizer } from '@/components/ui/performance-optimizer'
+import { ConsoleHttpCat } from '@/components/ui/console-cat'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -188,6 +189,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <PerformanceOptimizer />
+        <ConsoleHttpCat statusCode={496} />
         {children}
       </body>
     </html>

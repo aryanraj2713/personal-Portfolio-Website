@@ -12,6 +12,31 @@ export default function Home() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-transparent rounded-full blur-3xl animate-blob-1"></div>
         <div className="absolute top-1/2 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent rounded-full blur-3xl animate-blob-2"></div>
         <div className="absolute bottom-1/4 left-1/3 w-[25rem] h-[25rem] bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent rounded-full blur-3xl animate-blob-3"></div>
+
+        {/* Animated SVG waves */}
+        <div className="absolute top-0 left-0 w-full opacity-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="animate-wave-1">
+            <path fill="#10b981" fillOpacity="0.3" d="M0,96L84.7,128L169.4,96L254.1,128L338.8,160L423.5,128L508.2,96L592.9,128L677.6,160L762.4,128L847.1,96L931.8,128L1016.5,160L1101.2,128L1185.9,96L1270.6,128L1355.3,160L1440,128L1440,0L1355.3,0L1270.6,0L1185.9,0L1101.2,0L1016.5,0L931.8,0L847.1,0L762.4,0L677.6,0L592.9,0L508.2,0L423.5,0L338.8,0L254.1,0L169.4,0L84.7,0L0,0Z"></path>
+          </svg>
+        </div>
+
+        <div className="absolute top-10 left-0 w-full opacity-15">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="animate-wave-2">
+            <path fill="#06b6d4" fillOpacity="0.4" d="M0,160L84.7,138.7L169.4,160L254.1,138.7L338.8,117.3L423.5,138.7L508.2,160L592.9,138.7L677.6,117.3L762.4,138.7L847.1,160L931.8,138.7L1016.5,117.3L1101.2,138.7L1185.9,160L1270.6,138.7L1355.3,117.3L1440,138.7L1440,0L1355.3,0L1270.6,0L1185.9,0L1101.2,0L1016.5,0L931.8,0L847.1,0L762.4,0L677.6,0L592.9,0L508.2,0L423.5,0L338.8,0L254.1,0L169.4,0L84.7,0L0,0Z"></path>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-0 left-0 w-full opacity-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="animate-wave-3">
+            <path fill="#3b82f6" fillOpacity="0.3" d="M0,96L84.7,192L169.4,96L254.1,192L338.8,128L423.5,256L508.2,32L592.9,64L677.6,224L762.4,128L847.1,224L931.8,128L1016.5,224L1101.2,64L1185.9,320L1270.6,64L1355.3,128L1440,256L1440,320L1355.3,320L1270.6,320L1185.9,320L1101.2,320L1016.5,320L931.8,320L847.1,320L762.4,320L677.6,320L592.9,320L508.2,320L423.5,320L338.8,320L254.1,320L169.4,320L84.7,320L0,320Z"></path>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-10 left-0 w-full opacity-15">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="animate-wave-4">
+            <path fill="#8b5cf6" fillOpacity="0.4" d="M0,224L84.7,213.3L169.4,224L254.1,213.3L338.8,202.7L423.5,213.3L508.2,224L592.9,213.3L677.6,202.7L762.4,213.3L847.1,224L931.8,213.3L1016.5,202.7L1101.2,213.3L1185.9,224L1270.6,213.3L1355.3,202.7L1440,213.3L1440,320L1355.3,320L1270.6,320L1185.9,320L1101.2,320L1016.5,320L931.8,320L847.1,320L762.4,320L677.6,320L592.9,320L508.2,320L423.5,320L338.8,320L254.1,320L169.4,320L84.7,320L0,320Z"></path>
+          </svg>
+        </div>
       </div>
       <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">

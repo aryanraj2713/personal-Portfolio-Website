@@ -383,4 +383,60 @@ html {
 .animate-blob-3 {
   animation: blob-3 40s ease-in-out infinite;
   animation-delay: 4s;
+}
+
+/* Animated wave utilities */
+@keyframes wave-1 {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-10px);
+  }
+}
+
+@keyframes wave-2 {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(25%) translateY(-15px);
+  }
+}
+
+@keyframes wave-3 {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(-20%) translateY(10px) scaleX(1.05);
+  }
+}
+
+@keyframes wave-4 {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(20%) translateY(15px) scaleX(0.95);
+  }
+}
+
+.animate-wave-1 {
+  animation: wave-1 25s ease-in-out infinite;
+}
+
+.animate-wave-2 {
+  animation: wave-2 30s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-wave-3 {
+  animation: wave-3 35s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-wave-4 {
+  animation: wave-4 40s ease-in-out infinite;
+  animation-delay: 3s;
 } 

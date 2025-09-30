@@ -80,7 +80,7 @@ export default function Home() {
             <div className="glass rounded-lg p-6 shadow-lg">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-xl font-semibold text-white">Machine Learning Engineer</h3>
-                <span className="text-sm text-gray-400">Remote</span>
+                <span className="text-sm text-gray-400">Hyderabad, IN</span>
               </div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-300">SEOstack</span>

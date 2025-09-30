@@ -12,8 +12,8 @@ const ResumePreviewModal: React.FC<ResumePreviewModalProps> = ({ isOpen, onClose
 
   const handleDownload = () => {
     const link = document.createElement('a')
-    link.href = '/Aryan_resume_new.pdf'
-    link.download = 'Aryan_Raj_Resume.pdf'
+    link.href = '/Aryan_Raj_ML_Engineer.pdf'
+    link.download = 'Aryan_Raj_ML_Engineer.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -88,7 +88,7 @@ const ResumePreviewModal: React.FC<ResumePreviewModalProps> = ({ isOpen, onClose
           
           {/* PDF iframe - Full size */}
           <iframe
-            src="/Aryan_resume_new.pdf"
+            src="/Aryan_Raj_ML_Engineer.pdf"
             className="w-full h-full border-0"
             title="Resume Preview - Aryan Raj"
             onError={() => {

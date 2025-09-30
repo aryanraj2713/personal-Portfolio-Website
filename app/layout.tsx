@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Aryan Raj' }],
   keywords: [
     'Aryan Raj',
-    'Machine Learning Engineer', 
+    'Machine Learning Engineer',
     'Backend Developer',
     'AI Engineer',
     'Python Developer',
@@ -37,11 +37,19 @@ export const metadata: Metadata = {
     'TensorFlow',
     'PyTorch',
     'Next.js',
+    'LangChain',
+    'LangGraph',
+    'RAG',
+    'Generative AI',
     'Portfolio',
     'SRM Institute',
+    'SEOstack',
     'HyperVerge',
     'Emendo AI',
-    'IIT Madras'
+    'IIT Madras',
+    'KYC',
+    'Fraud Detection',
+    'AI Agents'
   ],
   robots: 'index, follow',
   openGraph: {
@@ -106,9 +114,16 @@ export default function RootLayout({
       "worksFor": [
         {
           "@type": "Organization",
+          "name": "SEOstack",
+          "jobTitle": "Machine Learning Engineer",
+          "startDate": "2025-09"
+        },
+        {
+          "@type": "Organization",
           "name": "HyperVerge",
           "jobTitle": "Machine Learning Engineering Intern",
           "startDate": "2024-08",
+          "endDate": "2025-07",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Bengaluru",
@@ -118,10 +133,14 @@ export default function RootLayout({
       ],
       "knowsAbout": [
         "Machine Learning",
-        "Artificial Intelligence", 
+        "Artificial Intelligence",
         "Computer Vision",
         "Natural Language Processing",
         "Large Language Models",
+        "AI Agents",
+        "LangChain",
+        "LangGraph",
+        "RAG (Retrieval Augmented Generation)",
         "Python",
         "TensorFlow",
         "PyTorch",
@@ -129,14 +148,39 @@ export default function RootLayout({
         "React",
         "Next.js",
         "FastAPI",
-        "Docker"
+        "Docker",
+        "Kubernetes",
+        "KYC Solutions",
+        "Fraud Detection"
       ],
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
-          "name": "B.Tech Computer Science and Engineering",
+          "name": "B.Tech Computer Science and Engineering with specialization in Artificial Intelligence and Machine Learning",
           "educationalLevel": "Bachelor's Degree",
           "credentialCategory": "Degree"
+        }
+      ],
+      "award": [
+        "1st place at Standard Chartered Hackathon 2024 for OpenKYC",
+        "2nd place at Hack Nova 2024 for Educative.AI",
+        "Best Project Award in Open Innovation at MLH MesoHack 2022 for AI-RoadGuard"
+      ],
+      "publications": [
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Leveraging Large Language Models for Enhanced Open-Ended Question Answering in Educational Assessments",
+          "author": [
+            {"@type": "Person", "name": "Aryan Raj"},
+            {"@type": "Person", "name": "Vinay Raj"},
+            {"@type": "Person", "name": "Ankit Prasad"}
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "Springer Nature"
+          },
+          "datePublished": "2025",
+          "about": "LLM-based automated evaluation for educational assessments"
         }
       ]
     },

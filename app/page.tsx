@@ -64,9 +64,10 @@ export default function Home() {
               <span className="text-sm text-gray-400">Chennai, IN</span>
             </div>
             <p className="text-sm text-gray-300 mb-2">
-              B.Tech Computer Science and Engineering with spl. in Software Engineering
+              B.Tech Computer Science and Engineering with spl. in Artificial Intelligence and Machine Learning
             </p>
-            <p className="text-sm text-gray-300">May 2021 - May 2025</p>
+            <p className="text-sm text-gray-300 mb-1">May 2021 - May 2025</p>
+            <p className="text-sm text-emerald-400 font-semibold">CGPA: 8.4/10</p>
           </div>
         </section>
 
@@ -78,12 +79,28 @@ export default function Home() {
           <div className="space-y-6">
             <div className="glass rounded-lg p-6 shadow-lg">
               <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-semibold text-white">Machine Learning Engineer</h3>
+                <span className="text-sm text-gray-400">Remote</span>
+              </div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm text-gray-300">SEOstack</span>
+                <span className="text-sm text-gray-300">Sep 2025 - Present</span>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>• Building and deploying autonomous AI agents to automate complex SEO workflows and content analysis pipelines, reducing manual effort by 60% and improving turnaround times.</li>
+                <li>• Designing and implementing scalable machine learning infrastructure using LangChain, LangGraph, and LlamaIndex to support multi-step reasoning and real-time content optimization.</li>
+                <li>• Architecting prompt engineering frameworks and evaluation systems to ensure high-quality, contextually relevant SEO recommendations across diverse client domains.</li>
+              </ul>
+            </div>
+
+            <div className="glass rounded-lg p-6 shadow-lg">
+              <div className="flex items-center justify-between mb-2">
                 <h3 className="text-xl font-semibold text-white">Machine Learning Engineering-Intern</h3>
                 <span className="text-sm text-gray-400">Bengaluru, IN</span>
               </div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-300">HyperVerge</span>
-                <span className="text-sm text-gray-300">Aug 2024 - Present</span>
+                <span className="text-sm text-gray-300">Aug 2024 - July 2025</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>• Developed and fine-tuned LLM-based solutions to automate KYC and fraud detection workflows, tailored for real-world, domain-specific regulatory use cases across financial institutions.</li>
@@ -132,6 +149,16 @@ export default function Home() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <h3 className="text-xl font-semibold text-white mb-2">PaperPilot</h3>
+              <p className="text-sm text-gray-300 mb-4">Next.js, TailwindCSS, Python, Flask, Pinecone, Jina AI, LangChain</p>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>• Built a full-stack AI-powered research assistant platform for semantic search and summarization of academic papers with high precision retrieval.</li>
+                <li>• Implemented advanced RAG pipelines using Pinecone for vector storage and Jina AI embeddings, enabling context-aware paper discovery.</li>
+                <li>• Developed a Next.js frontend with TailwindCSS and a Flask backend, processing over 500+ papers with structured metadata extraction and citation analysis.</li>
+              </ul>
+            </div>
+
             <div className="glass rounded-lg p-6 shadow-lg h-full">
               <h3 className="text-xl font-semibold text-white mb-2">Open-KYC ⭐</h3>
               <p className="text-sm text-gray-300 mb-4">Next.js, OpenCV, TensorFlow, Tesseract, ShadCN, WebRTC</p>
@@ -257,34 +284,62 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-emerald-400 mb-3">Frameworks</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['React.js', 'Node.js', 'Flask', 'FastAPI', 'JUnit', 'Material-UI', 'WordPress'].map((skill) => (
+                  {['React.js', 'Next.js', 'Node.js', 'Flask', 'FastAPI', 'TailwindCSS', 'JUnit', 'Material-UI'].map((skill) => (
                     <span key={skill} className="skill-tag">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold text-emerald-400 mb-3">Machine Learning</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['NumPy', 'Pandas', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'OpenCV', 'NLP', 'LangChain', 'Llama-Index', 'Transformers'].map((skill) => (
+                  {['NumPy', 'Pandas', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'OpenCV', 'NLP', 'LangChain', 'LangGraph', 'Llama-Index', 'Transformers', 'HuggingFace'].map((skill) => (
                     <span key={skill} className="skill-tag">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold text-emerald-400 mb-3">Developer Tools</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['Git', 'Docker', 'AWS', 'Azure', 'Google Cloud Platform', 'CDK', 'Terraform'].map((skill) => (
+                  {['Git', 'Docker', 'Kubernetes', 'AWS', 'Azure', 'Google Cloud Platform', 'CDK', 'Terraform', 'Redis', 'Pinecone'].map((skill) => (
                     <span key={skill} className="skill-tag">
                       {skill}
                     </span>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="publications" className="mb-12" aria-labelledby="publications-heading">
+          <h2 id="publications-heading" className="section-title flex items-center gap-2">
+            📚 Publications
+          </h2>
+
+          <div className="glass rounded-lg p-6 shadow-lg">
+            <div className="space-y-4">
+              <div className="border-l-4 border-emerald-400 pl-4">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Leveraging Large Language Models for Enhanced Open-Ended Question Answering in Educational Assessments
+                </h3>
+                <p className="text-sm text-gray-300 mb-2">
+                  <span className="text-emerald-400 font-medium">Aryan Raj</span>, Vinay Raj, Ankit Prasad
+                </p>
+                <p className="text-sm text-gray-400 mb-2">
+                  <span className="font-medium">Conference:</span> International Conference on Information Technology for Social Development (ITC4SD 2025)
+                </p>
+                <p className="text-sm text-gray-400 mb-2">
+                  <span className="font-medium">Publisher:</span> Springer Nature
+                </p>
+                <p className="text-xs text-gray-500">
+                  This paper explores the application of fine-tuned LLMs for automated evaluation of open-ended questions in educational contexts, demonstrating significant improvements in accuracy and consistency over traditional methods.
+                </p>
               </div>
             </div>
           </div>

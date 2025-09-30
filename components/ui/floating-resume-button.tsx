@@ -21,8 +21,8 @@ const FloatingResumeButton = () => {
 
   const handleDownload = () => {
     const link = document.createElement('a')
-    link.href = '/Aryan_resume_new.pdf'
-    link.download = 'Aryan_Raj_Resume.pdf'
+    link.href = '/Aryan_Raj_ML_Engineer.pdf'
+    link.download = 'Aryan_Raj_ML_Engineer.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)

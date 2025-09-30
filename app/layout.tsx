@@ -169,11 +169,11 @@ export default function RootLayout({
       "publications": [
         {
           "@type": "ScholarlyArticle",
-          "headline": "Leveraging Large Language Models for Enhanced Open-Ended Question Answering in Educational Assessments",
+          "headline": "Structured Relevance Assessment for Robust Retrieval-Augmented Language Models",
           "author": [
             {"@type": "Person", "name": "Aryan Raj"},
-            {"@type": "Person", "name": "Vinay Raj"},
-            {"@type": "Person", "name": "Ankit Prasad"}
+            {"@type": "Person", "name": "Astitva Veer Garg"},
+            {"@type": "Person", "name": "Dr. Anitha D"}
           ],
           "publisher": {
             "@type": "Organization",

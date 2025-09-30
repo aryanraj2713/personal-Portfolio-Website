@@ -326,7 +326,7 @@ export default function Home() {
             <div className="space-y-4">
               <div className="border-l-4 border-emerald-400 pl-4">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Leveraging Large Language Models for Enhanced Open-Ended Question Answering in Educational Assessments
+                Structured Relevance Assessment for Robust Retrieval-Augmented Language Models
                 </h3>
                 <p className="text-sm text-gray-300 mb-2">
                   <span className="text-emerald-400 font-medium">Aryan Raj</span>, Astitva Veer Garg, Dr. Anitha D

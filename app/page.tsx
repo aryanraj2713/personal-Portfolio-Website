@@ -329,7 +329,7 @@ export default function Home() {
                   Leveraging Large Language Models for Enhanced Open-Ended Question Answering in Educational Assessments
                 </h3>
                 <p className="text-sm text-gray-300 mb-2">
-                  <span className="text-emerald-400 font-medium">Aryan Raj</span>, Vinay Raj, Ankit Prasad
+                  <span className="text-emerald-400 font-medium">Aryan Raj</span>, Astitva Veer Garg, Dr. Anitha D
                 </p>
                 <p className="text-sm text-gray-400 mb-2">
                   <span className="font-medium">Conference:</span> International Conference on Information Technology for Social Development (ITC4SD 2025)

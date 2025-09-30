@@ -7,7 +7,13 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+      {/* Additional animated gradient blobs */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-transparent rounded-full blur-3xl animate-blob-1"></div>
+        <div className="absolute top-1/2 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent rounded-full blur-3xl animate-blob-2"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[25rem] h-[25rem] bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent rounded-full blur-3xl animate-blob-3"></div>
+      </div>
+      <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">
           <div id="home" className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">

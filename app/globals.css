@@ -285,6 +285,11 @@ html {
     @apply hover:bg-white/[0.15] hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  
+  .glass-light {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-xl relative overflow-hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
 
   .glass-hover:hover {
     backdrop-filter: blur(48px) saturate(200%);
@@ -440,3 +445,40 @@ html {
   animation: wave-4 40s ease-in-out infinite;
   animation-delay: 3s;
 } 
+
+/* Avatar animations */
+@keyframes avatar-float {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.03) rotate(-1.5deg);
+  }
+}
+
+@keyframes avatar-glow {
+  0%, 100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.48;
+    transform: scale(1.1);
+  }
+}
+
+.avatar-float {
+  animation: avatar-float 4s ease-in-out infinite;
+}
+
+.avatar-glow {
+  animation: avatar-glow 2.2s ease-in-out infinite;
+}
+
+.avatar-hover {
+  transition: transform 500ms ease;
+}
+
+.avatar-hover:hover {
+  transform: translateY(-4px) scale(1.05);
+}

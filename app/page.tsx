@@ -2,6 +2,7 @@ import ResumePreview from '@/components/ui/resume-preview'
 import FloatingResumeButton from '@/components/ui/floating-resume-button'
 import Navbar from '@/components/ui/navbar'
 import ContactForm from '@/components/ui/contact-form'
+import Avatar from '@/components/ui/avatar'
 
 export default function Home() {
   return (
@@ -41,6 +42,11 @@ export default function Home() {
       <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">
           <div id="home" className="text-center mb-12">
+          <div className="flex justify-center mt-10 md:mt-16 mb-6">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
+              <Avatar alt="Aryan Raj" className="w-full h-full" />
+            </div>
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">
             Aryan Raj
           </h1>

@@ -37,8 +37,8 @@ const Navbar = () => {
     }`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className={`
-          glass rounded-2xl border border-white/10 transition-all duration-300
-          ${isScrolled ? 'bg-black/40 backdrop-blur-xl shadow-2xl' : 'bg-white/5 backdrop-blur-lg'}
+          glass-light rounded-2xl transition-all duration-300
+          ${isScrolled ? 'bg-black/10' : 'bg-transparent'}
         `}>
           <div className="flex items-center justify-between px-6 py-4">
             {/* Logo */}

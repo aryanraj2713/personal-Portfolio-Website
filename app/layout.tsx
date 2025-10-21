@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aryanraj.dev'),
+  metadataBase: new URL('https://aryanraj13.vercel.app/'),
   title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
   description: 'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras.',
   authors: [{ name: 'Aryan Raj' }],
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     description: 'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
-    url: 'https://aryanraj.dev',
+    url: 'https://aryanraj13.vercel.app/',
     siteName: 'Aryan Raj Portfolio',
     type: 'website',
     locale: 'en_US',
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     google: 'cRgIWr43Ax_DNTaFQ8VOkdNWt6jkjmG5jpqJYm5tAn0',
   },
   alternates: {
-    canonical: 'https://aryanraj.dev',
+    canonical: 'https://aryanraj13.vercel.app/',
   },
 }
 
@@ -95,7 +95,7 @@ export default function RootLayout({
       "name": "Aryan Raj",
       "jobTitle": ["Machine Learning Engineer", "Backend Developer"],
       "description": "Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications",
-      "url": "https://aryanraj.dev",
+      "url": "https://aryanraj13.vercel.app/",
       "email": "aryanraj2713@gmail.com",
       "telephone": "+91-8287276911",
       "sameAs": [
@@ -180,7 +180,8 @@ export default function RootLayout({
             "name": "Springer Nature"
           },
           "datePublished": "2025",
-          "about": "LLM-based automated evaluation for educational assessments"
+          "about": "LLM-based automated evaluation for educational assessments",
+          "url": "https://arxiv.org/pdf/2507.21287"
         }
       ]
     },
@@ -188,7 +189,7 @@ export default function RootLayout({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Aryan Raj Portfolio",
-      "url": "https://aryanraj.dev",
+      "url": "https://aryanraj13.vercel.app/",
       "author": {
         "@type": "Person",
         "name": "Aryan Raj"

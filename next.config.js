@@ -82,6 +82,14 @@ const nextConfig = {
       },
     ]
   },
+
+  // Temporary rewrites to avoid 404s for app icons until real PNGs are added
+  async rewrites() {
+    return [
+      { source: '/icon-192.png', destination: '/og-image.jpg' },
+      { source: '/icon-512.png', destination: '/og-image.jpg' },
+    ]
+  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig) 

@@ -31,8 +31,13 @@ const ContactForm = () => {
       )
       const mailtoLink = `mailto:aryanraj2713@gmail.com?subject=${subject}&body=${body}`
       
-      // Open default email client
-      window.location.href = mailtoLink
+      // Open default email client (less likely to be blocked)
+      const a = document.createElement('a')
+      a.href = mailtoLink
+      a.style.display = 'none'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
       
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
@@ -42,6 +47,15 @@ const ContactForm = () => {
       setIsSubmitting(false)
       setTimeout(() => setSubmitStatus('idle'), 3000)
     }
+  }
+
+  const openGmail = () => {
+    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio Website')
+    const body = encodeURIComponent(
+      `Hi Aryan,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`
+    )
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=aryanraj2713@gmail.com&su=${subject}&body=${body}`
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -264,16 +278,17 @@ const ContactForm = () => {
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full group relative overflow-hidden glass rounded-xl px-8 py-4 border-2 border-transparent
-                  bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20
-                  hover:from-emerald-500/30 hover:via-cyan-500/30 hover:to-blue-500/30
-                  hover:border-emerald-400/50 transform transition-all duration-300 ease-out
-                  hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25
-                  disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full group relative overflow-hidden glass rounded-xl px-8 py-4 border-2 border-transparent
+                    bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20
+                    hover:from-emerald-500/30 hover:via-cyan-500/30 hover:to-blue-500/30
+                    hover:border-emerald-400/50 transform transition-all duration-300 ease-out
+                    hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25
+                    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-cyan-400/10 to-blue-400/10
                   transform transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1" />
                 
@@ -295,7 +310,30 @@ const ContactForm = () => {
                     </>
                   )}
                 </div>
-              </button>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={openGmail}
+                  className="w-full group relative overflow-hidden glass rounded-xl px-8 py-4 border-2 border-transparent
+                    bg-gradient-to-r from-red-500/20 via-orange-500/20 to-amber-500/20
+                    hover:from-red-500/30 hover:via-orange-500/30 hover:to-amber-500/30
+                    hover:border-amber-400/50 transform transition-all duration-300 ease-out
+                    hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/25"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-400/10 via-orange-400/10 to-amber-400/10
+                    transform transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+                    transform transition-transform duration-1000 ease-out group-hover:translate-x-full -translate-x-full" />
+                  <div className="relative flex items-center justify-center gap-3">
+                    <svg className="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 12.713l11.985-7.99A1.5 1.5 0 0022.5 3h-21a1.5 1.5 0 00-1.485 1.723L12 12.713z"/>
+                      <path d="M12 14.868L0 6.879V21a1 1 0 001 1h7v-6h8v6h7a1 1 0 001-1V6.879L12 14.868z"/>
+                    </svg>
+                    <span className="text-lg font-semibold text-white">Open in Gmail</span>
+                  </div>
+                </button>
+              </div>
 
               {submitStatus === 'success' && (
                 <div className="text-center p-4 rounded-xl bg-emerald-500/20 border border-emerald-400/30">

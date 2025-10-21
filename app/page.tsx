@@ -2,6 +2,8 @@ import ResumePreview from '@/components/ui/resume-preview'
 import FloatingResumeButton from '@/components/ui/floating-resume-button'
 import Navbar from '@/components/ui/navbar'
 import ContactForm from '@/components/ui/contact-form'
+import Footer from '@/components/ui/footer'
+ 
 import Avatar from '@/components/ui/avatar'
 
 export default function Home() {
@@ -132,7 +134,7 @@ export default function Home() {
 
             <div className="glass rounded-lg p-6 shadow-lg">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-semibold text-white">Machine Learning Engineering-Intern</h3>
+                <h3 className="text-xl font-semibold text-white">Machine Learning Engineer (Intern)</h3>
                 <span className="text-sm text-gray-400">Bengaluru, IN</span>
               </div>
               <div className="flex items-center justify-between mb-4">
@@ -360,10 +362,17 @@ export default function Home() {
           </h2>
 
           <div className="glass rounded-lg p-6 shadow-lg">
-            <div className="space-y-4">
+              <div className="space-y-4">
               <div className="border-l-4 border-emerald-400 pl-4">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                Structured Relevance Assessment for Robust Retrieval-Augmented Language Models
+                  <a
+                    href="https://arxiv.org/pdf/2507.21287"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-300 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                  >
+                    Structured Relevance Assessment for Robust Retrieval-Augmented Language Models
+                  </a>
                 </h3>
                 <p className="text-sm text-gray-300 mb-2">
                   <span className="text-emerald-400 font-medium">Aryan Raj</span>, Astitva Veer Garg, Dr. Anitha D
@@ -377,6 +386,19 @@ export default function Home() {
                 <p className="text-xs text-gray-500">
                   This paper explores the application of fine-tuned LLMs for automated evaluation of open-ended questions in educational contexts, demonstrating significant improvements in accuracy and consistency over traditional methods.
                 </p>
+                <div className="mt-3">
+                  <a
+                    href="https://arxiv.org/pdf/2507.21287"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition-colors"
+                  >
+                    View Paper (arXiv)
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3h7m0 0v7m0-7L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -476,6 +498,8 @@ export default function Home() {
           </div>
         </section>
 
+        
+
         {/* Contact Form */}
         <ContactForm />
         
@@ -483,6 +507,7 @@ export default function Home() {
       
       {/* Floating Resume Download Button */}
       <FloatingResumeButton />
+      <Footer />
     </main>
     </>
   )

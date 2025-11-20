@@ -224,9 +224,8 @@ export default function Home() {
                     turnaround times.
                   </li>
                   <li>
-                    • Designing and implementing scalable machine learning infrastructure using
-                    LangChain, LangGraph, and LlamaIndex to support multi-step reasoning and
-                    real-time content optimization.
+                    • Designing and implementing scalable machine learning infrastructure to support
+                    multi-step reasoning and real-time content optimization.
                   </li>
                   <li>
                     • Architecting prompt engineering frameworks and evaluation systems to ensure

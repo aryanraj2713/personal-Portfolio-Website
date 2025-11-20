@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://aryanraj.dev/sitemap.xml',
+    sitemap: 'https://aryanraj13.vercel.app/sitemap.xml',
   }
 } 

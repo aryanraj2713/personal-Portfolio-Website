@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://aryanraj.dev'
+  const baseUrl = 'https://aryanraj13.vercel.app'
   const lastModified = new Date()
   
   return [
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#about`,
+      url: `${baseUrl}/#home`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -42,17 +42,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/#publications`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/#contact`,
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.6,
-    },
-    // Add resume as a separate entry
-    {
-      url: `${baseUrl}/Aryan_resume_new.pdf`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
   ]
 } 

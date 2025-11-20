@@ -97,16 +97,31 @@ export default function Home() {
           <h2 id="education-heading" className="section-title flex items-center gap-2">
             🎓 Education
           </h2>
-          <div className="fancy-card group">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-xl font-semibold text-white">SRM Institute of Science and Technology</h3>
-              <span className="text-sm text-gray-400">Chennai, IN</span>
+          <div className="space-y-6">
+            <div className="fancy-card group">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-semibold text-white">SRM Institute of Science and Technology</h3>
+                <span className="text-sm text-gray-400">Chennai, IN</span>
+              </div>
+              <p className="text-sm text-gray-300 mb-2">
+                B.Tech Computer Science and Engineering with spl. in Artificial Intelligence and Machine Learning
+              </p>
+              <p className="text-sm text-gray-300 mb-1">May 2021 - May 2025</p>
+              <p className="text-sm text-emerald-400 font-semibold">CGPA: 8.4/10</p>
             </div>
-            <p className="text-sm text-gray-300 mb-2">
-              B.Tech Computer Science and Engineering with spl. in Artificial Intelligence and Machine Learning
-            </p>
-            <p className="text-sm text-gray-300 mb-1">May 2021 - May 2025</p>
-            <p className="text-sm text-emerald-400 font-semibold">CGPA: 8.4/10</p>
+            
+            <div className="fancy-card group">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-semibold text-white">Ganga International School</h3>
+                <span className="text-sm text-gray-400">Hiran Kudna, New Delhi</span>
+              </div>
+              <p className="text-sm text-gray-300 mb-1">
+                High School, CBSE (X and XII) Non Medical Sciences
+              </p>
+              <p className="text-sm text-gray-300 mb-2">
+                (With Computer Science and Commercial Arts)
+              </p>
+            </div>
           </div>
         </section>
 
@@ -363,27 +378,29 @@ export default function Home() {
 
           <div className="glass rounded-lg p-6 shadow-lg">
               <div className="space-y-4">
-              <div className="border-l-4 border-emerald-400 pl-4">
+              <article itemScope itemType="https://schema.org/ScholarlyArticle" className="border-l-4 border-emerald-400 pl-4">
                 <h3 className="text-lg font-semibold text-white mb-2">
                   <a
                     href="https://arxiv.org/pdf/2507.21287"
                     target="_blank"
                     rel="noopener noreferrer"
+                    itemProp="url"
                     className="hover:text-emerald-300 transition-colors underline decoration-emerald-500/40 underline-offset-4"
                   >
-                    Structured Relevance Assessment for Robust Retrieval-Augmented Language Models
+                    <span itemProp="headline">Structured Relevance Assessment for Robust Retrieval-Augmented Language Models</span>
                   </a>
                 </h3>
-                <p className="text-sm text-gray-300 mb-2">
-                  <span className="text-emerald-400 font-medium">Aryan Raj</span>, Astitva Veer Garg, Dr. Anitha D
+                <p className="text-sm text-gray-300 mb-2" itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <span className="text-emerald-400 font-medium" itemProp="name">Aryan Raj</span>, <span itemProp="name">Astitva Veer Garg</span>, <span itemProp="name">Dr. Anitha D</span>
                 </p>
                 <p className="text-sm text-gray-400 mb-2">
-                  <span className="font-medium">Conference:</span> International Conference on Information Technology for Social Development (ITC4SD 2025)
+                  <span className="font-medium">Conference:</span> <span itemProp="about">International Conference on Information Technology for Social Development (ITC4SD 2025)</span>
                 </p>
-                <p className="text-sm text-gray-400 mb-2">
-                  <span className="font-medium">Publisher:</span> Springer Nature
+                <p className="text-sm text-gray-400 mb-2" itemProp="publisher" itemScope itemType="https://schema.org/Organization">
+                  <span className="font-medium">Publisher:</span> <span itemProp="name">Springer Nature</span>
                 </p>
-                <p className="text-xs text-gray-500">
+                <time itemProp="datePublished" dateTime="2025" className="sr-only">2025</time>
+                <p className="text-xs text-gray-500" itemProp="description">
                   This paper explores the application of fine-tuned LLMs for automated evaluation of open-ended questions in educational contexts, demonstrating significant improvements in accuracy and consistency over traditional methods.
                 </p>
                 <div className="mt-3">
@@ -392,14 +409,15 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition-colors"
+                    aria-label="View paper on arXiv"
                   >
                     View Paper (arXiv)
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3h7m0 0v7m0-7L10 14" />
                     </svg>
                   </a>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>

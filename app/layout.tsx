@@ -20,9 +20,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aryanraj13.vercel.app/'),
-  title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
-  description: 'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras.',
-  authors: [{ name: 'Aryan Raj' }],
+  title: {
+    default: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
+    template: '%s | Aryan Raj Portfolio'
+  },
+  description: 'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras. Published researcher in RAG systems.',
+  authors: [{ name: 'Aryan Raj', url: 'https://aryanraj13.vercel.app/' }],
+  creator: 'Aryan Raj',
+  publisher: 'Aryan Raj',
   keywords: [
     'Aryan Raj',
     'Machine Learning Engineer',
@@ -30,28 +35,52 @@ export const metadata: Metadata = {
     'AI Engineer',
     'Python Developer',
     'React Developer',
+    'Next.js Developer',
     'LLM Engineer',
-    'Computer Vision',
+    'Computer Vision Engineer',
     'Deep Learning',
-    'AWS',
+    'Neural Networks',
+    'AWS Cloud Engineer',
     'TensorFlow',
     'PyTorch',
-    'Next.js',
     'LangChain',
     'LangGraph',
+    'LlamaIndex',
     'RAG',
+    'Retrieval Augmented Generation',
     'Generative AI',
+    'Large Language Models',
+    'AI Agents',
     'Portfolio',
     'SRM Institute',
+    'Ganga International School',
     'SEOstack',
     'HyperVerge',
     'Emendo AI',
     'IIT Madras',
-    'KYC',
+    'KYC Solutions',
     'Fraud Detection',
-    'AI Agents'
+    'Natural Language Processing',
+    'NLP',
+    'OpenCV',
+    'FastAPI',
+    'Docker',
+    'Kubernetes',
+    'MLOps',
+    'Data Science',
+    'Software Engineering'
   ],
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     description: 'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
@@ -65,6 +94,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -80,6 +110,17 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://aryanraj13.vercel.app/',
+    languages: {
+      'en-US': 'https://aryanraj13.vercel.app/',
+    },
+  },
+  category: 'Technology',
+  classification: 'Portfolio Website',
+  other: {
+    'geo.region': 'IN',
+    'geo.placename': 'India',
+    'geo.position': '28.6139;77.2090',
+    'ICBM': '28.6139, 77.2090',
   },
 }
 
@@ -102,15 +143,27 @@ export default function RootLayout({
         "https://www.linkedin.com/in/aryanraj13/",
         "https://github.com/aryanraj2713"
       ],
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "SRM Institute of Science and Technology",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Chennai",
-          "addressCountry": "India"
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "SRM Institute of Science and Technology",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chennai",
+            "addressCountry": "India"
+          }
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Ganga International School",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hiran Kudna",
+            "addressRegion": "New Delhi",
+            "addressCountry": "India"
+          }
         }
-      },
+      ],
       "worksFor": [
         {
           "@type": "Organization",
@@ -158,7 +211,21 @@ export default function RootLayout({
           "@type": "EducationalOccupationalCredential",
           "name": "B.Tech Computer Science and Engineering with specialization in Artificial Intelligence and Machine Learning",
           "educationalLevel": "Bachelor's Degree",
-          "credentialCategory": "Degree"
+          "credentialCategory": "Degree",
+          "credentialAwardedBy": {
+            "@type": "EducationalOrganization",
+            "name": "SRM Institute of Science and Technology"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "High School, CBSE (X and XII) Non Medical Sciences",
+          "educationalLevel": "High School",
+          "credentialCategory": "Diploma",
+          "credentialAwardedBy": {
+            "@type": "EducationalOrganization",
+            "name": "Ganga International School"
+          }
         }
       ],
       "award": [
@@ -169,6 +236,7 @@ export default function RootLayout({
       "publications": [
         {
           "@type": "ScholarlyArticle",
+          "@id": "https://aryanraj13.vercel.app/#publication-1",
           "headline": "Structured Relevance Assessment for Robust Retrieval-Augmented Language Models",
           "author": [
             {"@type": "Person", "name": "Aryan Raj"},
@@ -181,7 +249,9 @@ export default function RootLayout({
           },
           "datePublished": "2025",
           "about": "LLM-based automated evaluation for educational assessments",
-          "url": "https://arxiv.org/pdf/2507.21287"
+          "url": "https://arxiv.org/pdf/2507.21287",
+          "inLanguage": "en-US",
+          "keywords": "Retrieval-Augmented Generation, Large Language Models, RAG, Educational Assessment, LLM Evaluation"
         }
       ]
     },
@@ -195,7 +265,105 @@ export default function RootLayout({
         "name": "Aryan Raj"
       },
       "description": "Portfolio showcasing machine learning projects, backend development work, and professional experience in AI/ML domain.",
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://aryanraj13.vercel.app/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aryanraj13.vercel.app/#home"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Education",
+          "item": "https://aryanraj13.vercel.app/#education"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Experience",
+          "item": "https://aryanraj13.vercel.app/#experience"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Projects",
+          "item": "https://aryanraj13.vercel.app/#projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Skills",
+          "item": "https://aryanraj13.vercel.app/#skills"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Publications",
+          "item": "https://aryanraj13.vercel.app/#publications"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Contact",
+          "item": "https://aryanraj13.vercel.app/#contact"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SEOstack",
+      "url": "https://seostack.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressCountry": "India"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HyperVerge",
+      "url": "https://hyperverge.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressCountry": "India"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Aryan Raj - ML Engineering Services",
+      "description": "Machine Learning Engineering and Backend Development services specializing in AI solutions, LLMs, computer vision, and scalable web applications",
+      "url": "https://aryanraj13.vercel.app/",
+      "provider": {
+        "@type": "Person",
+        "name": "Aryan Raj"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": [
+        "Machine Learning Engineering",
+        "Backend Development",
+        "AI Solutions",
+        "LLM Integration",
+        "Computer Vision",
+        "RAG Systems"
+      ]
     }
   ]
 
@@ -213,24 +381,30 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
+        {/* Additional SEO Meta Tags */}
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="general" />
+        <meta name="distribution" content="global" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="content-language" content="en-US" />
+        
         {/* Performance hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//www.linkedin.com" />
         <link rel="dns-prefetch" href="//github.com" />
+        <link rel="dns-prefetch" href="//arxiv.org" />
         
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData[0])
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData[1])
-          }}
-        />
+        {structuredData.map((data, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(data)
+            }}
+          />
+        ))}
       </head>
       <body className={inter.className}>
         <PerformanceOptimizer />

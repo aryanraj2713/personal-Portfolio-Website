@@ -34,6 +34,22 @@ const Footer = () => {
               GitHub
             </a>
             <a
+              href="https://x.com/aryanraj2713"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-emerald-300 underline underline-offset-4"
+            >
+              X
+            </a>
+            <a
+              href="https://medium.com/@aryanraj2713"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-emerald-300 underline underline-offset-4"
+            >
+              Medium
+            </a>
+            <a
               href="/Aryan_Raj_ML_Engineer.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -57,5 +73,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-

@@ -7,8 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
-    "build:prod": "NODE_ENV=production next build"
+    "build:prod": "NODE_ENV=production next build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -29,9 +34,25 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "postcss": "^8",
+    "prettier": "^3.6.2",
     "tailwindcss": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
   }
 }

@@ -234,7 +234,15 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </section>
 
+          <section id="internships" className="mb-12" aria-labelledby="internships-heading">
+            <h2 id="internships-heading" className="section-title flex items-center gap-2">
+              🎯 Internships
+            </h2>
+
+            <div className="space-y-6">
               <div className="glass rounded-lg p-6 shadow-lg">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-white">

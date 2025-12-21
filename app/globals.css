@@ -63,7 +63,12 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   /* Use system fonts as fallback while custom font loads */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   /* Improve text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,7 +92,12 @@ body::after {
 body::before {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(6, 182, 212, 0.3) 50%, transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(6, 182, 212, 0.3) 50%,
+    transparent 100%
+  );
   top: -200px;
   left: -200px;
   animation: blob-float-1 20s ease-in-out infinite;
@@ -96,14 +106,20 @@ body::before {
 body::after {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(139, 92, 246, 0.3) 50%, transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.4) 0%,
+    rgba(139, 92, 246, 0.3) 50%,
+    transparent 100%
+  );
   bottom: -150px;
   right: -150px;
   animation: blob-float-2 25s ease-in-out infinite;
 }
 
 @keyframes blob-float-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   25% {
@@ -118,7 +134,8 @@ body::after {
 }
 
 @keyframes blob-float-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
   }
   25% {
@@ -139,24 +156,28 @@ html {
 
 /* Defer non-critical animations and effects */
 @media (prefers-reduced-motion: no-preference) {
-  /* Enhanced Glassmorphism utilities - deferred */
+  /* Enhanced Liquid Glass utilities - Apple Design */
   .glass {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    will-change: transform; /* Optimize for animations */
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    will-change: transform;
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(32px) saturate(200%);
-    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(48px) saturate(200%);
+    -webkit-backdrop-filter: blur(48px) saturate(200%);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 20px;
-    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.45);
+    box-shadow:
+      0 12px 48px 0 rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
     will-change: transform;
   }
 }
@@ -183,10 +204,15 @@ html {
   .section-title {
     animation: gradient-shift 8s ease-in-out infinite;
   }
-  
+
   @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }
 
@@ -206,24 +232,31 @@ html {
   contain: layout;
 }
 
-/* Critical card styles */
+/* Critical card styles - Liquid Glass */
 .glass-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
   contain: paint layout;
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness - Optimized glass for performance */
 @media (max-width: 768px) {
   .glass,
   .glass-strong,
   .glass-card {
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+  }
+
+  .skill-tag {
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
   }
 }
 
@@ -266,36 +299,55 @@ html {
 }
 
 @layer components {
+  /* Apple Liquid Glass - Primary Material */
   .glass {
-    @apply bg-white/[0.08] backdrop-blur-3xl border border-white/20 shadow-2xl relative overflow-hidden;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
   }
 
+  /* Subtle shimmer effect on hover */
   .glass::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full transition-transform duration-1000;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full transition-transform duration-700;
   }
 
   .glass:hover::before {
     @apply translate-x-full;
   }
 
+  /* Interactive glass with hover state */
   .glass-hover {
-    @apply hover:bg-white/[0.15] hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300;
+    @apply transition-all duration-300;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .glass-light {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-xl relative overflow-hidden;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
   }
 
   .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(48px) saturate(200%);
     -webkit-backdrop-filter: blur(48px) saturate(200%);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 48px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
   }
-  
+
+  /* Light glass for navbar and subtle elements */
+  .glass-light {
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(32px) saturate(150%);
+    -webkit-backdrop-filter: blur(32px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
+  }
+
   .gradient-text {
     @apply bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent;
     /* Fix text clipping issues */
@@ -304,44 +356,49 @@ html {
     /* Fallback for browsers that don't support background-clip */
     color: #10b981;
   }
-  
+
   .section-title {
     @apply text-3xl font-bold mb-8 gradient-text;
     /* Ensure proper text rendering */
     line-height: 1.3;
     letter-spacing: -0.02em;
   }
-  
+
+  /* Fancy card with glass material */
   .fancy-card {
-    @apply glass glass-hover rounded-xl p-6 relative;
+    @apply glass glass-hover rounded-2xl p-6 relative;
   }
-  
+
   .fancy-card::after {
     content: '';
-    @apply absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-400/0 via-cyan-400/0 to-blue-400/0 
-           group-hover:from-emerald-400/5 group-hover:via-cyan-400/5 group-hover:to-blue-400/5 
-           transition-all duration-500;
+    @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400/0 via-cyan-400/0 to-blue-400/0
+           group-hover:from-emerald-400/5 group-hover:via-cyan-400/5 group-hover:to-blue-400/5
+           transition-all duration-500 pointer-events-none;
   }
-  
+
+  /* Skill tags with pill-shaped glass */
   .skill-tag {
-    @apply px-3 py-1 bg-white/[0.12] hover:bg-white/[0.22] rounded-full text-sm transition-all duration-300
-           hover:scale-110 hover:shadow-lg cursor-default;
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    @apply px-3 py-1.5 rounded-full text-sm transition-all duration-200 cursor-default inline-flex items-center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.25);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   }
 
   .skill-tag:hover {
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(24px) saturate(200%);
     -webkit-backdrop-filter: blur(24px) saturate(200%);
-    box-shadow: 0 6px 24px 0 rgba(31, 38, 135, 0.35);
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
   }
 }
 
 /* Animated blob utilities */
 @keyframes blob-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
   }
   33% {
@@ -353,7 +410,8 @@ html {
 }
 
 @keyframes blob-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
   }
   33% {
@@ -365,7 +423,8 @@ html {
 }
 
 @keyframes blob-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -392,7 +451,8 @@ html {
 
 /* Animated wave utilities */
 @keyframes wave-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0) translateY(0);
   }
   50% {
@@ -401,7 +461,8 @@ html {
 }
 
 @keyframes wave-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0) translateY(0);
   }
   50% {
@@ -410,7 +471,8 @@ html {
 }
 
 @keyframes wave-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0) translateY(0) scaleX(1);
   }
   50% {
@@ -419,7 +481,8 @@ html {
 }
 
 @keyframes wave-4 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0) translateY(0) scaleX(1);
   }
   50% {
@@ -444,11 +507,12 @@ html {
 .animate-wave-4 {
   animation: wave-4 40s ease-in-out infinite;
   animation-delay: 3s;
-} 
+}
 
 /* Avatar animations */
 @keyframes avatar-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1) rotate(0deg);
   }
   50% {
@@ -457,7 +521,8 @@ html {
 }
 
 @keyframes avatar-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.22;
     transform: scale(1);
   }

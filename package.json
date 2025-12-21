@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "type-check": "tsc --noEmit",
@@ -20,31 +20,27 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "critters": "^0.0.23",
-    "lucide-react": "^0.294.0",
-    "next": "^15.3.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@next/bundle-analyzer": "^15.3.3",
+    "@next/bundle-analyzer": "16.1.0",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.0.1",
     "eslint": "^8.57.1",
-    "eslint-config-next": "14.0.0",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.5.0",
+    "eslint-config-next": "15.5.9",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "postcss": "^8",
     "prettier": "^3.6.2",
     "tailwindcss": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5",
-    "typescript-eslint": "^8.47.0"
+    "typescript": "^5"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -58,5 +54,9 @@
     "*.{json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
   }
 }

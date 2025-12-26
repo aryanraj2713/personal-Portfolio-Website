@@ -168,8 +168,33 @@ export default function Home() {
           <ResumePreview />
 
           <section id="education" className="mb-12" aria-labelledby="education-heading">
-            <h2 id="education-heading" className="section-title flex items-center gap-2">
-              🎓 Education
+            <h2 id="education-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l9-5-9-5-9 5 9 5z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                />
+              </svg>
+              Education
             </h2>
             <div className="space-y-6">
               <div className="fancy-card group">
@@ -219,8 +244,21 @@ export default function Home() {
           </section>
 
           <section id="experience" className="mb-12" aria-labelledby="experience-heading">
-            <h2 id="experience-heading" className="section-title flex items-center gap-2">
-              💼 Experience
+            <h2 id="experience-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              Experience
             </h2>
 
             <div className="space-y-6">
@@ -263,8 +301,21 @@ export default function Home() {
           </section>
 
           <section id="internships" className="mb-12" aria-labelledby="internships-heading">
-            <h2 id="internships-heading" className="section-title flex items-center gap-2">
-              🎯 Internships
+            <h2 id="internships-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              Internships
             </h2>
 
             <div className="space-y-6">
@@ -383,8 +434,21 @@ export default function Home() {
 
           {/* Book a Meeting Section */}
           <section id="book-meeting" className="mb-12" aria-labelledby="book-meeting-heading">
-            <h2 id="book-meeting-heading" className="section-title flex items-center gap-2">
-              📅 Book a Meeting
+            <h2 id="book-meeting-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Book a Meeting
             </h2>
 
             {/* Liquid Glass Container - Apple Style */}
@@ -520,8 +584,21 @@ export default function Home() {
           </section>
 
           <section id="projects" className="mb-12" aria-labelledby="projects-heading">
-            <h2 id="projects-heading" className="section-title flex items-center gap-2">
-              🚀 Projects
+            <h2 id="projects-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+              Projects
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -547,7 +624,7 @@ export default function Home() {
               </div>
 
               <div className="glass rounded-lg p-6 shadow-lg h-full">
-                <h3 className="text-xl font-semibold text-white mb-2">Open-KYC ⭐</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">Open-KYC</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Next.js, OpenCV, TensorFlow, Tesseract, ShadCN, WebRTC
                 </p>
@@ -592,7 +669,7 @@ export default function Home() {
               </div>
 
               <div className="glass rounded-lg p-6 shadow-lg h-full">
-                <h3 className="text-xl font-semibold text-white mb-2">AI-RoadGuard 🏆</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">AI-RoadGuard</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   React.js, CNN, Flask, Python, TensorFlow
                 </p>
@@ -616,7 +693,7 @@ export default function Home() {
               </div>
 
               <div className="glass rounded-lg p-6 shadow-lg h-full">
-                <h3 className="text-xl font-semibold text-white mb-2">OneMed 🏆</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">OneMed</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Python, Next.js, JavaScript, LLMs, Pinecone, MongoDB, AWS
                 </p>
@@ -709,8 +786,21 @@ export default function Home() {
           </section>
 
           <section id="skills" className="mb-12" aria-labelledby="skills-heading">
-            <h2 id="skills-heading" className="section-title flex items-center gap-2">
-              ⚡ Technical Skills
+            <h2 id="skills-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              Technical Skills
             </h2>
 
             <div className="glass rounded-lg p-6 shadow-lg">
@@ -806,8 +896,21 @@ export default function Home() {
           </section>
 
           <section id="publications" className="mb-12" aria-labelledby="publications-heading">
-            <h2 id="publications-heading" className="section-title flex items-center gap-2">
-              📚 Publications
+            <h2 id="publications-heading" className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+              Publications
             </h2>
 
             <div className="glass rounded-lg p-6 shadow-lg">
@@ -898,7 +1001,22 @@ export default function Home() {
           </section>
 
           <section className="mb-12">
-            <h2 className="section-title flex items-center gap-2">🏆 Achievements</h2>
+            <h2 className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                />
+              </svg>
+              Achievements
+            </h2>
 
             <div className="glass rounded-lg p-6 shadow-lg">
               <ul className="space-y-4 text-sm text-gray-300">
@@ -974,7 +1092,22 @@ export default function Home() {
           </section>
 
           <section className="mb-12">
-            <h2 className="section-title flex items-center gap-2">👥 Club and Contributions</h2>
+            <h2 className="section-title flex items-center gap-3">
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              Club and Contributions
+            </h2>
 
             <div className="glass rounded-lg p-6 shadow-lg">
               <ul className="space-y-4 text-sm text-gray-300">

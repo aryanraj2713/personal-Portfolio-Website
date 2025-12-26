@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | Aryan Raj Portfolio',
   },
   description:
-    'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras. Published researcher in RAG systems.',
+    'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras. Published researcher in RAG systems.',
   authors: [{ name: 'Aryan Raj', url: 'https://aryanraj13.vercel.app/' }],
   creator: 'Aryan Raj',
   publisher: 'Aryan Raj',
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     description:
-      'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
+      'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
     url: 'https://aryanraj13.vercel.app/',
     siteName: 'Aryan Raj Portfolio',
     type: 'website',
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     description:
-      'Portfolio of Aryan Raj - Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
+      'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
     creator: '@aryanraj2713',
     images: ['/og-image.jpg'],
   },
@@ -158,7 +158,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       name: 'Aryan Raj',
       jobTitle: ['Machine Learning Engineer', 'Backend Developer'],
       description:
-        'Experienced ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications',
+        'ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications',
       url: 'https://aryanraj13.vercel.app/',
       email: 'aryanraj2713@gmail.com',
       telephone: '+91-8287276911',

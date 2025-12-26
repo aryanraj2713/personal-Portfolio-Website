@@ -11,6 +11,21 @@ const ContactForm = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [isHovered, setIsHovered] = useState(false)
+
+  const scrollToMeeting = () => {
+    const element = document.getElementById('book-meeting')
+    if (element) {
+      const navbarHeight = 100
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - navbarHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -540,6 +555,116 @@ const ContactForm = () => {
                 </div>
               )}
             </form>
+          </div>
+        </div>
+
+        {/* Prefer to Schedule a Meeting? */}
+        <div className="mt-12 text-center">
+          <div className="relative inline-block">
+            {/* Divider with text */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+              <p className="text-gray-400 text-sm font-medium px-4">
+                Or prefer a direct conversation?
+              </p>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            </div>
+
+            {/* Schedule Meeting Button */}
+            <button
+              onClick={scrollToMeeting}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className={`
+                group relative overflow-hidden glass rounded-2xl px-8 py-5 border-2 border-transparent
+                bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-emerald-500/20
+                hover:from-cyan-500/30 hover:via-blue-500/30 hover:to-emerald-500/30
+                hover:border-cyan-400/50 transform transition-all duration-300 ease-out
+                ${isHovered ? 'scale-105 shadow-2xl shadow-cyan-500/25' : 'scale-100'}
+                active:scale-95
+              `}
+            >
+              {/* Animated background gradient */}
+              <div
+                className={`
+                absolute inset-0 
+                bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-emerald-400/10
+                transform transition-transform duration-700 ease-out
+                ${isHovered ? 'scale-110 rotate-1' : 'scale-100 rotate-0'}
+              `}
+              />
+
+              {/* Shimmer effect */}
+              <div
+                className={`
+                absolute inset-0 
+                bg-gradient-to-r from-transparent via-white/20 to-transparent
+                transform transition-transform duration-1000 ease-out
+                ${isHovered ? 'translate-x-full' : '-translate-x-full'}
+              `}
+              />
+
+              <div className="relative flex items-center justify-center gap-4">
+                {/* Calendar icon with animation */}
+                <div
+                  className={`
+                  transform transition-transform duration-300
+                  ${isHovered ? 'scale-110 rotate-12' : 'scale-100 rotate-0'}
+                `}
+                >
+                  <svg
+                    className="w-7 h-7 text-cyan-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+
+                {/* Text content */}
+                <div className="text-center">
+                  <div
+                    className={`
+                    text-xl font-bold text-white transition-colors duration-300
+                    ${isHovered ? 'text-cyan-300' : 'text-white'}
+                  `}
+                  >
+                    Schedule a Meeting Instead
+                  </div>
+                  <div className="text-sm text-gray-300 opacity-80 mt-1">
+                    Book a 30-minute call to discuss your ideas
+                  </div>
+                </div>
+
+                {/* Arrow icon with slide animation */}
+                <div
+                  className={`
+                  transform transition-all duration-300
+                  ${isHovered ? 'translate-x-1 opacity-100' : 'translate-x-0 opacity-60'}
+                `}
+                >
+                  <svg
+                    className="w-6 h-6 text-cyan-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </div>

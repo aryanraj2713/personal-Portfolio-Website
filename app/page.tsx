@@ -175,7 +175,14 @@ export default function Home() {
               <div className="fancy-card group">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-white">
-                    SRM Institute of Science and Technology
+                    <a
+                      href="https://www.srmist.edu.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      SRM Institute of Science and Technology
+                    </a>
                   </h3>
                   <span className="text-sm text-gray-400">Chennai, IN</span>
                 </div>
@@ -189,7 +196,16 @@ export default function Home() {
 
               <div className="fancy-card group">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">Ganga International School</h3>
+                  <h3 className="text-xl font-semibold text-white">
+                    <a
+                      href="https://www.gangainternationalschool.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Ganga International School
+                    </a>
+                  </h3>
                   <span className="text-sm text-gray-400">Hiran Kudna, New Delhi</span>
                 </div>
                 <p className="text-sm text-gray-300 mb-1">
@@ -214,7 +230,16 @@ export default function Home() {
                   <span className="text-sm text-gray-400">Hyderabad, IN</span>
                 </div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">SEOstack</span>
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://www.seo-stack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      SEOstack
+                    </a>
+                  </span>
                   <span className="text-sm text-gray-300">Sep 2025 - Present</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-300">
@@ -251,7 +276,16 @@ export default function Home() {
                   <span className="text-sm text-gray-400">Bengaluru, IN</span>
                 </div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">HyperVerge</span>
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://hyperverge.co/in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      HyperVerge
+                    </a>
+                  </span>
                   <span className="text-sm text-gray-300">Aug 2024 - July 2025</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-300">
@@ -280,7 +314,16 @@ export default function Home() {
                   <span className="text-sm text-gray-400">California, USA (Remote)</span>
                 </div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">Emendo AI</span>
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://emendo.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Emendo AI
+                    </a>
+                  </span>
                   <span className="text-sm text-gray-300">Jan 2024 - Aug 2024</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-300">
@@ -307,7 +350,14 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm text-gray-300">
-                    Indian Institute of Technology, Madras (IIT M)
+                    <a
+                      href="https://www.iitm.ac.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Indian Institute of Technology, Madras (IIT M)
+                    </a>
                   </span>
                   <span className="text-sm text-gray-300">Feb 2023 - Jul 2023</span>
                 </div>
@@ -327,6 +377,144 @@ export default function Home() {
                     the solution on edge-based IoT hardware for real-time maritime applications.
                   </li>
                 </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Book a Meeting Section */}
+          <section id="book-meeting" className="mb-12" aria-labelledby="book-meeting-heading">
+            <h2 id="book-meeting-heading" className="section-title flex items-center gap-2">
+              📅 Book a Meeting
+            </h2>
+
+            {/* Liquid Glass Container - Apple Style */}
+            <div className="relative group">
+              {/* Background gradient glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/30 via-cyan-500/30 to-blue-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
+
+              {/* Main liquid glass card */}
+              <div className="relative rounded-3xl p-8 backdrop-blur-2xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden">
+                {/* Subtle mesh gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5"></div>
+
+                {/* Content */}
+                <div className="relative flex flex-col md:flex-row items-center gap-8">
+                  {/* Left side - Icon with liquid glass effect */}
+                  <div className="flex-shrink-0">
+                    <div className="relative group/icon">
+                      {/* Icon container with liquid glass */}
+                      <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover/icon:scale-105 group-hover/icon:rotate-3">
+                        {/* Inner glow */}
+                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 blur-2xl"></div>
+
+                        {/* Calendar icon */}
+                        <svg
+                          className="relative w-14 h-14 md:w-16 md:h-16 text-emerald-400 drop-shadow-lg"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right side - Content */}
+                  <div className="flex-grow text-center md:text-left">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 bg-gradient-to-r from-white via-emerald-100 to-cyan-100 bg-clip-text text-transparent">
+                      Let's Connect!
+                    </h3>
+                    <p className="text-white/70 mb-8 leading-relaxed text-base">
+                      Schedule a 30-minute meeting to discuss:
+                    </p>
+
+                    {/* Meeting topics with liquid glass pills */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-emerald-400/30">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-300 shadow-lg shadow-emerald-400/50"></div>
+                          <span className="text-white/90 text-sm font-medium">
+                            Collaboration opportunities
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-cyan-400/30">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 shadow-lg shadow-cyan-400/50"></div>
+                          <span className="text-white/90 text-sm font-medium">
+                            Discuss ideas & projects
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-blue-400/30">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-300 shadow-lg shadow-blue-400/50"></div>
+                          <span className="text-white/90 text-sm font-medium">
+                            Discuss ML/AI topics
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-purple-400/30">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-purple-300 shadow-lg shadow-purple-400/50"></div>
+                          <span className="text-white/90 text-sm font-medium">Seek mentorship</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA Button - Liquid glass style */}
+                    <a
+                      href="https://cal.com/aryan-raj-kxydsh/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn inline-flex items-center gap-3 px-8 py-4 rounded-2xl
+                        backdrop-blur-xl bg-gradient-to-r from-emerald-500/90 to-cyan-500/90
+                        hover:from-emerald-400 hover:to-cyan-400
+                        border border-white/20 shadow-2xl shadow-emerald-500/25
+                        text-white font-semibold text-base
+                        transform transition-all duration-500 ease-out
+                        hover:scale-[1.02] hover:shadow-emerald-500/40 hover:-translate-y-0.5
+                        active:scale-[0.98]"
+                    >
+                      <svg
+                        className="w-5 h-5 transition-transform duration-500 group-hover/btn:rotate-12"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Schedule a 30-Minute Meeting</span>
+                      <svg
+                        className="w-4 h-4 transition-transform duration-500 group-hover/btn:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

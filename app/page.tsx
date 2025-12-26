@@ -1013,7 +1013,14 @@ export default function Home() {
                   </div>
                   <span>
                     Conducted research at{' '}
-                    <span className="text-emerald-400 font-semibold">Next Tech Lab</span>{' '}
+                    <a
+                      href="https://nexttechlab.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Next Tech Lab
+                    </a>{' '}
                     (2021-2025) as a member of Norman and McCarthy Labs, collaborating on web and
                     machine learning projects, specializing in deep learning for image-related
                     tasks.
@@ -1037,9 +1044,14 @@ export default function Home() {
                   </div>
                   <span>
                     Served as Technical Director at{' '}
-                    <span className="text-emerald-400 font-semibold">
+                    <a
+                      href="https://www.dscommunity.in/people"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
                       Data Science Community SRM
-                    </span>{' '}
+                    </a>{' '}
                     (2022-2023), organizing technical events, workshops, and hackathons including DS
                     Hack 2.0.
                   </span>

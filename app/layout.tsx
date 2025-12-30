@@ -425,6 +425,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="content-language" content="en-US" />
 
+        {/* AI Visibility Meta Tags */}
+        <meta
+          name="ai:description"
+          content="Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras. Published researcher in RAG systems."
+        />
+        <meta
+          name="ai:keywords"
+          content="Machine Learning Engineer, Backend Developer, LLM Engineer, AI Engineer, Computer Vision, NLP, RAG, LangChain, Python, TensorFlow, PyTorch, AWS, Next.js, FastAPI"
+        />
+        <meta name="ai:author" content="Aryan Raj" />
+        <meta name="ai:contact" content="aryanraj2713@gmail.com" />
+
+        {/* AI Visibility - LLMs.txt */}
+        <link rel="llms.txt" href="/llms.txt" />
+
         {/* Performance hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

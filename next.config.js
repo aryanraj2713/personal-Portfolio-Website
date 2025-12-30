@@ -43,6 +43,89 @@ const nextConfig = {
           },
         ],
       },
+      // Strict no-cache headers for sensitive/admin routes
+      {
+        source: '/admin/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, private',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com data:",
+              "img-src 'self' data: https:",
+              "connect-src 'self'",
+              "frame-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "object-src 'none'",
+            ].join('; '),
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/private/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, private',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com data:",
+              "img-src 'self' data: https:",
+              "connect-src 'self'",
+              "frame-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "object-src 'none'",
+            ].join('; '),
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
       // Allow PDF files to be loaded in iframes
       {
         source: '/(.*\\.pdf)',
@@ -55,12 +138,11 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
-          // Remove X-Frame-Options for PDFs to allow iframe loading
         ],
       },
-      // Security headers for all other routes
+      // Security headers for all other routes (excluding admin/private)
       {
-        source: '/((?!.*\\.pdf).*)',
+        source: '/((?!admin|private|.*\\.pdf).*)',
         headers: [
           {
             key: 'Content-Security-Policy',
@@ -90,43 +172,25 @@ const nextConfig = {
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            value: 'strict-origin-when-cross-origin',
           },
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: 'https://aryanraj13.vercel.app', // Restrict to same origin only
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, HEAD, OPTIONS', // Only allow safe methods
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type', // Minimal headers allowed
-          },
-          {
-            key: 'Access-Control-Max-Age',
-            value: '86400', // Cache preflight for 24 hours
-          },
-          {
-            key: 'Access-Control-Allow-Credentials',
-            value: 'false', // No credentials needed
-          },
+          // Remove CORS headers - not needed for same-origin requests
+          // Only add CORS if you have specific API endpoints that need cross-origin access
           {
             key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp', // Protect against Spectre attacks
+            value: 'credentialless', // More compatible than require-corp, still provides protection
           },
           {
             key: 'Cross-Origin-Resource-Policy',
-            value: 'same-origin', // Restrict resource loading to same origin
+            value: 'same-origin',
           },
           {
             key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin', // Isolate browsing context
+            value: 'same-origin',
           },
         ],
       },

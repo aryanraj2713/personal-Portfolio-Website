@@ -147,6 +147,13 @@ export const metadata: Metadata = {
     'geo.placename': 'India',
     'geo.position': '28.6139;77.2090',
     ICBM: '28.6139, 77.2090',
+    // Additional SEO meta tags
+    'article:author': 'Aryan Raj',
+    'article:published_time': '2024-01-01T00:00:00Z',
+    'article:modified_time': new Date().toISOString(),
+    'application-name': 'Aryan Raj Portfolio',
+    'apple-mobile-web-app-title': 'Aryan Raj',
+    'format-detection': 'telephone=yes',
   },
 }
 
@@ -440,12 +447,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* AI Visibility - LLMs.txt */}
         <link rel="llms.txt" href="/llms.txt" />
 
-        {/* Performance hints */}
+        {/* Performance hints - Critical resource hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//www.linkedin.com" />
         <link rel="dns-prefetch" href="//github.com" />
         <link rel="dns-prefetch" href="//arxiv.org" />
+        <link rel="dns-prefetch" href="//x.com" />
+        <link rel="dns-prefetch" href="//medium.com" />
+
+        {/* Preload critical resources */}
+        <link rel="preload" href="/aryan_image.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
 
         {structuredData.map((data, index) => (
           <script

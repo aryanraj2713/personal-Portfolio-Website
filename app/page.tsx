@@ -1,10 +1,19 @@
-import ResumePreview from '@/components/ui/resume-preview'
-import FloatingResumeButton from '@/components/ui/floating-resume-button'
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/ui/navbar'
-import ContactForm from '@/components/ui/contact-form'
-import Footer from '@/components/ui/footer'
-
 import Avatar from '@/components/ui/avatar'
+
+// Lazy load non-critical components for better initial page load
+const ResumePreview = dynamic(() => import('@/components/ui/resume-preview'), {
+  loading: () => <div className="min-h-[400px]" />,
+  ssr: false,
+})
+const FloatingResumeButton = dynamic(() => import('@/components/ui/floating-resume-button'), {
+  ssr: false,
+})
+const ContactForm = dynamic(() => import('@/components/ui/contact-form'), {
+  loading: () => <div className="min-h-[400px]" />,
+})
+const Footer = dynamic(() => import('@/components/ui/footer'))
 
 export default function Home() {
   return (

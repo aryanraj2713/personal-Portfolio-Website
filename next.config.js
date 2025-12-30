@@ -31,6 +31,12 @@ const nextConfig = {
     optimizeCss: true, // Enable CSS optimization
   },
 
+  // Compression (handled by Vercel automatically, but explicit for other platforms)
+  compress: true,
+
+  // Power optimization settings
+  poweredByHeader: false, // Remove X-Powered-By header for security
+
   // Headers for better caching and security
   async headers() {
     return [
@@ -40,6 +46,10 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Vary',
+            value: 'Accept-Encoding',
           },
         ],
       },
@@ -191,6 +201,15 @@ const nextConfig = {
           {
             key: 'Cross-Origin-Opener-Policy',
             value: 'same-origin',
+          },
+          // Performance headers
+          {
+            key: 'Vary',
+            value: 'Accept-Encoding, Accept',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           },
         ],
       },

@@ -5,11 +5,8 @@ import Avatar from '@/components/ui/avatar'
 // Lazy load non-critical components for better initial page load
 const ResumePreview = dynamic(() => import('@/components/ui/resume-preview'), {
   loading: () => <div className="min-h-[400px]" />,
-  ssr: false,
 })
-const FloatingResumeButton = dynamic(() => import('@/components/ui/floating-resume-button'), {
-  ssr: false,
-})
+const FloatingResumeButton = dynamic(() => import('@/components/ui/floating-resume-button'))
 const ContactForm = dynamic(() => import('@/components/ui/contact-form'), {
   loading: () => <div className="min-h-[400px]" />,
 })

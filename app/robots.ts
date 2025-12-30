@@ -9,4 +9,6 @@ export default function robots(): MetadataRoute.Robots {
     },
     sitemap: 'https://aryanraj13.vercel.app/sitemap.xml',
   }
-} 
+}
+
+// LLMs.txt is available at: https://aryanraj13.vercel.app/llms.txt

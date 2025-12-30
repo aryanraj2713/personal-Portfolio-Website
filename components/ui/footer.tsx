@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
-  const year = new Date().getFullYear()
+  const year = 2026
   return (
     <footer className="mt-16">
       <div className="max-w-6xl mx-auto px-4">

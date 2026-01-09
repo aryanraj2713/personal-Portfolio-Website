@@ -270,6 +270,43 @@ export default function Home() {
             <div className="space-y-6">
               <div className="glass rounded-lg p-6 shadow-lg">
                 <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">Software Engineer (AI/ML)</h3>
+                  <span className="text-sm text-gray-400">Hyderabad, IN</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://www.valuelabs.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Valuelabs
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Dec 2025 - Present</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Building deep learning and generative AI proof-of-concepts (POCs) and MVPs for
+                    client projects, delivering compelling product demos and driving internal AI
+                    adoption initiatives across the organization.
+                  </li>
+                  <li>
+                    • Contributing to the flagship product AiDE and its subsidiary tools,
+                    architecting integrations with various productivity platforms to enhance
+                    developer workflows and increase team efficiency.
+                  </li>
+                  <li>
+                    • Architecting data analytics solutions, data warehousing infrastructure, and
+                    lakehouse architectures to support company-wide KPIs and metrics adoption,
+                    enabling data-driven decision making at scale.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="glass rounded-lg p-6 shadow-lg">
+                <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-white">Machine Learning Engineer</h3>
                   <span className="text-sm text-gray-400">Hyderabad, IN</span>
                 </div>
@@ -284,7 +321,7 @@ export default function Home() {
                       SEOstack
                     </a>
                   </span>
-                  <span className="text-sm text-gray-300">Sep 2025 - Present</span>
+                  <span className="text-sm text-gray-300">Sep 2025 - Dec 2025</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li>

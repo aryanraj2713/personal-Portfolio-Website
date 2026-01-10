@@ -281,20 +281,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           headline:
             'Structured Relevance Assessment for Robust Retrieval-Augmented Language Models',
           author: [
-            { '@type': 'Person', name: 'Aryan Raj' },
             { '@type': 'Person', name: 'Astitva Veer Garg' },
+            { '@type': 'Person', name: 'Aryan Raj' },
             { '@type': 'Person', name: 'Dr. Anitha D' },
           ],
           publisher: {
             '@type': 'Organization',
             name: 'Springer Nature',
           },
-          datePublished: '2025',
-          about: 'LLM-based automated evaluation for educational assessments',
-          url: 'https://arxiv.org/pdf/2507.21287',
+          datePublished: '2025-10-31',
+          about:
+            'Framework for structured relevance assessment in Retrieval-Augmented Language Models to reduce hallucination rates',
+          url: 'https://link.springer.com/chapter/10.1007/978-3-032-06691-6_8',
+          sameAs: 'https://arxiv.org/pdf/2507.21287',
+          identifier: {
+            '@type': 'PropertyValue',
+            propertyID: 'DOI',
+            value: '10.1007/978-3-032-06691-6_8',
+          },
           inLanguage: 'en-US',
+          isPartOf: {
+            '@type': 'PublicationVolume',
+            name: 'Lecture Notes in Networks and Systems',
+            volumeNumber: '1652',
+          },
+          pageStart: '73',
+          pageEnd: '82',
           keywords:
-            'Retrieval-Augmented Generation, Large Language Models, RAG, Educational Assessment, LLM Evaluation',
+            'Retrieval-Augmented Language Models, Relevance Assessment, Knowledge Integration, Hallucination Reduction, Question-Answering Systems, RAG, Large Language Models',
         },
       ],
     },

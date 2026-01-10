@@ -54,10 +54,15 @@ Software Engineer (AI/ML) at Valuelabs (December 2025 - Present)
 
 ## Publications
 - "Structured Relevance Assessment for Robust Retrieval-Augmented Language Models" (2025)
-  - Published in Springer Nature
-  - Authors: Aryan Raj, Astitva Veer Garg, Dr. Anitha D
-  - URL: https://arxiv.org/pdf/2507.21287
-  - Focus: LLM-based automated evaluation for educational assessments
+  - Published in Springer Nature, Lecture Notes in Networks and Systems, vol 1652
+  - Conference: ICT Analysis and Applications (ICT4SD 2025)
+  - Authors: Astitva Veer Garg, Aryan Raj, Dr. Anitha D
+  - DOI: 10.1007/978-3-032-06691-6_8
+  - Springer: https://link.springer.com/chapter/10.1007/978-3-032-06691-6_8
+  - arXiv: https://arxiv.org/pdf/2507.21287
+  - Pages: 73-82
+  - Published: October 31, 2025
+  - Focus: Framework for structured relevance assessment in RALMs to reduce hallucination rates
 
 ## Website Structure
 - Home: https://www.aryanraj.cv/

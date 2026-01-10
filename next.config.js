@@ -12,11 +12,8 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production', // Remove console.log in production
   },
 
-  // Modern build target to reduce polyfills
-  // Targets ES2020+ browsers, eliminating unnecessary Array.at, Array.flat, etc. polyfills
-  swcMinify: true,
-
   // Modern JavaScript targets to reduce polyfills
+  // Note: swcMinify is enabled by default in Next.js 13+
   env: {
     BROWSERSLIST_CONFIG: './.browserslistrc',
   },
@@ -31,21 +28,18 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    // Disable legacy browser support to eliminate polyfills
-    browsersListForSwc: true,
-    legacyBrowsers: false,
     // Package optimization
     optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
     webpackBuildWorker: true, // Enable webpack build worker
     optimizeCss: true, // Enable CSS optimization
-    // CSS optimization and chunking
-    cssChunking: 'loose', // Better CSS code splitting
-    // Modern JavaScript output
-    modularizeImports: {
-      '@/components': {
-        transform: '@/components/{{member}}',
-      },
-    },
+    // CSS optimization - use strict for better optimization
+    cssChunking: 'strict', // Better CSS code splitting
+  },
+
+  // Turbopack configuration (Next.js 16 default bundler)
+  turbopack: {
+    // Empty config to acknowledge we're using Turbopack
+    // Most apps work fine with default Turbopack settings
   },
 
   // Compression (handled by Vercel automatically, but explicit for other platforms)
@@ -54,30 +48,9 @@ const nextConfig = {
   // Power optimization settings
   poweredByHeader: false, // Remove X-Powered-By header for security
 
-  // Webpack optimizations for CSS
-  webpack: (config, { dev, isServer }) => {
-    // Optimize CSS extraction in production
-    if (!dev && !isServer) {
-      // Enable CSS optimization
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          ...config.optimization.splitChunks,
-          cacheGroups: {
-            ...config.optimization.splitChunks?.cacheGroups,
-            styles: {
-              name: 'styles',
-              type: 'css/mini-extract',
-              chunks: 'all',
-              enforce: true,
-              priority: 20,
-            },
-          },
-        },
-      }
-    }
-    return config
-  },
+  // Note: Webpack config removed - Next.js 16 uses Turbopack by default
+  // CSS optimization is handled by Turbopack and experimental.cssChunking
+  // If you need webpack specifically, run with: next dev --webpack
 
   // Headers for better caching and security
   async headers() {

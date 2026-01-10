@@ -983,17 +983,17 @@ export default function Home() {
                     itemScope
                     itemType="https://schema.org/Person"
                   >
+                    <span itemProp="name">Astitva Veer Garg</span>,{' '}
                     <span className="text-emerald-400 font-medium" itemProp="name">
                       Aryan Raj
                     </span>
-                    , <span itemProp="name">Astitva Veer Garg</span>,{' '}
-                    <span itemProp="name">Dr. Anitha D</span>
+                    , <span itemProp="name">Dr. Anitha D</span>
                   </p>
                   <p className="text-sm text-gray-400 mb-2">
                     <span className="font-medium">Conference:</span>{' '}
                     <span itemProp="about">
                       International Conference on Information Technology for Social Development
-                      (ITC4SD 2025)
+                      (ICT4SD 2025)
                     </span>
                   </p>
                   <p
@@ -1003,17 +1003,57 @@ export default function Home() {
                     itemType="https://schema.org/Organization"
                   >
                     <span className="font-medium">Publisher:</span>{' '}
-                    <span itemProp="name">Springer Nature</span>
+                    <span itemProp="name">Springer Nature</span> • Lecture Notes in Networks and
+                    Systems, vol 1652
                   </p>
-                  <time itemProp="datePublished" dateTime="2025" className="sr-only">
-                    2025
+                  <p className="text-sm text-gray-400 mb-2">
+                    <span className="font-medium">Published:</span> October 31, 2025 • Pages 73-82
+                  </p>
+                  <p className="text-sm text-gray-400 mb-2">
+                    <span className="font-medium">DOI:</span>{' '}
+                    <a
+                      href="https://doi.org/10.1007/978-3-032-06691-6_8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                    >
+                      10.1007/978-3-032-06691-6_8
+                    </a>
+                  </p>
+                  <time itemProp="datePublished" dateTime="2025-10-31" className="sr-only">
+                    October 31, 2025
                   </time>
-                  <p className="text-xs text-gray-500" itemProp="description">
-                    This paper explores the application of fine-tuned LLMs for automated evaluation
-                    of open-ended questions in educational contexts, demonstrating significant
-                    improvements in accuracy and consistency over traditional methods.
+                  <p className="text-xs text-gray-500 mb-3" itemProp="description">
+                    This paper addresses the challenges faced by Retrieval-Augmented Language Models
+                    (RALMs) in reducing factual errors by introducing a framework for structured
+                    relevance assessment. The work proposes a multi-dimensional scoring system for
+                    document relevance, embedding-based relevance scoring, and specialized
+                    benchmarking showing significant reductions in hallucination rates.
                   </p>
-                  <div className="mt-3">
+                  <div className="mt-3 flex flex-wrap gap-3">
+                    <a
+                      href="https://link.springer.com/chapter/10.1007/978-3-032-06691-6_8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-orange-400/30 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 transition-colors"
+                      aria-label="View paper on Springer"
+                    >
+                      View on Springer
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 3h7m0 0v7m0-7L10 14"
+                        />
+                      </svg>
+                    </a>
                     <a
                       href="https://arxiv.org/pdf/2507.21287"
                       target="_blank"
@@ -1021,7 +1061,7 @@ export default function Home() {
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition-colors"
                       aria-label="View paper on arXiv"
                     >
-                      View Paper (arXiv)
+                      View on arXiv
                       <svg
                         className="w-4 h-4"
                         fill="none"

@@ -248,6 +248,10 @@ const Navbar = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-colors"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              type="button"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
                 <span
@@ -271,6 +275,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div
+            id="mobile-menu"
             className={`md:hidden overflow-hidden transition-all duration-300 ${
               isMobileMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
             }`}

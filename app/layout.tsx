@@ -19,7 +19,8 @@ const inter = Inter({
     'Arial',
     'sans-serif',
   ],
-  adjustFontFallback: false, // Prevent layout shift
+  adjustFontFallback: true, // Match system font metrics to reduce CLS
+  variable: '--font-inter', // CSS variable for better control
 })
 
 export const viewport: Viewport = {
@@ -475,26 +476,74 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
 
+        {/* Defer non-critical CSS loading */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(){
+                var links = document.getElementsByTagName('link');
+                for(var i=0; i<links.length; i++){
+                  var link = links[i];
+                  if(link.rel === 'stylesheet' && !link.hasAttribute('data-critical')){
+                    link.media = 'print';
+                    link.onload = function(){this.media='all';this.onload=null;};
+                  }
+                }
+              }();
+            `,
+          }}
+        />
+
         {/* Inline critical CSS for above-the-fold content */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              /* Critical CSS for initial render */
+              /* Critical CSS for initial render - Expanded for LCP optimization */
+              *,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}
+              html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}
               body { 
                 margin: 0; 
+                padding: 0;
                 background: #0f172a; 
                 color: #fff;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
+                font-family: system-ui, -apple-system, sans-serif;
               }
+              /* Gradient text - critical for hero */
               .gradient-text {
                 background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
               }
-              /* Prevent layout shift */
-              main { min-height: 100vh; }
+              /* Layout - prevent shift */
+              main { 
+                min-height: 100vh; 
+                padding-top: 6rem;
+                padding-bottom: 2rem;
+              }
+              /* Container */
+              .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
+              /* Text center */
+              .text-center { text-align: center; }
+              /* Margin bottom */
+              .mb-4 { margin-bottom: 1rem; }
+              .mb-6 { margin-bottom: 1.5rem; }
+              .mb-12 { margin-bottom: 3rem; }
+              /* Text sizes - hero section */
+              .text-5xl { font-size: 3rem; line-height: 1; }
+              .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+              /* Font weights */
+              .font-bold { font-weight: 700; }
+              /* Flex */
+              .flex { display: flex; }
+              .justify-center { justify-content: center; }
+              .items-center { align-items: center; }
+              /* Hide on small screens */
+              @media (max-width: 768px) {
+                .text-5xl { font-size: 2.25rem; }
+              }
             `,
           }}
         />

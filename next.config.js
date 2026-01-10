@@ -31,9 +31,15 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
+    // Disable legacy browser support to eliminate polyfills
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+    // Package optimization
     optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
     webpackBuildWorker: true, // Enable webpack build worker
     optimizeCss: true, // Enable CSS optimization
+    // CSS optimization and chunking
+    cssChunking: 'loose', // Better CSS code splitting
     // Modern JavaScript output
     modularizeImports: {
       '@/components': {
@@ -47,6 +53,31 @@ const nextConfig = {
 
   // Power optimization settings
   poweredByHeader: false, // Remove X-Powered-By header for security
+
+  // Webpack optimizations for CSS
+  webpack: (config, { dev, isServer }) => {
+    // Optimize CSS extraction in production
+    if (!dev && !isServer) {
+      // Enable CSS optimization
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            styles: {
+              name: 'styles',
+              type: 'css/mini-extract',
+              chunks: 'all',
+              enforce: true,
+              priority: 20,
+            },
+          },
+        },
+      }
+    }
+    return config
+  },
 
   // Headers for better caching and security
   async headers() {

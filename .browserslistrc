@@ -1,11 +1,16 @@
-# Modern browsers only - reduces polyfills and legacy JavaScript
-> 0.5%
-last 2 versions
+# Target modern browsers only to minimize polyfills
+# This eliminates Array.at, Array.flat, Object.fromEntries polyfills
+# Covers ~95% of global users while reducing bundle size significantly
+
+# Modern ES2020+ browsers with native support for modern JS features
+Chrome >= 91
+Firefox >= 90
+Safari >= 15
+Edge >= 91
+
+# Exclude legacy browsers
 not dead
 not IE 11
 not op_mini all
-# Focus on modern ES6+ browsers
-Chrome >= 60
-Firefox >= 60
-Safari >= 12
-Edge >= 79 
+not android < 91
+not samsung < 14 

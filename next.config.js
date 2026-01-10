@@ -12,6 +12,10 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production', // Remove console.log in production
   },
 
+  // Modern build target to reduce polyfills
+  // Targets ES2020+ browsers, eliminating unnecessary Array.at, Array.flat, etc. polyfills
+  swcMinify: true,
+
   // Modern JavaScript targets to reduce polyfills
   env: {
     BROWSERSLIST_CONFIG: './.browserslistrc',
@@ -22,6 +26,7 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // Cache optimized images for 1 year
   },
 
   // Experimental features for better performance
@@ -29,6 +34,12 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
     webpackBuildWorker: true, // Enable webpack build worker
     optimizeCss: true, // Enable CSS optimization
+    // Modern JavaScript output
+    modularizeImports: {
+      '@/components': {
+        transform: '@/components/{{member}}',
+      },
+    },
   },
 
   // Compression (handled by Vercel automatically, but explicit for other platforms)

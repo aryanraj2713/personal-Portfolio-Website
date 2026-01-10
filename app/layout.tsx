@@ -463,10 +463,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//arxiv.org" />
         <link rel="dns-prefetch" href="//x.com" />
         <link rel="dns-prefetch" href="//medium.com" />
+        <link rel="dns-prefetch" href="//cal.com" />
 
         {/* Preload critical resources */}
-        <link rel="preload" href="/aryan_image.jpeg" as="image" type="image/jpeg" />
+        <link
+          rel="preload"
+          href="/aryan_image.jpeg"
+          as="image"
+          type="image/jpeg"
+          fetchPriority="high"
+        />
         <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
+
+        {/* Inline critical CSS for above-the-fold content */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* Critical CSS for initial render */
+              body { 
+                margin: 0; 
+                background: #0f172a; 
+                color: #fff;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
+              .gradient-text {
+                background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              }
+              /* Prevent layout shift */
+              main { min-height: 100vh; }
+            `,
+          }}
+        />
 
         {structuredData.map((data, index) => (
           <script

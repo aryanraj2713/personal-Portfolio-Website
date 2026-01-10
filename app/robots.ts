@@ -7,8 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://aryanraj13.vercel.app/sitemap.xml',
+    sitemap: 'https://www.aryanraj.cv/sitemap.xml',
   }
 }
 
-// LLMs.txt is available at: https://aryanraj13.vercel.app/llms.txt
+// LLMs.txt is available at: https://www.aryanraj.cv/llms.txt

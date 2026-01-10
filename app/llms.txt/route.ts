@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const llmsTxt = `# LLMs.txt for aryanraj13.vercel.app
+  const llmsTxt = `# LLMs.txt for www.aryanraj.cv
 
 ## About
 This is the portfolio website of Aryan Raj, a Machine Learning Engineer and Backend Developer specializing in AI solutions, Large Language Models (LLMs), computer vision, and scalable web applications.
@@ -10,7 +10,7 @@ This is the portfolio website of Aryan Raj, a Machine Learning Engineer and Back
 - Name: Aryan Raj
 - Email: aryanraj2713@gmail.com
 - Phone: +91-8287276911
-- Website: https://aryanraj13.vercel.app/
+- Website: https://www.aryanraj.cv/
 - LinkedIn: https://www.linkedin.com/in/aryanraj13/
 - GitHub: https://github.com/aryanraj2713
 - Twitter/X: https://x.com/aryanraj2713
@@ -31,11 +31,12 @@ Aryan Raj is a Machine Learning Engineer and Backend Developer with expertise in
 - High School (CBSE X and XII) Non Medical Sciences from Ganga International School, New Delhi, India
 
 ## Current Position
-Machine Learning Engineer at SEOstack (September 2025 - Present)
+Software Engineer (AI/ML) at Valuelabs (December 2025 - Present)
 
 ## Previous Experience
+- Machine Learning Engineer at SEOstack (September 2025 - December 2025), Hyderabad, India
 - Machine Learning Engineering Intern at HyperVerge (August 2024 - July 2025), Bengaluru, India
-- Worked on KYC solutions and fraud detection systems
+- Worked on AI agents, KYC solutions, and fraud detection systems
 
 ## Key Skills
 - Programming Languages: Python, JavaScript, TypeScript
@@ -59,19 +60,19 @@ Machine Learning Engineer at SEOstack (September 2025 - Present)
   - Focus: LLM-based automated evaluation for educational assessments
 
 ## Website Structure
-- Home: https://aryanraj13.vercel.app/
-- Education: https://aryanraj13.vercel.app/#education
-- Experience: https://aryanraj13.vercel.app/#experience
-- Projects: https://aryanraj13.vercel.app/#projects
-- Skills: https://aryanraj13.vercel.app/#skills
-- Publications: https://aryanraj13.vercel.app/#publications
-- Contact: https://aryanraj13.vercel.app/#contact
+- Home: https://www.aryanraj.cv/
+- Education: https://www.aryanraj.cv/#education
+- Experience: https://www.aryanraj.cv/#experience
+- Projects: https://www.aryanraj.cv/#projects
+- Skills: https://www.aryanraj.cv/#skills
+- Publications: https://www.aryanraj.cv/#publications
+- Contact: https://www.aryanraj.cv/#contact
 
 ## Sitemap
-https://aryanraj13.vercel.app/sitemap.xml
+https://www.aryanraj.cv/sitemap.xml
 
 ## Robots.txt
-https://aryanraj13.vercel.app/robots.txt
+https://www.aryanraj.cv/robots.txt
 
 ## Key Topics
 - Machine Learning Engineering

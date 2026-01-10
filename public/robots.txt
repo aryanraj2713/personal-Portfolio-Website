@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://aryanraj13.vercel.app/sitemap.xml
+Sitemap: https://www.aryanraj.cv/sitemap.xml
 
 # Crawl delay (optional - prevents aggressive crawling)
 Crawl-delay: 1

@@ -28,14 +28,14 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aryanraj13.vercel.app/'),
+  metadataBase: new URL('https://www.aryanraj.cv'),
   title: {
     default: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     template: '%s | Aryan Raj Portfolio',
   },
   description:
     'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications. SRM graduate with internships at HyperVerge, Emendo AI, and IIT Madras. Published researcher in RAG systems.',
-  authors: [{ name: 'Aryan Raj', url: 'https://aryanraj13.vercel.app/' }],
+  authors: [{ name: 'Aryan Raj', url: 'https://www.aryanraj.cv' }],
   creator: 'Aryan Raj',
   publisher: 'Aryan Raj',
   keywords: [
@@ -64,6 +64,7 @@ export const metadata: Metadata = {
     'Portfolio',
     'SRM Institute',
     'Ganga International School',
+    'Valuelabs',
     'SEOstack',
     'HyperVerge',
     'Emendo AI',
@@ -95,7 +96,7 @@ export const metadata: Metadata = {
     title: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
     description:
       'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
-    url: 'https://aryanraj13.vercel.app/',
+    url: 'https://www.aryanraj.cv',
     siteName: 'Aryan Raj Portfolio',
     type: 'website',
     locale: 'en_US',
@@ -121,9 +122,9 @@ export const metadata: Metadata = {
     google: 'cRgIWr43Ax_DNTaFQ8VOkdNWt6jkjmG5jpqJYm5tAn0',
   },
   alternates: {
-    canonical: 'https://aryanraj13.vercel.app/',
+    canonical: 'https://www.aryanraj.cv',
     languages: {
-      'en-US': 'https://aryanraj13.vercel.app/',
+      'en-US': 'https://www.aryanraj.cv',
     },
   },
   icons: {
@@ -166,7 +167,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       jobTitle: ['Machine Learning Engineer', 'Backend Developer'],
       description:
         'ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications',
-      url: 'https://aryanraj13.vercel.app/',
+      url: 'https://www.aryanraj.cv',
       email: 'aryanraj2713@gmail.com',
       telephone: '+91-8287276911',
       sameAs: [
@@ -199,9 +200,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       worksFor: [
         {
           '@type': 'Organization',
+          name: 'Valuelabs',
+          jobTitle: 'Software Engineer (AI/ML)',
+          startDate: '2025-12',
+        },
+        {
+          '@type': 'Organization',
           name: 'SEOstack',
           jobTitle: 'Machine Learning Engineer',
           startDate: '2025-09',
+          endDate: '2025-12',
         },
         {
           '@type': 'Organization',
@@ -268,7 +276,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       publications: [
         {
           '@type': 'ScholarlyArticle',
-          '@id': 'https://aryanraj13.vercel.app/#publication-1',
+          '@id': 'https://www.aryanraj.cv#publication-1',
           headline:
             'Structured Relevance Assessment for Robust Retrieval-Augmented Language Models',
           author: [
@@ -293,7 +301,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Aryan Raj Portfolio',
-      url: 'https://aryanraj13.vercel.app/',
+      url: 'https://www.aryanraj.cv',
       author: {
         '@type': 'Person',
         name: 'Aryan Raj',
@@ -305,7 +313,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://aryanraj13.vercel.app/?q={search_term_string}',
+          urlTemplate: 'https://www.aryanraj.cv?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
@@ -318,43 +326,43 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://aryanraj13.vercel.app/#home',
+          item: 'https://www.aryanraj.cv#home',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Education',
-          item: 'https://aryanraj13.vercel.app/#education',
+          item: 'https://www.aryanraj.cv#education',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Experience',
-          item: 'https://aryanraj13.vercel.app/#experience',
+          item: 'https://www.aryanraj.cv#experience',
         },
         {
           '@type': 'ListItem',
           position: 4,
           name: 'Projects',
-          item: 'https://aryanraj13.vercel.app/#projects',
+          item: 'https://www.aryanraj.cv#projects',
         },
         {
           '@type': 'ListItem',
           position: 5,
           name: 'Skills',
-          item: 'https://aryanraj13.vercel.app/#skills',
+          item: 'https://www.aryanraj.cv#skills',
         },
         {
           '@type': 'ListItem',
           position: 6,
           name: 'Publications',
-          item: 'https://aryanraj13.vercel.app/#publications',
+          item: 'https://www.aryanraj.cv#publications',
         },
         {
           '@type': 'ListItem',
           position: 7,
           name: 'Contact',
-          item: 'https://aryanraj13.vercel.app/#contact',
+          item: 'https://www.aryanraj.cv#contact',
         },
       ],
     },
@@ -386,7 +394,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       name: 'Aryan Raj - ML Engineering Services',
       description:
         'Machine Learning Engineering and Backend Development services specializing in AI solutions, LLMs, computer vision, and scalable web applications',
-      url: 'https://aryanraj13.vercel.app/',
+      url: 'https://www.aryanraj.cv',
       provider: {
         '@type': 'Person',
         name: 'Aryan Raj',

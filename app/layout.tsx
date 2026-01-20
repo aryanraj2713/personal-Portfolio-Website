@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { PerformanceOptimizer } from '@/components/ui/performance-optimizer'
 import { ConsoleHttpCat } from '@/components/ui/console-cat'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -574,6 +575,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <PerformanceOptimizer />
+        <SpeedInsights />
         <ConsoleHttpCat statusCode={496} />
         {children}
       </body>

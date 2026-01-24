@@ -29,12 +29,6 @@ const AboutMe = () => {
       opacity: 1,
       y: 0,
       rotateX: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 20,
-        duration: 0.6,
-      },
     },
   }
 
@@ -48,12 +42,6 @@ const AboutMe = () => {
       opacity: 1,
       x: 0,
       filter: 'blur(0px)',
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8,
-      },
     },
   }
 
@@ -149,6 +137,12 @@ const AboutMe = () => {
               <motion.h3
                 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-emerald-100 to-cyan-100 bg-clip-text text-transparent"
                 variants={headingVariants}
+                transition={{
+                  type: 'spring',
+                  stiffness: 150,
+                  damping: 20,
+                  duration: 0.6,
+                }}
               >
                 Building AI Solutions that Matter
               </motion.h3>
@@ -157,6 +151,12 @@ const AboutMe = () => {
               <motion.div className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
                 <motion.p
                   variants={paragraphVariants}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                    duration: 0.8,
+                  }}
                   className="relative pl-4 border-l-2 border-emerald-400/50"
                 >
                   I am a{' '}
@@ -172,6 +172,12 @@ const AboutMe = () => {
 
                 <motion.p
                   variants={paragraphVariants}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                    duration: 0.8,
+                  }}
                   className="relative pl-4 border-l-2 border-cyan-400/50"
                 >
                   I am currently working at{' '}
@@ -185,6 +191,12 @@ const AboutMe = () => {
 
                 <motion.p
                   variants={paragraphVariants}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                    duration: 0.8,
+                  }}
                   className="relative pl-4 border-l-2 border-blue-400/50"
                 >
                   My internship experience spans{' '}
@@ -198,6 +210,12 @@ const AboutMe = () => {
 
                 <motion.p
                   variants={paragraphVariants}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                    duration: 0.8,
+                  }}
                   className="relative pl-4 border-l-2 border-purple-400/50"
                 >
                   I enjoy working on projects that{' '}

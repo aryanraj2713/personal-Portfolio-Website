@@ -13,7 +13,9 @@
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
     "build:prod": "NODE_ENV=production next build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "perf:check": "node scripts/performance-check.js",
+    "perf:test": "npm run build && npm run perf:check"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -26,7 +28,8 @@
     "next": "^16.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.0.0",
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "16.1.0",

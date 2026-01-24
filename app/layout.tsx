@@ -5,6 +5,8 @@ import './globals.css'
 import { PerformanceOptimizer } from '@/components/ui/performance-optimizer'
 import { ConsoleHttpCat } from '@/components/ui/console-cat'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { WebVitals, PerformanceBudget } from '@/components/ui/web-vitals'
+import { ServiceWorkerRegister, PWAInstallPrompt } from '@/components/ui/service-worker-register'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -509,6 +511,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
 
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
+
         {/* Defer non-critical CSS loading */}
         <script
           dangerouslySetInnerHTML={{
@@ -594,6 +600,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <PerformanceOptimizer />
         <SpeedInsights />
+        <WebVitals />
+        <PerformanceBudget />
+        <ServiceWorkerRegister />
+        <PWAInstallPrompt />
         <ConsoleHttpCat statusCode={496} />
         {children}
       </body>

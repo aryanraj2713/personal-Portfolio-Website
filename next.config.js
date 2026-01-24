@@ -10,6 +10,8 @@ const nextConfig = {
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production', // Remove console.log in production
+    reactRemoveProperties:
+      process.env.NODE_ENV === 'production' ? { properties: ['^data-test'] } : false,
   },
 
   // Modern JavaScript targets to reduce polyfills
@@ -37,8 +39,8 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    // Package optimization
-    optimizePackageImports: ['lucide-react'], // Tree shake lucide icons
+    // Package optimization - aggressive tree shaking
+    optimizePackageImports: ['lucide-react', 'framer-motion'], // Tree shake icons and animations
     webpackBuildWorker: true, // Enable webpack build worker
     optimizeCss: true, // Enable CSS optimization
     // CSS optimization - use strict for better optimization

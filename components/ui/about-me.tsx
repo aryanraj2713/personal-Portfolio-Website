@@ -62,10 +62,6 @@ const AboutMe = () => {
     visible: {
       width: '100%',
       opacity: 1,
-      transition: {
-        duration: 1,
-        ease: 'easeOut',
-      },
     },
   }
 
@@ -107,6 +103,7 @@ const AboutMe = () => {
           variants={highlightVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
+          transition={{ duration: 1, ease: 'easeOut' }}
         />
       </motion.div>
 

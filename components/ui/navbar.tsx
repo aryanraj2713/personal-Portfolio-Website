@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -14,12 +15,13 @@ const Navbar = () => {
       // Update active section based on scroll position
       const sections = [
         'home',
+        'book-meeting',
+        'about',
         'education',
         'experience',
         'internships',
         'projects',
         'skills',
-        'book-meeting',
         'contact',
       ]
       const current = sections.find(section => {
@@ -56,6 +58,34 @@ const Navbar = () => {
             strokeLinejoin="round"
             strokeWidth={2}
             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          />
+        </svg>
+      ),
+    },
+    {
+      id: 'book-meeting',
+      label: 'Meeting',
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      ),
+    },
+    {
+      id: 'about',
+      label: 'About',
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
           />
         </svg>
       ),
@@ -102,7 +132,7 @@ const Navbar = () => {
     },
     {
       id: 'internships',
-      label: 'Intern',
+      label: 'Internships',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -143,20 +173,6 @@ const Navbar = () => {
       ),
     },
     {
-      id: 'book-meeting',
-      label: 'Meeting',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-    },
-    {
       id: 'contact',
       label: 'Contact',
       icon: (
@@ -173,34 +189,57 @@ const Navbar = () => {
   ]
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'py-2' : 'py-4'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div
-          className={`
-          glass-light rounded-2xl transition-all duration-300
-          ${isScrolled ? 'bg-black/10' : 'bg-transparent'}
-        `}
+        <motion.div
+          animate={{
+            backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)',
+          }}
+          transition={{ duration: 0.3 }}
+          className="glass-light rounded-2xl"
         >
           <div className="flex items-center justify-between px-6 py-4">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center">
+            <motion.div
+              className="flex items-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center"
+                animate={{
+                  boxShadow: [
+                    '0 0 0px rgba(16, 185, 129, 0)',
+                    '0 0 20px rgba(16, 185, 129, 0.5)',
+                    '0 0 0px rgba(16, 185, 129, 0)',
+                  ],
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <span className="text-xl font-bold text-white">AR</span>
-              </div>
+              </motion.div>
               <span className="font-semibold text-white text-lg hidden sm:block">Aryan Raj</span>
-            </div>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
-              {navItems.map(item => {
+              {navItems.map((item, index) => {
                 const isActive = activeSection === item.id
                 return (
-                  <button
+                  <motion.button
                     key={item.id}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.id)}
                     className={`
                       group relative px-4 py-2 rounded-xl transition-all duration-300
@@ -209,14 +248,16 @@ const Navbar = () => {
                     aria-current={isActive ? 'page' : undefined}
                   >
                     <div className="flex flex-col items-center gap-1">
-                      <div
+                      <motion.div
                         className={`
                         transition-colors duration-300
                         ${isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-white'}
                       `}
+                        animate={isActive ? { rotate: [0, 10, -10, 0] } : {}}
+                        transition={{ duration: 0.5 }}
                       >
                         {item.icon}
-                      </div>
+                      </motion.div>
                       <span
                         className={`
                         text-xs font-medium transition-colors duration-300
@@ -226,26 +267,39 @@ const Navbar = () => {
                         {item.label}
                       </span>
                     </div>
-                    {isActive && (
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-400" />
-                    )}
-                    <div
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-400"
+                        />
+                      )}
+                    </AnimatePresence>
+                    <motion.div
                       className={`
-                      absolute inset-0 rounded-xl bg-gradient-to-r transition-all duration-300
+                      absolute inset-0 rounded-xl bg-gradient-to-r -z-10
                       ${
                         isActive
                           ? 'from-emerald-400/10 via-cyan-400/10 to-blue-400/10'
-                          : 'from-emerald-400/0 via-cyan-400/0 to-blue-400/0 group-hover:from-emerald-400/10 group-hover:via-cyan-400/10 group-hover:to-blue-400/10'
+                          : 'from-emerald-400/0 via-cyan-400/0 to-blue-400/0'
                       }
                     `}
+                      whileHover={{
+                        background:
+                          'linear-gradient(to right, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1))',
+                      }}
                     />
-                  </button>
+                  </motion.button>
                 )
               })}
             </div>
 
             {/* Mobile Menu Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-colors"
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -254,71 +308,99 @@ const Navbar = () => {
               type="button"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span
-                  className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
-                    isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
-                  }`}
+                <motion.span
+                  animate={{
+                    rotate: isMobileMenuOpen ? 45 : 0,
+                    y: isMobileMenuOpen ? 4 : 0,
+                  }}
+                  className="block w-5 h-0.5 bg-white"
                 />
-                <span
-                  className={`block w-5 h-0.5 bg-white mt-1 transition-all duration-300 ${
-                    isMobileMenuOpen ? 'opacity-0' : ''
-                  }`}
+                <motion.span
+                  animate={{
+                    opacity: isMobileMenuOpen ? 0 : 1,
+                  }}
+                  className="block w-5 h-0.5 bg-white mt-1"
                 />
-                <span
-                  className={`block w-5 h-0.5 bg-white mt-1 transition-all duration-300 ${
-                    isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
-                  }`}
+                <motion.span
+                  animate={{
+                    rotate: isMobileMenuOpen ? -45 : 0,
+                    y: isMobileMenuOpen ? -4 : 0,
+                  }}
+                  className="block w-5 h-0.5 bg-white mt-1"
                 />
               </div>
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Menu */}
-          <div
-            id="mobile-menu"
-            className={`md:hidden overflow-hidden transition-all duration-300 ${
-              isMobileMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
-            }`}
-          >
-            <div className="px-6 space-y-2">
-              {navItems.map(item => {
-                const isActive = activeSection === item.id
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`
-                      w-full flex items-center gap-3 px-4 py-3 rounded-xl
-                      transition-all duration-300 group
-                      ${isActive ? 'bg-white/10' : 'hover:bg-white/10'}
-                    `}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    <div
-                      className={`
-                      transition-colors duration-300
-                      ${isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-white'}
-                    `}
-                    >
-                      {item.icon}
-                    </div>
-                    <span
-                      className={`
-                      transition-colors font-medium
-                      ${isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'}
-                    `}
-                    >
-                      {item.label}
-                    </span>
-                    {isActive && <div className="ml-auto w-2 h-2 rounded-full bg-emerald-400" />}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        </div>
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                id="mobile-menu"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden"
+              >
+                <div className="px-6 pb-4 space-y-2">
+                  {navItems.map((item, index) => {
+                    const isActive = activeSection === item.id
+                    return (
+                      <motion.button
+                        key={item.id}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -20, opacity: 0 }}
+                        transition={{ duration: 0.2, delay: index * 0.05 }}
+                        whileHover={{ scale: 1.02, x: 5 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => scrollToSection(item.id)}
+                        className={`
+                          w-full flex items-center gap-3 px-4 py-3 rounded-xl
+                          transition-all duration-300 group
+                          ${isActive ? 'bg-white/10' : 'hover:bg-white/10'}
+                        `}
+                        aria-current={isActive ? 'page' : undefined}
+                      >
+                        <motion.div
+                          className={`
+                          transition-colors duration-300
+                          ${isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-white'}
+                        `}
+                          animate={isActive ? { rotate: [0, 10, -10, 0] } : {}}
+                          transition={{ duration: 0.5 }}
+                        >
+                          {item.icon}
+                        </motion.div>
+                        <span
+                          className={`
+                          transition-colors font-medium
+                          ${isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'}
+                        `}
+                        >
+                          {item.label}
+                        </span>
+                        <AnimatePresence>
+                          {isActive && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 0 }}
+                              className="ml-auto w-2 h-2 rounded-full bg-emerald-400"
+                            />
+                          )}
+                        </AnimatePresence>
+                      </motion.button>
+                    )
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }
 

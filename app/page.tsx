@@ -1,6 +1,13 @@
+'use client'
+
 import dynamic from 'next/dynamic'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import Navbar from '@/components/ui/navbar'
 import Avatar from '@/components/ui/avatar'
+import AboutMe from '@/components/ui/about-me'
+import AnimatedSection from '@/components/ui/animated-section'
+import AnimatedCard from '@/components/ui/animated-card'
 
 // Lazy load non-critical components for better initial page load
 const ResumePreview = dynamic(() => import('@/components/ui/resume-preview'), {
@@ -65,21 +72,112 @@ export default function Home() {
       </div>
       <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">
-          <div id="home" className="text-center mb-12">
-            <div className="flex justify-center mt-10 md:mt-16 mb-6">
-              <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
-                <Avatar alt="Aryan Raj" className="w-full h-full" />
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">
-              Aryan Raj
-            </h1>
-            <p className="text-xl text-gray-300 mb-6">
-              Machine Learning Engineer & Backend Developer
-            </p>
+          <motion.div
+            id="home"
+            className="text-center mb-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="flex justify-center mt-10 md:mt-16 mb-6"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
+            >
+              <motion.div
+                className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 relative"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+              >
+                {/* Animated rings around avatar */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-emerald-400/20"
+                  animate={{
+                    scale: [1, 1.15, 1],
+                    opacity: [0.3, 0.1, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-cyan-400/20"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.2, 0, 0.2],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.5,
+                  }}
+                />
 
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-300">
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+                {/* Subtle glow effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/30 to-cyan-400/30 blur-xl"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
+
+                <Avatar alt="Aryan Raj" className="w-full h-full relative z-10" />
+              </motion.div>
+            </motion.div>
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Aryan Raj
+            </motion.h1>
+            <motion.p
+              className="text-xl text-gray-300 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              Machine Learning Engineer & Backend Developer
+            </motion.p>
+
+            <motion.div
+              className="flex flex-wrap justify-center gap-4 text-sm text-gray-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg
                   className="w-4 h-4 text-emerald-400"
                   fill="none"
@@ -94,8 +192,15 @@ export default function Home() {
                   />
                 </svg>
                 <span>+91 8287276911</span>
-              </div>
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg
                   className="w-4 h-4 text-emerald-400"
                   fill="none"
@@ -115,8 +220,15 @@ export default function Home() {
                 >
                   aryanraj2713@gmail.com
                 </a>
-              </div>
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
@@ -127,8 +239,15 @@ export default function Home() {
                 >
                   LinkedIn
                 </a>
-              </div>
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                 </svg>
@@ -140,8 +259,15 @@ export default function Home() {
                 >
                   GitHub
                 </a>
-              </div>
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
@@ -153,8 +279,15 @@ export default function Home() {
                 >
                   X
                 </a>
-              </div>
-              <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.4 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.38-2.88-3.38-6.42s1.51-6.42 3.38-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-1.05 5.75-2.34 5.75-1.3 0-2.34-2.58-2.34-5.75s1.05-5.75 2.34-5.75C22.95 6.25 24 8.83 24 12" />
                 </svg>
@@ -166,314 +299,12 @@ export default function Home() {
                 >
                   Medium
                 </a>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* Resume Preview Component */}
           <ResumePreview />
-
-          <section id="education" className="mb-12" aria-labelledby="education-heading">
-            <h2 id="education-heading" className="section-title flex items-center gap-3">
-              <svg
-                className="w-7 h-7 text-emerald-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 14l9-5-9-5-9 5 9 5z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                />
-              </svg>
-              Education
-            </h2>
-            <div className="space-y-6">
-              <div className="fancy-card group">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">
-                    <a
-                      href="https://www.srmist.edu.in"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      SRM Institute of Science and Technology
-                    </a>
-                  </h3>
-                  <span className="text-sm text-gray-400">Chennai, IN</span>
-                </div>
-                <p className="text-sm text-gray-300 mb-2">
-                  B.Tech Computer Science and Engineering with spl. in Artificial Intelligence and
-                  Machine Learning
-                </p>
-                <p className="text-sm text-gray-300 mb-1">May 2021 - May 2025</p>
-                <p className="text-sm text-emerald-400 font-semibold">CGPA: 8.4/10</p>
-              </div>
-
-              <div className="fancy-card group">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">
-                    <a
-                      href="https://www.gangainternationalschool.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      Ganga International School
-                    </a>
-                  </h3>
-                  <span className="text-sm text-gray-400">Hiran Kudna, New Delhi</span>
-                </div>
-                <p className="text-sm text-gray-300 mb-1">
-                  High School, CBSE (X and XII) Non Medical Sciences
-                </p>
-                <p className="text-sm text-gray-300 mb-2">
-                  (With Computer Science and Commercial Arts)
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section id="experience" className="mb-12" aria-labelledby="experience-heading">
-            <h2 id="experience-heading" className="section-title flex items-center gap-3">
-              <svg
-                className="w-7 h-7 text-emerald-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              Experience
-            </h2>
-
-            <div className="space-y-6">
-              <div className="glass rounded-lg p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">Software Engineer (AI/ML)</h3>
-                  <span className="text-sm text-gray-400">Hyderabad, IN</span>
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">
-                    <a
-                      href="https://www.valuelabs.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      Valuelabs
-                    </a>
-                  </span>
-                  <span className="text-sm text-gray-300">Dec 2025 - Present</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>
-                    • Building deep learning and generative AI proof-of-concepts (POCs) and MVPs for
-                    client projects, delivering compelling product demos and driving internal AI
-                    adoption initiatives across the organization.
-                  </li>
-                  <li>
-                    • Contributing to the flagship product AiDE and its subsidiary tools,
-                    architecting integrations with various productivity platforms to enhance
-                    developer workflows and increase team efficiency.
-                  </li>
-                  <li>
-                    • Architecting data analytics solutions, data warehousing infrastructure, and
-                    lakehouse architectures to support company-wide KPIs and metrics adoption,
-                    enabling data-driven decision making at scale.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass rounded-lg p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">Machine Learning Engineer</h3>
-                  <span className="text-sm text-gray-400">Hyderabad, IN</span>
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">
-                    <a
-                      href="https://www.seo-stack.io"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      SEOstack
-                    </a>
-                  </span>
-                  <span className="text-sm text-gray-300">Sep 2025 - Dec 2025</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>
-                    • Building and deploying autonomous AI agents to automate complex SEO workflows
-                    and content analysis pipelines, reducing manual effort by 60% and improving
-                    turnaround times.
-                  </li>
-                  <li>
-                    • Designing and implementing scalable machine learning infrastructure to support
-                    multi-step reasoning and real-time content optimization.
-                  </li>
-                  <li>
-                    • Architecting prompt engineering frameworks and evaluation systems to ensure
-                    high-quality, contextually relevant SEO recommendations across diverse client
-                    domains.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section id="internships" className="mb-12" aria-labelledby="internships-heading">
-            <h2 id="internships-heading" className="section-title flex items-center gap-3">
-              <svg
-                className="w-7 h-7 text-emerald-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-              Internships
-            </h2>
-
-            <div className="space-y-6">
-              <div className="glass rounded-lg p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">
-                    Machine Learning Engineer (Intern)
-                  </h3>
-                  <span className="text-sm text-gray-400">Bengaluru, IN</span>
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">
-                    <a
-                      href="https://hyperverge.co/in/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      HyperVerge
-                    </a>
-                  </span>
-                  <span className="text-sm text-gray-300">Aug 2024 - July 2025</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>
-                    • Developed and fine-tuned LLM-based solutions to automate KYC and fraud
-                    detection workflows, tailored for real-world, domain-specific regulatory use
-                    cases across financial institutions.
-                  </li>
-                  <li>
-                    • Led evaluation and benchmarking of LLMs on over a million real-world data
-                    points, setting up scalable performance monitoring pipelines and achieving
-                    industry-accepted False Acceptance Rate (FAR) and False Rejection Rate (FRR)
-                    thresholds.
-                  </li>
-                  <li>
-                    • Optimized and deployed state-of-the-art computer vision and NLP models for
-                    identity verification, significantly improving inference speed and accuracy
-                    under production constraints.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass rounded-lg p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">Machine Learning Intern</h3>
-                  <span className="text-sm text-gray-400">California, USA (Remote)</span>
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">
-                    <a
-                      href="https://emendo.ai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      Emendo AI
-                    </a>
-                  </span>
-                  <span className="text-sm text-gray-300">Jan 2024 - Aug 2024</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>
-                    • Engineered and deployed AI solutions leveraging the AWS ecosystem with a focus
-                    on Generative AI to build scalable, client-centric applications.
-                  </li>
-                  <li>
-                    • Developed and maintained 10+ Generative AI-based microservices with
-                    industry-standard integrations using AWS Lambda, API Gateway, and OpenTelemetry
-                    for observability.
-                  </li>
-                  <li>
-                    • Architected scalable, serverless backends to support efficient retrieval and
-                    generation workflows across diverse application domains.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="glass rounded-lg p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-white">Research Intern</h3>
-                  <span className="text-sm text-gray-400">Chennai, IN</span>
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-300">
-                    <a
-                      href="https://www.iitm.ac.in"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
-                    >
-                      Indian Institute of Technology, Madras (IIT M)
-                    </a>
-                  </span>
-                  <span className="text-sm text-gray-300">Feb 2023 - Jul 2023</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>
-                    • Collaborated with the Department of Ocean Engineering to design and implement
-                    a machine learning-based anti-collision system, improving accuracy of existing
-                    solutions by over 28%.
-                  </li>
-                  <li>
-                    • Developed marine object detection, tracking, and localisation systems using
-                    stereo vision-based camera setups for alternative navigation in unmanned surface
-                    vehicles (USVs).
-                  </li>
-                  <li>
-                    • Worked with state-of-the-art computer vision models and successfully deployed
-                    the solution on edge-based IoT hardware for real-time maritime applications.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
 
           {/* Book a Meeting Section */}
           <section id="book-meeting" className="mb-12" aria-labelledby="book-meeting-heading">
@@ -626,13 +457,362 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="projects" className="mb-12" aria-labelledby="projects-heading">
-            <h2 id="projects-heading" className="section-title flex items-center gap-3">
-              <svg
+          {/* About Me Section */}
+          <AboutMe />
+
+          <AnimatedSection id="education" className="mb-12" aria-labelledby="education-heading">
+            <motion.h2
+              id="education-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l9-5-9-5-9 5 9 5z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                />
+              </motion.svg>
+              Education
+            </motion.h2>
+            <div className="space-y-6">
+              <AnimatedCard className="fancy-card group" variant="slide" delay={0.1}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    <a
+                      href="https://www.srmist.edu.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      SRM Institute of Science and Technology
+                    </a>
+                  </h3>
+                  <span className="text-sm text-gray-400">Chennai, IN</span>
+                </div>
+                <p className="text-sm text-gray-300 mb-2">
+                  B.Tech Computer Science and Engineering with spl. in Artificial Intelligence and
+                  Machine Learning
+                </p>
+                <p className="text-sm text-gray-300 mb-1">May 2021 - May 2025</p>
+                <p className="text-sm text-emerald-400 font-semibold">CGPA: 8.4/10</p>
+              </AnimatedCard>
+
+              <AnimatedCard className="fancy-card group" variant="slide" delay={0.2}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    <a
+                      href="https://www.gangainternationalschool.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Ganga International School
+                    </a>
+                  </h3>
+                  <span className="text-sm text-gray-400">Hiran Kudna, New Delhi</span>
+                </div>
+                <p className="text-sm text-gray-300 mb-1">
+                  High School, CBSE (X and XII) Non Medical Sciences
+                </p>
+                <p className="text-sm text-gray-300 mb-2">
+                  (With Computer Science and Commercial Arts)
+                </p>
+              </AnimatedCard>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection id="experience" className="mb-12" aria-labelledby="experience-heading">
+            <motion.h2
+              id="experience-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </motion.svg>
+              Experience
+            </motion.h2>
+
+            <div className="space-y-6">
+              <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">Software Engineer (AI/ML)</h3>
+                  <span className="text-sm text-gray-400">Hyderabad, IN</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://www.valuelabs.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Valuelabs
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Dec 2025 - Present</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Building deep learning and generative AI proof-of-concepts (POCs) and MVPs for
+                    client projects, delivering compelling product demos and driving internal AI
+                    adoption initiatives across the organization.
+                  </li>
+                  <li>
+                    • Contributing to the flagship product AiDE and its subsidiary tools,
+                    architecting integrations with various productivity platforms to enhance
+                    developer workflows and increase team efficiency.
+                  </li>
+                  <li>
+                    • Architecting data analytics solutions, data warehousing infrastructure, and
+                    lakehouse architectures to support company-wide KPIs and metrics adoption,
+                    enabling data-driven decision making at scale.
+                  </li>
+                </ul>
+              </AnimatedCard>
+
+              <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.2}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">Machine Learning Engineer</h3>
+                  <span className="text-sm text-gray-400">Hyderabad, IN</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://www.seo-stack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      SEOstack
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Sep 2025 - Dec 2025</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Building and deploying autonomous AI agents to automate complex SEO workflows
+                    and content analysis pipelines, reducing manual effort by 60% and improving
+                    turnaround times.
+                  </li>
+                  <li>
+                    • Designing and implementing scalable machine learning infrastructure to support
+                    multi-step reasoning and real-time content optimization.
+                  </li>
+                  <li>
+                    • Architecting prompt engineering frameworks and evaluation systems to ensure
+                    high-quality, contextually relevant SEO recommendations across diverse client
+                    domains.
+                  </li>
+                </ul>
+              </AnimatedCard>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection id="internships" className="mb-12" aria-labelledby="internships-heading">
+            <motion.h2
+              id="internships-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </motion.svg>
+              Internships
+            </motion.h2>
+
+            <div className="space-y-6">
+              <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="flip" delay={0.1}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    Machine Learning Engineer (Intern)
+                  </h3>
+                  <span className="text-sm text-gray-400">Bengaluru, IN</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://hyperverge.co/in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      HyperVerge
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Aug 2024 - July 2025</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Developed and fine-tuned LLM-based solutions to automate KYC and fraud
+                    detection workflows, tailored for real-world, domain-specific regulatory use
+                    cases across financial institutions.
+                  </li>
+                  <li>
+                    • Led evaluation and benchmarking of LLMs on over a million real-world data
+                    points, setting up scalable performance monitoring pipelines and achieving
+                    industry-accepted False Acceptance Rate (FAR) and False Rejection Rate (FRR)
+                    thresholds.
+                  </li>
+                  <li>
+                    • Optimized and deployed state-of-the-art computer vision and NLP models for
+                    identity verification, significantly improving inference speed and accuracy
+                    under production constraints.
+                  </li>
+                </ul>
+              </AnimatedCard>
+
+              <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="flip" delay={0.2}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">Machine Learning Intern</h3>
+                  <span className="text-sm text-gray-400">California, USA (Remote)</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://emendo.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Emendo AI
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Jan 2024 - Aug 2024</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Engineered and deployed AI solutions leveraging the AWS ecosystem with a focus
+                    on Generative AI to build scalable, client-centric applications.
+                  </li>
+                  <li>
+                    • Developed and maintained 10+ Generative AI-based microservices with
+                    industry-standard integrations using AWS Lambda, API Gateway, and OpenTelemetry
+                    for observability.
+                  </li>
+                  <li>
+                    • Architected scalable, serverless backends to support efficient retrieval and
+                    generation workflows across diverse application domains.
+                  </li>
+                </ul>
+              </AnimatedCard>
+
+              <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="flip" delay={0.3}>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">Research Intern</h3>
+                  <span className="text-sm text-gray-400">Chennai, IN</span>
+                </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-gray-300">
+                    <a
+                      href="https://www.iitm.ac.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-400 transition-colors underline decoration-emerald-500/40 underline-offset-4"
+                    >
+                      Indian Institute of Technology, Madras (IIT M)
+                    </a>
+                  </span>
+                  <span className="text-sm text-gray-300">Feb 2023 - Jul 2023</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>
+                    • Collaborated with the Department of Ocean Engineering to design and implement
+                    a machine learning-based anti-collision system, improving accuracy of existing
+                    solutions by over 28%.
+                  </li>
+                  <li>
+                    • Developed marine object detection, tracking, and localisation systems using
+                    stereo vision-based camera setups for alternative navigation in unmanned surface
+                    vehicles (USVs).
+                  </li>
+                  <li>
+                    • Worked with state-of-the-art computer vision models and successfully deployed
+                    the solution on edge-based IoT hardware for real-time maritime applications.
+                  </li>
+                </ul>
+              </AnimatedCard>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection id="projects" className="mb-12" aria-labelledby="projects-heading">
+            <motion.h2
+              id="projects-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -640,12 +820,16 @@ export default function Home() {
                   strokeWidth={2}
                   d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
-              </svg>
+              </motion.svg>
               Projects
-            </h2>
+            </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <AnimatedCard
+                className="glass rounded-lg p-6 shadow-lg h-full"
+                variant="bounce"
+                delay={0.1}
+              >
                 <h3 className="text-xl font-semibold text-white mb-2">PaperPilot</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Next.js, TailwindCSS, Python, Flask, Pinecone, Jina AI, LangChain
@@ -664,9 +848,13 @@ export default function Home() {
                     over 500+ papers with structured metadata extraction and citation analysis.
                   </li>
                 </ul>
-              </div>
+              </AnimatedCard>
 
-              <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <AnimatedCard
+                className="glass rounded-lg p-6 shadow-lg h-full"
+                variant="bounce"
+                delay={0.2}
+              >
                 <h3 className="text-xl font-semibold text-white mb-2">Open-KYC</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Next.js, OpenCV, TensorFlow, Tesseract, ShadCN, WebRTC
@@ -688,9 +876,13 @@ export default function Home() {
                     for end-to-end automation and production readiness.
                   </li>
                 </ul>
-              </div>
+              </AnimatedCard>
 
-              <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <AnimatedCard
+                className="glass rounded-lg p-6 shadow-lg h-full"
+                variant="bounce"
+                delay={0.3}
+              >
                 <h3 className="text-xl font-semibold text-white mb-2">Educative.AI</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Python, FastAPI, React.js, TailwindCSS, LLMs, TensorFlow
@@ -709,9 +901,13 @@ export default function Home() {
                     accessibility and productivity for students.
                   </li>
                 </ul>
-              </div>
+              </AnimatedCard>
 
-              <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <AnimatedCard
+                className="glass rounded-lg p-6 shadow-lg h-full"
+                variant="bounce"
+                delay={0.4}
+              >
                 <h3 className="text-xl font-semibold text-white mb-2">AI-RoadGuard</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   React.js, CNN, Flask, Python, TensorFlow
@@ -733,9 +929,13 @@ export default function Home() {
                     at MLH MesoHack 2022.
                   </li>
                 </ul>
-              </div>
+              </AnimatedCard>
 
-              <div className="glass rounded-lg p-6 shadow-lg h-full">
+              <AnimatedCard
+                className="glass rounded-lg p-6 shadow-lg h-full"
+                variant="bounce"
+                delay={0.5}
+              >
                 <h3 className="text-xl font-semibold text-white mb-2">OneMed</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   Python, Next.js, JavaScript, LLMs, Pinecone, MongoDB, AWS
@@ -758,7 +958,7 @@ export default function Home() {
                     .
                   </li>
                 </ul>
-              </div>
+              </AnimatedCard>
             </div>
 
             {/* More Projects on GitHub */}
@@ -826,15 +1026,26 @@ export default function Home() {
                 </div>
               </a>
             </div>
-          </section>
+          </AnimatedSection>
 
-          <section id="skills" className="mb-12" aria-labelledby="skills-heading">
-            <h2 id="skills-heading" className="section-title flex items-center gap-3">
-              <svg
+          <AnimatedSection id="skills" className="mb-12" aria-labelledby="skills-heading">
+            <motion.h2
+              id="skills-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -842,11 +1053,11 @@ export default function Home() {
                   strokeWidth={2}
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
-              </svg>
+              </motion.svg>
               Technical Skills
-            </h2>
+            </motion.h2>
 
-            <div className="glass rounded-lg p-6 shadow-lg">
+            <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-semibold text-emerald-400 mb-3">Languages</h3>
@@ -935,16 +1146,31 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </AnimatedCard>
+          </AnimatedSection>
 
-          <section id="publications" className="mb-12" aria-labelledby="publications-heading">
-            <h2 id="publications-heading" className="section-title flex items-center gap-3">
-              <svg
+          <AnimatedSection
+            id="publications"
+            className="mb-12"
+            aria-labelledby="publications-heading"
+          >
+            <motion.h2
+              id="publications-heading"
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -952,11 +1178,11 @@ export default function Home() {
                   strokeWidth={2}
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
-              </svg>
+              </motion.svg>
               Publications
-            </h2>
+            </motion.h2>
 
-            <div className="glass rounded-lg p-6 shadow-lg">
+            <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="fade" delay={0.1}>
               <div className="space-y-4">
                 <article
                   itemScope
@@ -1080,16 +1306,26 @@ export default function Home() {
                   </div>
                 </article>
               </div>
-            </div>
-          </section>
+            </AnimatedCard>
+          </AnimatedSection>
 
-          <section className="mb-12">
-            <h2 className="section-title flex items-center gap-3">
-              <svg
+          <AnimatedSection className="mb-12">
+            <motion.h2
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -1097,11 +1333,11 @@ export default function Home() {
                   strokeWidth={2}
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                 />
-              </svg>
+              </motion.svg>
               Achievements
-            </h2>
+            </motion.h2>
 
-            <div className="glass rounded-lg p-6 shadow-lg">
+            <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
               <ul className="space-y-4 text-sm text-gray-300">
                 <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center mt-0.5">
@@ -1171,16 +1407,26 @@ export default function Home() {
                   </span>
                 </li>
               </ul>
-            </div>
-          </section>
+            </AnimatedCard>
+          </AnimatedSection>
 
-          <section className="mb-12">
-            <h2 className="section-title flex items-center gap-3">
-              <svg
+          <AnimatedSection className="mb-12">
+            <motion.h2
+              className="section-title flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                initial={{ rotate: -180, scale: 0 }}
+                whileInView={{ rotate: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -1188,11 +1434,11 @@ export default function Home() {
                   strokeWidth={2}
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 />
-              </svg>
+              </motion.svg>
               Club and Contributions
-            </h2>
+            </motion.h2>
 
-            <div className="glass rounded-lg p-6 shadow-lg">
+            <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
               <ul className="space-y-4 text-sm text-gray-300">
                 <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 flex items-center justify-center mt-0.5">
@@ -1319,8 +1565,8 @@ export default function Home() {
                   </span>
                 </li>
               </ul>
-            </div>
-          </section>
+            </AnimatedCard>
+          </AnimatedSection>
 
           {/* Contact Form */}
           <ContactForm />

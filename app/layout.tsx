@@ -501,15 +501,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//medium.com" />
         <link rel="dns-prefetch" href="//cal.com" />
 
-        {/* Preload critical resources */}
+        {/* Preload CRITICAL resources for LCP - highest priority */}
         <link
           rel="preload"
           href="/aryan_image.jpeg"
           as="image"
           type="image/jpeg"
           fetchPriority="high"
+          imageSrcSet="/aryan_image.jpeg 1x"
         />
-        <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
+
+        {/* Preload Inter font for immediate text rendering */}
+        <link
+          rel="preload"
+          href="/_next/static/media/inter-cyrillic-ext-400-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         {/* Preconnect to critical third-party origins */}
         <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />

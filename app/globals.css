@@ -77,75 +77,84 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated gradient blobs */
+/* Animated gradient blobs - Enhanced with layered depth */
 body::before,
 body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.3;
+  filter: blur(100px);
+  opacity: 0.4;
   z-index: -1;
   pointer-events: none;
+  will-change: transform;
 }
 
 body::before {
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   background: radial-gradient(
-    circle,
-    rgba(16, 185, 129, 0.4) 0%,
-    rgba(6, 182, 212, 0.3) 50%,
+    ellipse at 30% 40%,
+    rgba(16, 185, 129, 0.5) 0%,
+    rgba(6, 182, 212, 0.35) 40%,
+    rgba(59, 130, 246, 0.15) 70%,
     transparent 100%
   );
   top: -200px;
   left: -200px;
-  animation: blob-float-1 20s ease-in-out infinite;
+  animation: blob-float-1 16s ease-in-out infinite;
 }
 
 body::after {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.4) 0%,
-    rgba(139, 92, 246, 0.3) 50%,
+    ellipse at 60% 50%,
+    rgba(139, 92, 246, 0.45) 0%,
+    rgba(59, 130, 246, 0.3) 40%,
+    rgba(16, 185, 129, 0.12) 70%,
     transparent 100%
   );
   bottom: -150px;
   right: -150px;
-  animation: blob-float-2 25s ease-in-out infinite;
+  animation: blob-float-2 20s ease-in-out infinite;
 }
 
 @keyframes blob-float-1 {
   0%,
   100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  25% {
-    transform: translate(100px, 100px) scale(1.1);
+  20% {
+    transform: translate3d(140px, 160px, 0) scale(1.2);
   }
-  50% {
-    transform: translate(200px, -50px) scale(0.9);
+  40% {
+    transform: translate3d(300px, -50px, 0) scale(0.85);
   }
-  75% {
-    transform: translate(-50px, 150px) scale(1.05);
+  60% {
+    transform: translate3d(180px, 240px, 0) scale(1.15);
+  }
+  80% {
+    transform: translate3d(-60px, 110px, 0) scale(0.9);
   }
 }
 
 @keyframes blob-float-2 {
   0%,
   100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
-  25% {
-    transform: translate(-150px, -100px) scale(1.15) rotate(90deg);
+  20% {
+    transform: translate3d(-180px, -120px, 0) scale(1.15) rotate(90deg);
   }
-  50% {
-    transform: translate(-100px, 100px) scale(0.85) rotate(180deg);
+  40% {
+    transform: translate3d(-250px, 80px, 0) scale(0.82) rotate(180deg);
   }
-  75% {
-    transform: translate(100px, -150px) scale(1.1) rotate(270deg);
+  60% {
+    transform: translate3d(-70px, 200px, 0) scale(1.22) rotate(270deg);
+  }
+  80% {
+    transform: translate3d(120px, -160px, 0) scale(0.88) rotate(360deg);
   }
 }
 
@@ -166,7 +175,6 @@ html {
     box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.37),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-    will-change: transform;
   }
 
   .glass-strong {
@@ -178,7 +186,6 @@ html {
     box-shadow:
       0 12px 48px 0 rgba(0, 0, 0, 0.45),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-    will-change: transform;
   }
 }
 
@@ -258,10 +265,69 @@ html {
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
   }
+
+  /* Reduce background complexity on mobile for performance */
+  .animate-blob-3,
+  .animate-blob-4 {
+    display: none;
+  }
+
+  .animate-aurora-2,
+  .animate-aurora-3 {
+    display: none;
+  }
+
+  .animate-mountain-back {
+    display: none;
+  }
+
+  body::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  body::after {
+    width: 350px;
+    height: 350px;
+  }
 }
 
-/* Hide decorative elements on low-end devices */
-@media (max-width: 480px), (prefers-reduced-motion: reduce) {
+/* Reduced motion and low-end device support */
+@media (prefers-reduced-motion: reduce) {
+  .section-title {
+    background: #10b981;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: none;
+  }
+
+  .animate-blob-1,
+  .animate-blob-2,
+  .animate-blob-3,
+  .animate-blob-4,
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3,
+  .animate-mountain-back,
+  .animate-mountain-mid,
+  .animate-mountain-front,
+  .animate-orb-1,
+  .animate-orb-2,
+  .animate-orb-3,
+  .animate-orb-4,
+  .animate-orb-5,
+  .avatar-float,
+  .avatar-glow {
+    animation: none;
+  }
+
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
   .section-title {
     background: #10b981;
     background-clip: text;
@@ -323,8 +389,11 @@ html {
 
   /* Interactive glass with hover state */
   .glass-hover {
-    @apply transition-all duration-300;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-hover:hover {
@@ -341,11 +410,11 @@ html {
   /* Light glass for navbar and subtle elements */
   .glass-light {
     @apply relative overflow-hidden;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(32px) saturate(150%);
-    -webkit-backdrop-filter: blur(32px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.35);
   }
 
   .gradient-text {
@@ -373,12 +442,17 @@ html {
     content: '';
     @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400/0 via-cyan-400/0 to-blue-400/0
            group-hover:from-emerald-400/5 group-hover:via-cyan-400/5 group-hover:to-blue-400/5
-           transition-all duration-500 pointer-events-none;
+           pointer-events-none;
+    transition: opacity 0.3s ease;
   }
 
   /* Skill tags with pill-shaped glass */
   .skill-tag {
-    @apply px-3 py-1.5 rounded-full text-sm transition-all duration-200 cursor-default inline-flex items-center;
+    @apply px-3 py-1.5 rounded-full text-sm cursor-default inline-flex items-center;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -395,140 +469,349 @@ html {
   }
 }
 
-/* Animated blob utilities */
+/* Subtle grid pattern for background depth */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================
+   Dramatic blob animations — large morphing motion
+   Only transform & opacity for GPU compositing
+   ============================================ */
 @keyframes blob-1 {
   0%,
   100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  33% {
-    transform: translate(80px, -80px) scale(1.2) rotate(120deg);
+  20% {
+    transform: translate3d(120px, 80px, 0) scale(1.25);
   }
-  66% {
-    transform: translate(-60px, 100px) scale(0.9) rotate(240deg);
+  40% {
+    transform: translate3d(260px, -60px, 0) scale(0.8);
+  }
+  60% {
+    transform: translate3d(150px, 200px, 0) scale(1.18);
+  }
+  80% {
+    transform: translate3d(-80px, 100px, 0) scale(0.88);
   }
 }
 
 @keyframes blob-2 {
   0%,
   100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
-  33% {
-    transform: translate(-100px, 80px) scale(1.1) rotate(-120deg);
+  20% {
+    transform: translate3d(-160px, -110px, 0) scale(1.22) rotate(72deg);
   }
-  66% {
-    transform: translate(120px, -60px) scale(0.95) rotate(-240deg);
+  40% {
+    transform: translate3d(-230px, 80px, 0) scale(0.78) rotate(144deg);
+  }
+  60% {
+    transform: translate3d(-60px, 190px, 0) scale(1.25) rotate(216deg);
+  }
+  80% {
+    transform: translate3d(130px, -150px, 0) scale(0.82) rotate(288deg);
   }
 }
 
 @keyframes blob-3 {
   0%,
   100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(100px, -140px, 0) scale(1.22);
+  }
+  50% {
+    transform: translate3d(-130px, -40px, 0) scale(0.78);
+  }
+  75% {
+    transform: translate3d(-170px, 100px, 0) scale(1.14);
+  }
+}
+
+@keyframes blob-4 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
   33% {
-    transform: translate(60px, 100px) scale(1.15);
+    transform: translate3d(110px, -100px, 0) scale(1.18) rotate(120deg);
   }
   66% {
-    transform: translate(-80px, -80px) scale(0.85);
+    transform: translate3d(-100px, 120px, 0) scale(0.82) rotate(240deg);
   }
 }
 
 .animate-blob-1 {
-  animation: blob-1 30s ease-in-out infinite;
+  animation: blob-1 18s ease-in-out infinite;
+  will-change: transform;
 }
-
 .animate-blob-2 {
-  animation: blob-2 35s ease-in-out infinite;
-  animation-delay: 2s;
+  animation: blob-2 22s ease-in-out infinite;
+  animation-delay: 1s;
+  will-change: transform;
 }
-
 .animate-blob-3 {
-  animation: blob-3 40s ease-in-out infinite;
+  animation: blob-3 20s ease-in-out infinite;
+  animation-delay: 3s;
+  will-change: transform;
+}
+.animate-blob-4 {
+  animation: blob-4 25s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform;
+}
+
+/* ============================================
+   Aurora animations — shimmering light curtains
+   translateX + scaleX + skewY for curtain effect
+   ============================================ */
+@keyframes aurora-1 {
+  0%,
+  100% {
+    transform: translateX(-15%) scaleX(1) skewY(-2deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(10%) scaleX(1.3) skewY(-1deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-5%) scaleX(0.8) skewY(-3deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateX(15%) scaleX(1.1) skewY(-1.5deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes aurora-2 {
+  0%,
+  100% {
+    transform: translateX(10%) scaleX(1) skewY(1deg);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translateX(-20%) scaleX(1.2) skewY(2.5deg);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translateX(15%) scaleX(0.85) skewY(0.5deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes aurora-3 {
+  0%,
+  100% {
+    transform: translateX(-10%) scaleX(1.1) skewY(-3deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(20%) scaleX(0.9) skewY(-1deg);
+    opacity: 0.8;
+  }
+}
+
+.animate-aurora-1 {
+  animation: aurora-1 15s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.animate-aurora-2 {
+  animation: aurora-2 18s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform, opacity;
+}
+.animate-aurora-3 {
+  animation: aurora-3 22s ease-in-out infinite;
   animation-delay: 4s;
+  will-change: transform, opacity;
 }
 
-/* Animated wave utilities */
-@keyframes wave-1 {
+/* ============================================
+   Mountain parallax drift — slow horizontal pan
+   Each layer drifts at different speeds for depth
+   ============================================ */
+@keyframes mountain-back {
   0%,
   100% {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
   }
   50% {
-    transform: translateX(-25%) translateY(-10px);
+    transform: translateX(-8%);
   }
 }
 
-@keyframes wave-2 {
+@keyframes mountain-mid {
   0%,
   100% {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
   }
   50% {
-    transform: translateX(25%) translateY(-15px);
+    transform: translateX(-12%);
   }
 }
 
-@keyframes wave-3 {
+@keyframes mountain-front {
   0%,
   100% {
-    transform: translateX(0) translateY(0) scaleX(1);
+    transform: translateX(0);
   }
   50% {
-    transform: translateX(-20%) translateY(10px) scaleX(1.05);
+    transform: translateX(-16%);
   }
 }
 
-@keyframes wave-4 {
+.animate-mountain-back {
+  animation: mountain-back 40s ease-in-out infinite;
+  will-change: transform;
+}
+.animate-mountain-mid {
+  animation: mountain-mid 32s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform;
+}
+.animate-mountain-front {
+  animation: mountain-front 26s ease-in-out infinite;
+  animation-delay: 4s;
+  will-change: transform;
+}
+
+/* ============================================
+   Floating orb animations — glowing particles
+   Drift with opacity pulse for firefly effect
+   ============================================ */
+@keyframes orb-1 {
   0%,
   100% {
-    transform: translateX(0) translateY(0) scaleX(1);
+    transform: translate3d(0, 0, 0);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate3d(50px, -40px, 0);
+    opacity: 1;
   }
   50% {
-    transform: translateX(20%) translateY(15px) scaleX(0.95);
+    transform: translate3d(-30px, -80px, 0);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate3d(40px, -20px, 0);
+    opacity: 0.8;
   }
 }
 
-.animate-wave-1 {
-  animation: wave-1 25s ease-in-out infinite;
+@keyframes orb-2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate3d(-45px, 35px, 0);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translate3d(35px, -55px, 0);
+    opacity: 0.5;
+  }
 }
 
-.animate-wave-2 {
-  animation: wave-2 30s ease-in-out infinite;
+@keyframes orb-3 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  25% {
+    transform: translate3d(60px, 25px, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-25px, 65px, 0);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate3d(-55px, -35px, 0);
+    opacity: 0.9;
+  }
+}
+
+@keyframes orb-4 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(-40px, -60px, 0);
+    opacity: 0.85;
+  }
+}
+
+@keyframes orb-5 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate3d(30px, -40px, 0);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate3d(-25px, 30px, 0);
+    opacity: 1;
+  }
+}
+
+.animate-orb-1 {
+  animation: orb-1 12s ease-in-out infinite;
+}
+.animate-orb-2 {
+  animation: orb-2 15s ease-in-out infinite;
   animation-delay: 1s;
 }
-
-.animate-wave-3 {
-  animation: wave-3 35s ease-in-out infinite;
+.animate-orb-3 {
+  animation: orb-3 18s ease-in-out infinite;
   animation-delay: 2s;
 }
-
-.animate-wave-4 {
-  animation: wave-4 40s ease-in-out infinite;
+.animate-orb-4 {
+  animation: orb-4 14s ease-in-out infinite;
   animation-delay: 3s;
+}
+.animate-orb-5 {
+  animation: orb-5 16s ease-in-out infinite;
+  animation-delay: 1.5s;
 }
 
 /* Avatar animations */
 @keyframes avatar-float {
   0%,
   100% {
-    transform: translateY(0) scale(1) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-14px) scale(1.03) rotate(-1.5deg);
+    transform: translateY(-6px);
   }
 }
 
 @keyframes avatar-glow {
   0%,
   100% {
-    opacity: 0.22;
+    opacity: 0.2;
     transform: scale(1);
   }
   50% {
-    opacity: 0.48;
-    transform: scale(1.1);
+    opacity: 0.35;
+    transform: scale(1.04);
   }
 }
 
@@ -541,9 +824,9 @@ html {
 }
 
 .avatar-hover {
-  transition: transform 500ms ease;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .avatar-hover:hover {
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-3px) scale(1.02);
 }

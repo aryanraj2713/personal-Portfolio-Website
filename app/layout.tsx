@@ -148,10 +148,11 @@ export const metadata: Metadata = {
   category: 'Technology',
   classification: 'Portfolio Website',
   other: {
-    'geo.region': 'IN',
-    'geo.placename': 'India',
-    'geo.position': '28.6139;77.2090',
-    ICBM: '28.6139, 77.2090',
+    // Geo-targeting for Hyderabad, India (current location)
+    'geo.region': 'IN-TG',
+    'geo.placename': 'Hyderabad, Telangana, India',
+    'geo.position': '17.3850;78.4867',
+    ICBM: '17.3850, 78.4867',
     // Additional SEO meta tags
     'article:author': 'Aryan Raj',
     'article:published_time': '2024-01-01T00:00:00Z',
@@ -159,6 +160,8 @@ export const metadata: Metadata = {
     'application-name': 'Aryan Raj Portfolio',
     'apple-mobile-web-app-title': 'Aryan Raj',
     'format-detection': 'telephone=yes',
+    // Content language for international targeting
+    'content-language': 'en',
   },
 }
 
@@ -201,12 +204,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           },
         },
       ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Hyderabad',
+        addressRegion: 'Telangana',
+        addressCountry: 'IN',
+      },
+      nationality: {
+        '@type': 'Country',
+        name: 'India',
+      },
       worksFor: [
         {
           '@type': 'Organization',
           name: 'Valuelabs',
           jobTitle: 'Software Engineer (AI/ML)',
           startDate: '2025-12',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Hyderabad',
+            addressRegion: 'Telangana',
+            addressCountry: 'IN',
+          },
         },
         {
           '@type': 'Organization',
@@ -214,6 +233,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           jobTitle: 'Machine Learning Engineer',
           startDate: '2025-09',
           endDate: '2025-12',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Hyderabad',
+            addressRegion: 'Telangana',
+            addressCountry: 'IN',
+          },
         },
         {
           '@type': 'Organization',
@@ -224,7 +249,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Bengaluru',
-            addressCountry: 'India',
+            addressRegion: 'Karnataka',
+            addressCountry: 'IN',
           },
         },
       ],
@@ -344,63 +370,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://www.aryanraj.cv#home',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Book a Meeting',
-          item: 'https://www.aryanraj.cv#book-meeting',
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'About',
-          item: 'https://www.aryanraj.cv#about',
-        },
-        {
-          '@type': 'ListItem',
-          position: 4,
-          name: 'Education',
-          item: 'https://www.aryanraj.cv#education',
-        },
-        {
-          '@type': 'ListItem',
-          position: 5,
-          name: 'Experience',
-          item: 'https://www.aryanraj.cv#experience',
-        },
-        {
-          '@type': 'ListItem',
-          position: 6,
-          name: 'Internships',
-          item: 'https://www.aryanraj.cv#internships',
-        },
-        {
-          '@type': 'ListItem',
-          position: 7,
-          name: 'Projects',
-          item: 'https://www.aryanraj.cv#projects',
-        },
-        {
-          '@type': 'ListItem',
-          position: 8,
-          name: 'Skills',
-          item: 'https://www.aryanraj.cv#skills',
-        },
-        {
-          '@type': 'ListItem',
-          position: 9,
-          name: 'Publications',
-          item: 'https://www.aryanraj.cv#publications',
-        },
-        {
-          '@type': 'ListItem',
-          position: 10,
-          name: 'Contact',
-          item: 'https://www.aryanraj.cv#contact',
+          item: 'https://www.aryanraj.cv',
         },
       ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
+      description:
+        'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
+      url: 'https://www.aryanraj.cv',
+      dateModified: new Date().toISOString(),
+      inLanguage: 'en-US',
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'Aryan Raj Portfolio',
+        url: 'https://www.aryanraj.cv',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Aryan Raj',
+        url: 'https://www.aryanraj.cv',
+      },
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', '.gradient-text', '.section-title'],
+      },
     },
     {
       '@context': 'https://schema.org',
@@ -410,18 +406,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Hyderabad',
-        addressCountry: 'India',
+        addressRegion: 'Telangana',
+        addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 17.385,
+        longitude: 78.4867,
       },
     },
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'HyperVerge',
-      url: 'https://hyperverge.ai',
+      url: 'https://hyperverge.co',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bengaluru',
-        addressCountry: 'India',
+        addressRegion: 'Karnataka',
+        addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 12.9716,
+        longitude: 77.5946,
       },
     },
     {
@@ -435,7 +443,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         '@type': 'Person',
         name: 'Aryan Raj',
       },
-      areaServed: 'Worldwide',
+      areaServed: [
+        {
+          '@type': 'Country',
+          name: 'India',
+        },
+        {
+          '@type': 'Place',
+          name: 'Worldwide',
+        },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Hyderabad',
+        addressRegion: 'Telangana',
+        addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 17.385,
+        longitude: 78.4867,
+      },
       serviceType: [
         'Machine Learning Engineering',
         'Backend Development',
@@ -443,6 +471,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         'LLM Integration',
         'Computer Vision',
         'RAG Systems',
+        'AI Agent Development',
+        'Data Analytics',
       ],
     },
   ]
@@ -466,7 +496,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         <link rel="apple-touch-icon" href="/icon-512.png" sizes="512x512" />
-        <link rel="manifest" href="/manifest.json" />
 
         {/* Additional SEO Meta Tags */}
         <meta name="language" content="English" />

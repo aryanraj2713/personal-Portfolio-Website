@@ -1,21 +1,31 @@
+'use client'
+
 import Image from 'next/image'
+import { motion, useReducedMotion } from 'framer-motion'
 
 /**
- * Static Hero Section - No JavaScript required
- * Optimized for instant LCP (Largest Contentful Paint)
- * Progressive enhancement with animations loaded later
+ * Hero Section - Optimized for LCP with progressive animation
+ * Profile image loads with priority for fast LCP
+ * Animations enhance after initial render
  */
 export default function StaticHero() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <div id="home" className="text-center mb-12">
       {/* Avatar - Critical for LCP */}
-      <div className="flex justify-center mt-10 md:mt-16 mb-6">
-        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 relative">
+      <motion.div
+        className="flex justify-center mt-10 md:mt-16 mb-6"
+        initial={reduceMotion ? undefined : { opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 relative avatar-hover">
           {/* Gradient ring */}
           <div className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-tr from-emerald-400/70 via-cyan-400/70 to-blue-400/70 shadow-2xl">
             {/* Glow effect */}
             <div
-              className="absolute -inset-3 rounded-full blur-2xl opacity-25 bg-emerald-400/50"
+              className="absolute -inset-3 rounded-full blur-2xl opacity-25 bg-emerald-400/50 avatar-glow"
               aria-hidden
             />
 
@@ -36,16 +46,41 @@ export default function StaticHero() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Name - Critical content */}
-      <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">Aryan Raj</h1>
+      <motion.h1
+        className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight"
+        initial={reduceMotion ? undefined : { opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }
+        }
+      >
+        Aryan Raj
+      </motion.h1>
 
       {/* Title */}
-      <p className="text-xl text-gray-300 mb-6">Machine Learning Engineer & Backend Developer</p>
+      <motion.p
+        className="text-xl text-gray-300 mb-6"
+        initial={reduceMotion ? undefined : { opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }
+        }
+      >
+        Machine Learning Engineer & Backend Developer
+      </motion.p>
 
-      {/* Contact Info - Static version */}
-      <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-300">
+      {/* Contact Info */}
+      <motion.div
+        className="flex flex-wrap justify-center gap-4 text-sm text-gray-300"
+        initial={reduceMotion ? undefined : { opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }
+        }
+      >
         <div className="flex items-center gap-2">
           <svg
             className="w-4 h-4 text-emerald-400"
@@ -81,7 +116,7 @@ export default function StaticHero() {
           </svg>
           <a
             href="mailto:aryanraj2713@gmail.com"
-            className="hover:text-emerald-400 transition-colors"
+            className="hover:text-emerald-400 transition-colors duration-200"
           >
             aryanraj2713@gmail.com
           </a>
@@ -100,7 +135,7 @@ export default function StaticHero() {
             href="https://www.linkedin.com/in/aryanraj13/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors"
+            className="hover:text-emerald-400 transition-colors duration-200"
           >
             LinkedIn
           </a>
@@ -119,7 +154,7 @@ export default function StaticHero() {
             href="https://github.com/aryanraj2713"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors"
+            className="hover:text-emerald-400 transition-colors duration-200"
           >
             GitHub
           </a>
@@ -138,7 +173,7 @@ export default function StaticHero() {
             href="https://x.com/aryanraj2713"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors"
+            className="hover:text-emerald-400 transition-colors duration-200"
           >
             X
           </a>
@@ -157,12 +192,12 @@ export default function StaticHero() {
             href="https://medium.com/@aryanraj2713"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors"
+            className="hover:text-emerald-400 transition-colors duration-200"
           >
             Medium
           </a>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

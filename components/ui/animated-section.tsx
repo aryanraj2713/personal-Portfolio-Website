@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef, ReactNode } from 'react'
 
 interface AnimatedSectionProps {
@@ -8,24 +8,39 @@ interface AnimatedSectionProps {
   id?: string
   className?: string
   delay?: number
+  'aria-labelledby'?: string
 }
 
-const AnimatedSection = ({ children, id, className = '', delay = 0 }: AnimatedSectionProps) => {
+const AnimatedSection = ({
+  children,
+  id,
+  className = '',
+  delay = 0,
+  'aria-labelledby': ariaLabelledby,
+}: AnimatedSectionProps) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const reduceMotion = useReducedMotion()
 
   return (
     <motion.section
       ref={ref}
       id={id}
       className={className}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.21, 0.45, 0.27, 0.9],
-      }}
+      aria-labelledby={ariaLabelledby}
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+      animate={
+        isInView ? { opacity: 1, y: 0 } : reduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }
+      }
+      transition={
+        reduceMotion
+          ? { duration: 0 }
+          : {
+              duration: 0.6,
+              delay,
+              ease: [0.22, 1, 0.36, 1],
+            }
+      }
     >
       {children}
     </motion.section>

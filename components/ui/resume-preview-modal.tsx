@@ -41,7 +41,7 @@ const ResumePreviewModal: React.FC<ResumePreviewModalProps> = ({ isOpen, onClose
             {/* Download button */}
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 rounded-lg transition-all duration-200"
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 rounded-lg transition-colors duration-200"
             >
               <svg
                 className="w-4 h-4 text-emerald-400"
@@ -109,7 +109,7 @@ const ResumePreviewModal: React.FC<ResumePreviewModalProps> = ({ isOpen, onClose
                   <p className="text-gray-400 text-sm mt-1">{error}</p>
                   <button
                     onClick={handleDownload}
-                    className="mt-4 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 rounded-lg transition-all duration-200 text-emerald-400 text-sm"
+                    className="mt-4 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 rounded-lg transition-colors duration-200 text-emerald-400 text-sm"
                   >
                     Download Resume
                   </button>

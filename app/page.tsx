@@ -25,12 +25,95 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      {/* Simplified background - no heavy animations that block rendering */}
+      {/* Immersive animated background with blobs, aurora, mountains & orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Static gradient blobs - no animation on initial load */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-[25rem] h-[25rem] bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent rounded-full blur-3xl"></div>
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+
+        {/* Large morphing blobs — vivid, dramatic */}
+        <div className="absolute top-[-10%] left-[-5%] w-[45rem] h-[45rem] bg-gradient-to-br from-emerald-500/35 via-cyan-500/20 to-transparent rounded-full blur-3xl animate-blob-1" />
+        <div className="absolute top-[30%] right-[-8%] w-[50rem] h-[50rem] bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-transparent rounded-full blur-3xl animate-blob-2" />
+        <div className="absolute bottom-[-5%] left-[15%] w-[42rem] h-[42rem] bg-gradient-to-br from-purple-500/25 via-pink-500/15 to-transparent rounded-full blur-3xl animate-blob-3" />
+        <div className="absolute top-[50%] left-[40%] w-[38rem] h-[38rem] bg-gradient-to-br from-cyan-500/20 via-emerald-500/12 to-transparent rounded-full blur-3xl animate-blob-4" />
+
+        {/* Aurora bands — shimmering horizontal light curtains */}
+        <div className="absolute top-[10%] left-0 right-0 h-[350px] animate-aurora-1">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-emerald-500/[0.12] to-transparent blur-3xl" />
+        </div>
+        <div className="absolute top-[40%] left-0 right-0 h-[280px] animate-aurora-2">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-cyan-500/[0.10] to-transparent blur-3xl" />
+        </div>
+        <div className="absolute top-[65%] left-0 right-0 h-[220px] animate-aurora-3">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-purple-500/[0.08] to-transparent blur-3xl" />
+        </div>
+
+        {/* Mountain silhouettes — 3 parallax layers */}
+        <svg
+          className="absolute bottom-0 left-0 w-[200%] h-[35vh] min-h-[200px] animate-mountain-back"
+          preserveAspectRatio="none"
+          viewBox="0 0 2400 400"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="mtn-back" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgb(16, 185, 129)" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="rgb(15, 23, 42)" stopOpacity="0.6" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0 400 L0 280 Q150 120 300 220 Q450 80 600 180 Q750 40 900 160 Q1050 60 1200 200 Q1350 100 1500 160 Q1650 20 1800 140 Q1950 80 2100 220 Q2250 140 2400 280 L2400 400Z"
+            fill="url(#mtn-back)"
+          />
+        </svg>
+        <svg
+          className="absolute bottom-0 left-0 w-[180%] h-[28vh] min-h-[160px] animate-mountain-mid"
+          preserveAspectRatio="none"
+          viewBox="0 0 2400 400"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="mtn-mid" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgb(6, 182, 212)" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="rgb(15, 23, 42)" stopOpacity="0.75" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0 400 L0 310 Q200 160 400 250 Q600 120 800 210 Q1000 80 1200 230 Q1400 140 1600 190 Q1800 60 2000 240 Q2200 160 2400 310 L2400 400Z"
+            fill="url(#mtn-mid)"
+          />
+        </svg>
+        <svg
+          className="absolute bottom-0 left-0 w-[160%] h-[22vh] min-h-[130px] animate-mountain-front"
+          preserveAspectRatio="none"
+          viewBox="0 0 2400 400"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="mtn-front" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="rgb(15, 23, 42)" stopOpacity="0.9" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0 400 L0 340 Q300 220 600 300 Q900 180 1200 270 Q1500 220 1800 290 Q2100 240 2400 340 L2400 400Z"
+            fill="url(#mtn-front)"
+          />
+        </svg>
+
+        {/* Floating orbs — glowing particles */}
+        <div className="absolute top-[20%] left-[15%] w-3 h-3 bg-emerald-400/50 rounded-full blur-[2px] animate-orb-1 shadow-lg shadow-emerald-400/30" />
+        <div className="absolute top-[60%] left-[70%] w-2 h-2 bg-cyan-400/40 rounded-full blur-[1px] animate-orb-2 shadow-md shadow-cyan-400/20" />
+        <div className="absolute top-[35%] left-[82%] w-4 h-4 bg-blue-400/30 rounded-full blur-[3px] animate-orb-3 shadow-lg shadow-blue-400/20" />
+        <div className="absolute top-[75%] left-[25%] w-2.5 h-2.5 bg-purple-400/40 rounded-full blur-[2px] animate-orb-4 shadow-md shadow-purple-400/25" />
+        <div className="absolute top-[10%] left-[55%] w-1.5 h-1.5 bg-emerald-300/60 rounded-full animate-orb-5" />
+        <div className="absolute top-[88%] left-[45%] w-2 h-2 bg-cyan-300/35 rounded-full blur-[1px] animate-orb-1" />
+        <div className="absolute top-[45%] left-[5%] w-3 h-3 bg-purple-300/25 rounded-full blur-[2px] animate-orb-3" />
+        <div className="absolute top-[52%] left-[92%] w-1.5 h-1.5 bg-blue-300/45 rounded-full animate-orb-2" />
+        <div className="absolute top-[8%] left-[35%] w-2 h-2 bg-emerald-400/35 rounded-full blur-[1px] animate-orb-4" />
+        <div className="absolute top-[68%] left-[88%] w-3 h-3 bg-cyan-400/25 rounded-full blur-[2px] animate-orb-5" />
+
+        {/* Bottom fade overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-slate-900/60" />
       </div>
 
       <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8 relative">
@@ -63,7 +146,7 @@ export default function Home() {
             {/* Liquid Glass Container - Apple Style */}
             <div className="relative group">
               {/* Background gradient glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/30 via-cyan-500/30 to-blue-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/30 via-cyan-500/30 to-blue-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
 
               {/* Main liquid glass card */}
               <div className="relative rounded-3xl p-8 backdrop-blur-2xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden">
@@ -76,7 +159,7 @@ export default function Home() {
                   <div className="flex-shrink-0">
                     <div className="relative group/icon">
                       {/* Icon container with liquid glass */}
-                      <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover/icon:scale-105 group-hover/icon:rotate-3">
+                      <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center shadow-xl transition-transform duration-300 group-hover/icon:scale-[1.02]">
                         {/* Inner glow */}
                         <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 blur-2xl"></div>
 
@@ -109,7 +192,7 @@ export default function Home() {
 
                     {/* Meeting topics with liquid glass pills */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-emerald-400/30">
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-colors duration-200 hover:bg-white/10 hover:border-emerald-400/30">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-300 shadow-lg shadow-emerald-400/50"></div>
                           <span className="text-white/90 text-sm font-medium">
@@ -118,7 +201,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-cyan-400/30">
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-colors duration-200 hover:bg-white/10 hover:border-cyan-400/30">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 shadow-lg shadow-cyan-400/50"></div>
                           <span className="text-white/90 text-sm font-medium">
@@ -127,7 +210,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-blue-400/30">
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-colors duration-200 hover:bg-white/10 hover:border-blue-400/30">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-300 shadow-lg shadow-blue-400/50"></div>
                           <span className="text-white/90 text-sm font-medium">
@@ -136,7 +219,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 hover:border-purple-400/30">
+                      <div className="group/item backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 transition-colors duration-200 hover:bg-white/10 hover:border-purple-400/30">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-purple-300 shadow-lg shadow-purple-400/50"></div>
                           <span className="text-white/90 text-sm font-medium">Seek mentorship</span>
@@ -154,12 +237,12 @@ export default function Home() {
                         hover:from-emerald-400 hover:to-cyan-400
                         border border-white/20 shadow-2xl shadow-emerald-500/25
                         text-white font-semibold text-base
-                        transform transition-all duration-500 ease-out
-                        hover:scale-[1.02] hover:shadow-emerald-500/40 hover:-translate-y-0.5
+                        transition-transform duration-300 ease-out
+                        hover:scale-[1.02] hover:-translate-y-0.5
                         active:scale-[0.98]"
                     >
                       <svg
-                        className="w-5 h-5 transition-transform duration-500 group-hover/btn:rotate-12"
+                        className="w-5 h-5 transition-transform duration-300 group-hover/btn:rotate-6"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -173,7 +256,7 @@ export default function Home() {
                       </svg>
                       <span>Schedule a 30-Minute Meeting</span>
                       <svg
-                        className="w-4 h-4 transition-transform duration-500 group-hover/btn:translate-x-1"
+                        className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -204,15 +287,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -232,7 +311,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
                 />
-              </motion.svg>
+              </svg>
               Education
             </motion.h2>
             <div className="space-y-6">
@@ -291,15 +370,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -307,7 +382,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
-              </motion.svg>
+              </svg>
               Experience
             </motion.h2>
 
@@ -396,15 +471,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -412,7 +483,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 />
-              </motion.svg>
+              </svg>
               Internships
             </motion.h2>
 
@@ -539,15 +610,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -555,7 +622,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
-              </motion.svg>
+              </svg>
               Projects
             </motion.h2>
 
@@ -705,24 +772,15 @@ export default function Home() {
                 className="group relative overflow-hidden glass rounded-xl px-8 py-6 border-2 border-transparent
                 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20
                 hover:from-purple-500/30 hover:via-blue-500/30 hover:to-cyan-500/30
-                hover:border-purple-400/50 transform transition-all duration-300 ease-out
-                hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+                hover:border-purple-400/50 transition-transform duration-300 ease-out
+                hover:scale-[1.02] hover:-translate-y-0.5"
               >
-                {/* Animated background gradient */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-cyan-400/10
-                transform transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
-                />
-
-                {/* Shimmer effect */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
-                transform transition-transform duration-1000 ease-out group-hover:translate-x-full -translate-x-full"
-                />
+                {/* Static background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-cyan-400/10" />
 
                 <div className="relative flex items-center gap-4">
                   {/* GitHub icon */}
-                  <div className="transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+                  <div className="transition-transform duration-200 group-hover:scale-[1.03]">
                     <svg
                       className="w-8 h-8 text-purple-400"
                       fill="currentColor"
@@ -743,7 +801,7 @@ export default function Home() {
                   </div>
 
                   {/* Arrow icon */}
-                  <div className="ml-2 transform transition-all duration-300 group-hover:translate-x-1 opacity-60 group-hover:opacity-100">
+                  <div className="ml-2 transition-transform duration-200 group-hover:translate-x-1 opacity-60 group-hover:opacity-100">
                     <svg
                       className="w-5 h-5 text-purple-400"
                       fill="none"
@@ -772,15 +830,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -788,7 +842,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
-              </motion.svg>
+              </svg>
               Technical Skills
             </motion.h2>
 
@@ -897,15 +951,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -913,7 +963,7 @@ export default function Home() {
                   strokeWidth={2}
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
-              </motion.svg>
+              </svg>
               Publications
             </motion.h2>
 
@@ -1052,15 +1102,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -1068,13 +1114,13 @@ export default function Home() {
                   strokeWidth={2}
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                 />
-              </motion.svg>
+              </svg>
               Achievements
             </motion.h2>
 
             <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
               <ul className="space-y-4 text-sm text-gray-300">
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center mt-0.5">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
@@ -1090,7 +1136,7 @@ export default function Home() {
                     solution that streamlined identity verification processes.
                   </span>
                 </li>
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-400 to-gray-500 flex items-center justify-center mt-0.5">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
@@ -1107,7 +1153,7 @@ export default function Home() {
                     Pune.
                   </span>
                 </li>
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center mt-0.5">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -1120,7 +1166,7 @@ export default function Home() {
                     <em>AI-Roadguard</em>.
                   </span>
                 </li>
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center mt-0.5">
                     <svg
                       className="w-3 h-3 text-white"
@@ -1153,15 +1199,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <motion.svg
+              <svg
                 className="w-7 h-7 text-emerald-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                initial={{ rotate: -180, scale: 0 }}
-                whileInView={{ rotate: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
               >
                 <path
                   strokeLinecap="round"
@@ -1169,13 +1211,13 @@ export default function Home() {
                   strokeWidth={2}
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 />
-              </motion.svg>
+              </svg>
               Club and Contributions
             </motion.h2>
 
             <AnimatedCard className="glass rounded-lg p-6 shadow-lg" variant="scale" delay={0.1}>
               <ul className="space-y-4 text-sm text-gray-300">
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 flex items-center justify-center mt-0.5">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
@@ -1192,7 +1234,7 @@ export default function Home() {
                     GitHub.
                   </span>
                 </li>
-                <li className="flex items-start gap-3 hover:scale-105 transition-transform duration-300">
+                <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center mt-0.5">
                     <svg
                       className="w-3 h-3 text-white"

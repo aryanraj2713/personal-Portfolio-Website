@@ -105,8 +105,8 @@ const ContactForm = () => {
           <div className="space-y-4">
             {/* Email Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-emerald-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-emerald-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-emerald-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 via-cyan-400 to-blue-500 p-0.5">
@@ -158,8 +158,8 @@ const ContactForm = () => {
 
             {/* LinkedIn Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-blue-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-blue-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-blue-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-500 p-0.5">
@@ -206,8 +206,8 @@ const ContactForm = () => {
 
             {/* GitHub Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-rose-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-rose-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-purple-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-400 via-pink-500 to-rose-500 p-0.5">
@@ -254,8 +254,8 @@ const ContactForm = () => {
 
             {/* X Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-sky-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-sky-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-sky-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 via-blue-500 to-cyan-500 p-0.5">
@@ -303,8 +303,8 @@ const ContactForm = () => {
 
             {/* Medium Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-green-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-green-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-green-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 via-emerald-500 to-teal-500 p-0.5">
@@ -352,8 +352,8 @@ const ContactForm = () => {
 
             {/* Phone Card */}
             <div className="group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-green-400/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-500/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative glass rounded-2xl p-6 border border-white/10 hover:border-green-400/30 transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:shadow-green-500/20">
                 <div className="flex items-center gap-5">
                   <div className="relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 via-emerald-500 to-teal-500 p-0.5">
@@ -421,7 +421,7 @@ const ContactForm = () => {
                     required
                     className="w-full px-4 py-2.5 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white
                       placeholder-gray-400 focus:border-emerald-400/50 focus:bg-white/10 focus:ring-2 focus:ring-emerald-400/20
-                      transition-all duration-200 focus:outline-none"
+                      transition-colors duration-200 focus:outline-none"
                     placeholder="Your name"
                   />
                 </div>
@@ -438,7 +438,7 @@ const ContactForm = () => {
                     required
                     className="w-full px-4 py-2.5 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white
                       placeholder-gray-400 focus:border-emerald-400/50 focus:bg-white/10 focus:ring-2 focus:ring-emerald-400/20
-                      transition-all duration-200 focus:outline-none"
+                      transition-colors duration-200 focus:outline-none"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -456,7 +456,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white
                     placeholder-gray-400 focus:border-emerald-400/50 focus:bg-white/10 focus:ring-2 focus:ring-emerald-400/20
-                    transition-all duration-200 focus:outline-none"
+                    transition-colors duration-200 focus:outline-none"
                   placeholder="What's this about?"
                 />
               </div>
@@ -474,7 +474,7 @@ const ContactForm = () => {
                   rows={10}
                   className="w-full px-4 py-2.5 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white
                     placeholder-gray-400 focus:border-emerald-400/50 focus:bg-white/10 focus:ring-2 focus:ring-emerald-400/20
-                    transition-all duration-200 focus:outline-none resize-none min-h-[120px] sm:min-h-[240px] md:min-h-[280px]"
+                    transition-colors duration-200 focus:outline-none resize-none min-h-[120px] sm:min-h-[240px] md:min-h-[280px]"
                   placeholder="Tell me about your project or how we can work together..."
                 />
               </div>
@@ -488,7 +488,7 @@ const ContactForm = () => {
                     hover:from-emerald-500/20 hover:to-cyan-500/20
                     border border-emerald-400/30 hover:border-emerald-400/50
                     active:scale-[0.98]
-                    transition-all duration-200
+                    transition-colors duration-200
                     disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -526,7 +526,7 @@ const ContactForm = () => {
                     hover:from-yellow-500/20 hover:to-red-500/20
                     border border-yellow-400/30 hover:border-yellow-400/50
                     active:scale-[0.98]
-                    transition-all duration-200"
+                    transition-colors duration-200"
                 >
                   <div className="flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
@@ -579,37 +579,20 @@ const ContactForm = () => {
                 group relative overflow-hidden glass rounded-2xl px-8 py-5 border-2 border-transparent
                 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-emerald-500/20
                 hover:from-cyan-500/30 hover:via-blue-500/30 hover:to-emerald-500/30
-                hover:border-cyan-400/50 transform transition-all duration-300 ease-out
-                ${isHovered ? 'scale-105 shadow-2xl shadow-cyan-500/25' : 'scale-100'}
+                hover:border-cyan-400/50 transition-transform duration-300 ease-out
+                ${isHovered ? 'scale-[1.02]' : 'scale-100'}
                 active:scale-95
               `}
             >
-              {/* Animated background gradient */}
-              <div
-                className={`
-                absolute inset-0 
-                bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-emerald-400/10
-                transform transition-transform duration-700 ease-out
-                ${isHovered ? 'scale-110 rotate-1' : 'scale-100 rotate-0'}
-              `}
-              />
-
-              {/* Shimmer effect */}
-              <div
-                className={`
-                absolute inset-0 
-                bg-gradient-to-r from-transparent via-white/20 to-transparent
-                transform transition-transform duration-1000 ease-out
-                ${isHovered ? 'translate-x-full' : '-translate-x-full'}
-              `}
-              />
+              {/* Static background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-emerald-400/10" />
 
               <div className="relative flex items-center justify-center gap-4">
                 {/* Calendar icon with animation */}
                 <div
                   className={`
-                  transform transition-transform duration-300
-                  ${isHovered ? 'scale-110 rotate-12' : 'scale-100 rotate-0'}
+                  transition-transform duration-200
+                  ${isHovered ? 'scale-[1.03]' : 'scale-100'}
                 `}
                 >
                   <svg
@@ -645,7 +628,7 @@ const ContactForm = () => {
                 {/* Arrow icon with slide animation */}
                 <div
                   className={`
-                  transform transition-all duration-300
+                  transition-transform duration-200
                   ${isHovered ? 'translate-x-1 opacity-100' : 'translate-x-0 opacity-60'}
                 `}
                 >

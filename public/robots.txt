@@ -1,9 +1,30 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Explicitly allow AI search engine bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 # Sitemap location
 Sitemap: https://www.aryanraj.cv/sitemap.xml
-
-# Crawl delay (optional - prevents aggressive crawling)
-Crawl-delay: 1

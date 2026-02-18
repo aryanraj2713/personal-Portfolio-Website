@@ -42,8 +42,8 @@ const ResumePreview = () => {
             group relative overflow-hidden glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-transparent
             bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20
             hover:from-emerald-500/30 hover:via-cyan-500/30 hover:to-blue-500/30
-            hover:border-emerald-400/50 transform transition-all duration-300 ease-out
-            ${hoveredButton === 'preview' ? 'sm:scale-105 shadow-2xl shadow-emerald-500/25' : 'scale-100'}
+            hover:border-emerald-400/50 transition-transform duration-300 ease-out
+            ${hoveredButton === 'preview' ? 'sm:scale-[1.02]' : 'scale-100'}
             active:scale-95 w-full sm:w-auto
           `}
         >
@@ -51,8 +51,8 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-emerald-400/10 via-cyan-400/10 to-blue-400/10
-            transform transition-transform duration-700 ease-out
-            ${hoveredButton === 'preview' ? 'scale-110 rotate-1' : 'scale-100 rotate-0'}
+            transform transition-transform duration-300 ease-out
+            ${hoveredButton === 'preview' ? 'scale-[1.03]' : 'scale-100'}
           `}
           />
 
@@ -60,14 +60,14 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-transparent via-white/20 to-transparent
-            transform transition-transform duration-1000 ease-out
+            transform transition-transform duration-300 ease-out
             ${hoveredButton === 'preview' ? 'translate-x-full' : '-translate-x-full'}
           `}
           />
 
           <div className="relative flex items-center justify-center gap-2 sm:gap-3">
             <div
-              className={`transform transition-transform duration-300 ${hoveredButton === 'preview' ? 'scale-110' : 'scale-100'}`}
+              className={`transform transition-transform duration-300 ${hoveredButton === 'preview' ? 'scale-[1.03]' : 'scale-100'}`}
             >
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400"
@@ -109,8 +109,8 @@ const ResumePreview = () => {
             group relative overflow-hidden glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-transparent
             bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20
             hover:from-purple-500/30 hover:via-blue-500/30 hover:to-cyan-500/30
-            hover:border-purple-400/50 transform transition-all duration-300 ease-out
-            ${hoveredButton === 'download' ? 'sm:scale-105 shadow-2xl shadow-purple-500/25' : 'scale-100'}
+            hover:border-purple-400/50 transition-transform duration-300 ease-out
+            ${hoveredButton === 'download' ? 'sm:scale-[1.02]' : 'scale-100'}
             active:scale-95 w-full sm:w-auto
           `}
         >
@@ -118,8 +118,8 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-cyan-400/10
-            transform transition-transform duration-700 ease-out
-            ${hoveredButton === 'download' ? 'scale-110 rotate-1' : 'scale-100 rotate-0'}
+            transform transition-transform duration-300 ease-out
+            ${hoveredButton === 'download' ? 'scale-[1.03]' : 'scale-100'}
           `}
           />
 
@@ -127,14 +127,14 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-transparent via-white/20 to-transparent
-            transform transition-transform duration-1000 ease-out
+            transform transition-transform duration-300 ease-out
             ${hoveredButton === 'download' ? 'translate-x-full' : '-translate-x-full'}
           `}
           />
 
           <div className="relative flex items-center justify-center gap-2 sm:gap-3">
             <div
-              className={`transform transition-transform duration-300 ${hoveredButton === 'download' ? 'scale-110' : 'scale-100'}`}
+              className={`transform transition-transform duration-300 ${hoveredButton === 'download' ? 'scale-[1.03]' : 'scale-100'}`}
             >
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400"
@@ -170,8 +170,8 @@ const ResumePreview = () => {
             group relative overflow-hidden glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-transparent
             bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-emerald-500/20
             hover:from-cyan-500/30 hover:via-blue-500/30 hover:to-emerald-500/30
-            hover:border-cyan-400/50 transform transition-all duration-300 ease-out
-            ${hoveredButton === 'meeting' ? 'sm:scale-105 shadow-2xl shadow-cyan-500/25' : 'scale-100'}
+            hover:border-cyan-400/50 transition-transform duration-300 ease-out
+            ${hoveredButton === 'meeting' ? 'sm:scale-[1.02]' : 'scale-100'}
             active:scale-95 w-full sm:w-auto
           `}
         >
@@ -179,8 +179,8 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-emerald-400/10
-            transform transition-transform duration-700 ease-out
-            ${hoveredButton === 'meeting' ? 'scale-110 rotate-1' : 'scale-100 rotate-0'}
+            transform transition-transform duration-300 ease-out
+            ${hoveredButton === 'meeting' ? 'scale-[1.03]' : 'scale-100'}
           `}
           />
 
@@ -188,14 +188,14 @@ const ResumePreview = () => {
             className={`
             absolute inset-0 
             bg-gradient-to-r from-transparent via-white/20 to-transparent
-            transform transition-transform duration-1000 ease-out
+            transform transition-transform duration-300 ease-out
             ${hoveredButton === 'meeting' ? 'translate-x-full' : '-translate-x-full'}
           `}
           />
 
           <div className="relative flex items-center justify-center gap-2 sm:gap-3">
             <div
-              className={`transform transition-transform duration-300 ${hoveredButton === 'meeting' ? 'scale-110' : 'scale-100'}`}
+              className={`transform transition-transform duration-300 ${hoveredButton === 'meeting' ? 'scale-[1.03]' : 'scale-100'}`}
             >
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400"

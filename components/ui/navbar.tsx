@@ -193,14 +193,14 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding] duration-300 ${
         isScrolled ? 'py-2' : 'py-4'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           animate={{
-            backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)',
+            backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.25)',
           }}
           transition={{ duration: 0.3 }}
           className="glass-light rounded-2xl"
@@ -209,22 +209,12 @@ const Navbar = () => {
             {/* Logo */}
             <motion.div
               className="flex items-center gap-3"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <motion.div
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center"
-                animate={{
-                  boxShadow: [
-                    '0 0 0px rgba(16, 185, 129, 0)',
-                    '0 0 20px rgba(16, 185, 129, 0.5)',
-                    '0 0 0px rgba(16, 185, 129, 0)',
-                  ],
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              >
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
                 <span className="text-xl font-bold text-white">AR</span>
-              </motion.div>
+              </div>
               <span className="font-semibold text-white text-lg hidden sm:block">Aryan Raj</span>
             </motion.div>
 
@@ -238,11 +228,11 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.id)}
                     className={`
-                      group relative px-4 py-2 rounded-xl transition-all duration-300
+                      group relative px-4 py-2 rounded-xl transition-colors duration-200
                       ${isActive ? 'bg-white/10' : 'hover:bg-white/10'}
                     `}
                     aria-current={isActive ? 'page' : undefined}
@@ -253,8 +243,7 @@ const Navbar = () => {
                         transition-colors duration-300
                         ${isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-white'}
                       `}
-                        animate={isActive ? { rotate: [0, 10, -10, 0] } : {}}
-                        transition={{ duration: 0.5 }}
+                        animate={{}}
                       >
                         {item.icon}
                       </motion.div>
@@ -298,8 +287,8 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-colors"
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -358,7 +347,7 @@ const Navbar = () => {
                         onClick={() => scrollToSection(item.id)}
                         className={`
                           w-full flex items-center gap-3 px-4 py-3 rounded-xl
-                          transition-all duration-300 group
+                          transition-colors duration-200 group
                           ${isActive ? 'bg-white/10' : 'hover:bg-white/10'}
                         `}
                         aria-current={isActive ? 'page' : undefined}

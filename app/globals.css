@@ -197,7 +197,7 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
+  background-size: 100% 100%;
   contain: paint; /* Improve rendering performance */
   /* Fix text clipping issues */
   line-height: 1.2;
@@ -206,22 +206,9 @@ html {
   color: #10b981;
 }
 
-/* Optimize animations for performance */
-@media (prefers-reduced-motion: no-preference) {
-  .section-title {
-    animation: gradient-shift 8s ease-in-out infinite;
-  }
-
-  @keyframes gradient-shift {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-}
+/* Section title gradient is static — background-position animation
+   is non-compositable and triggers paint on every frame.
+   The static gradient already looks great. */
 
 /* Container optimizations */
 .page-container {

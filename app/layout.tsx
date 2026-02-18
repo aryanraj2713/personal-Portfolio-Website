@@ -520,55 +520,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* AI Visibility - LLMs.txt */}
         <link rel="llms.txt" href="/llms.txt" />
 
-        {/* Performance hints - Critical resource hints */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for external links users might click */}
         <link rel="dns-prefetch" href="//www.linkedin.com" />
         <link rel="dns-prefetch" href="//github.com" />
-        <link rel="dns-prefetch" href="//arxiv.org" />
-        <link rel="dns-prefetch" href="//x.com" />
-        <link rel="dns-prefetch" href="//medium.com" />
         <link rel="dns-prefetch" href="//cal.com" />
 
-        {/* Preload CRITICAL resources for LCP - highest priority */}
+        {/* Preload LCP image */}
         <link
           rel="preload"
           href="/aryan_image.jpeg"
           as="image"
           type="image/jpeg"
           fetchPriority="high"
-          imageSrcSet="/aryan_image.jpeg 1x"
-        />
-
-        {/* Preload Inter font for immediate text rendering */}
-        <link
-          rel="preload"
-          href="/_next/static/media/inter-cyrillic-ext-400-normal.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-
-        {/* Preconnect to critical third-party origins */}
-        <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
-
-        {/* Defer non-critical CSS loading */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(){
-                var links = document.getElementsByTagName('link');
-                for(var i=0; i<links.length; i++){
-                  var link = links[i];
-                  if(link.rel === 'stylesheet' && !link.hasAttribute('data-critical')){
-                    link.media = 'print';
-                    link.onload = function(){this.media='all';this.onload=null;};
-                  }
-                }
-              }();
-            `,
-          }}
         />
 
         {/* Inline critical CSS for above-the-fold content */}

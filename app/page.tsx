@@ -763,26 +763,27 @@ export default function Home() {
               </AnimatedCard>
             </div>
 
-            {/* More Projects on GitHub */}
-            <div className="mt-8 flex justify-center">
+            {/* More Projects on GitHub & Medium Articles */}
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+              {/* GitHub Banner */}
               <a
                 href="https://github.com/aryanraj2713"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative overflow-hidden glass rounded-xl px-8 py-6 border-2 border-transparent
+                className="group relative overflow-hidden glass rounded-xl px-6 sm:px-8 py-5 sm:py-6 border-2 border-transparent
                 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20
                 hover:from-purple-500/30 hover:via-blue-500/30 hover:to-cyan-500/30
                 hover:border-purple-400/50 transition-transform duration-300 ease-out
-                hover:scale-[1.02] hover:-translate-y-0.5"
+                hover:scale-[1.02] hover:-translate-y-0.5 flex-1 max-w-md"
               >
                 {/* Static background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-cyan-400/10" />
 
-                <div className="relative flex items-center gap-4">
+                <div className="relative flex items-center gap-3 sm:gap-4">
                   {/* GitHub icon */}
-                  <div className="transition-transform duration-200 group-hover:scale-[1.03]">
+                  <div className="transition-transform duration-200 group-hover:scale-[1.03] flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-purple-400"
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -791,19 +792,19 @@ export default function Home() {
                   </div>
 
                   {/* Text content */}
-                  <div className="text-left">
-                    <div className="text-lg font-semibold text-white transition-colors duration-300 group-hover:text-purple-300">
+                  <div className="text-left flex-1 min-w-0">
+                    <div className="text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-purple-300">
                       View More Projects
                     </div>
-                    <div className="text-sm text-gray-300 opacity-80">
+                    <div className="text-xs sm:text-sm text-gray-300 opacity-80 truncate">
                       Explore my complete portfolio on GitHub
                     </div>
                   </div>
 
                   {/* Arrow icon */}
-                  <div className="ml-2 transition-transform duration-200 group-hover:translate-x-1 opacity-60 group-hover:opacity-100">
+                  <div className="transition-transform duration-200 group-hover:translate-x-1 opacity-60 group-hover:opacity-100 flex-shrink-0">
                     <svg
-                      className="w-5 h-5 text-purple-400"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -813,6 +814,59 @@ export default function Home() {
                         strokeLinejoin="round"
                         strokeWidth={2}
                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+
+              {/* Medium Banner */}
+              <a
+                href="/blog"
+                className="group relative overflow-hidden glass rounded-xl px-6 sm:px-8 py-5 sm:py-6 border-2 border-transparent
+                bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-teal-500/20
+                hover:from-emerald-500/30 hover:via-cyan-500/30 hover:to-teal-500/30
+                hover:border-emerald-400/50 transition-transform duration-300 ease-out
+                hover:scale-[1.02] hover:-translate-y-0.5 flex-1 max-w-md"
+              >
+                {/* Static background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-cyan-400/10 to-teal-400/10" />
+
+                <div className="relative flex items-center gap-3 sm:gap-4">
+                  {/* Medium icon */}
+                  <div className="transition-transform duration-200 group-hover:scale-[1.03] flex-shrink-0">
+                    <svg
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                    </svg>
+                  </div>
+
+                  {/* Text content */}
+                  <div className="text-left flex-1 min-w-0">
+                    <div className="text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-emerald-300">
+                      My Medium Blogs
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-300 opacity-80 truncate">
+                      Read my articles on AI & ML
+                    </div>
+                  </div>
+
+                  {/* Arrow icon */}
+                  <div className="transition-transform duration-200 group-hover:translate-x-1 opacity-60 group-hover:opacity-100 flex-shrink-0">
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
                   </div>

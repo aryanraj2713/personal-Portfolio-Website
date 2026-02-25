@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
@@ -207,16 +208,18 @@ const Navbar = () => {
         >
           <div className="flex items-center justify-between px-6 py-4">
             {/* Logo */}
-            <motion.div
-              className="flex items-center gap-3"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                <span className="text-xl font-bold text-white">AR</span>
-              </div>
-              <span className="font-semibold text-white text-lg hidden sm:block">Aryan Raj</span>
-            </motion.div>
+            <Link href="/">
+              <motion.div
+                className="flex items-center gap-3 cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                  <span className="text-xl font-bold text-white">AR</span>
+                </div>
+                <span className="font-semibold text-white text-lg hidden sm:block">Aryan Raj</span>
+              </motion.div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">

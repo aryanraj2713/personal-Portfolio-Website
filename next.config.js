@@ -184,11 +184,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // unsafe-eval needed for Next.js
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: https:",
-              "connect-src 'self'",
+              "connect-src 'self' https://vercel.live https://*.vercel.live wss://*.vercel.live",
               "frame-src 'self'",
               "base-uri 'self'",
               "form-action 'self'",
@@ -243,14 +243,6 @@ const nextConfig = {
           },
         ],
       },
-    ]
-  },
-
-  // Temporary rewrites to avoid 404s for app icons until real PNGs are added
-  async rewrites() {
-    return [
-      { source: '/icon-192.png', destination: '/og-image.jpg' },
-      { source: '/icon-512.png', destination: '/og-image.jpg' },
     ]
   },
 }

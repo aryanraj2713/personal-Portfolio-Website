@@ -135,13 +135,8 @@ export const metadata: Metadata = {
       { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: [
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-    ],
+    apple: [{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }],
   },
   category: 'Technology',
   classification: 'Portfolio Website',
@@ -481,7 +476,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* PWA Support */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#10b981" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Aryan Raj" />
 
@@ -490,10 +485,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
-        <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
-        <link rel="apple-touch-icon" href="/icon-512.png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/favicon-32x32.png" />
 
         {/* Additional SEO Meta Tags */}
         <meta name="language" content="English" />
@@ -527,14 +519,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//github.com" />
         <link rel="dns-prefetch" href="//cal.com" />
 
-        {/* Preload LCP image + resume */}
-        <link
-          rel="preload"
-          href="/aryan_image.jpeg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
+        {/* Prefetch resume */}
         <link rel="prefetch" href="/Aryan_Raj.pdf" as="document" />
 
         {/* Prevent flash of wrong theme */}

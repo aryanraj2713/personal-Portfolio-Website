@@ -9,7 +9,7 @@ export default function About() {
         <h2 className="text-2xl md:text-3xl font-semibold t-primary mb-4">
           Building AI Solutions that Matter
         </h2>
-        <div className="space-y-5 text-base t-muted leading-relaxed max-w-3xl">
+        <div className="space-y-5 text-base t-muted leading-relaxed">
           <p>
             I am a <span className="t-secondary">Machine Learning Engineer</span> and{' '}
             <span className="t-secondary">Backend Developer</span> with experience building

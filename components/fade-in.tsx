@@ -1,6 +1,5 @@
 'use client'
 
-import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef, useState, useEffect, type ReactNode } from 'react'
 
 interface FadeInProps {
@@ -10,36 +9,48 @@ interface FadeInProps {
   as?: 'div' | 'section'
 }
 
-export default function FadeIn({ children, delay = 0, className, as = 'div' }: FadeInProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-40px' })
-  const reduceMotion = useReducedMotion()
-  const [mounted, setMounted] = useState(false)
+export default function FadeIn({ children, delay = 0, className, as: Tag = 'div' }: FadeInProps) {
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-    setMounted(true)
+    const el = ref.current
+    if (!el) return
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const isInViewport = el.getBoundingClientRect().top < window.innerHeight
+    if (isInViewport) return
+
+    setVisible(false)
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '-40px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
-  const Component = motion[as]
-
-  if (!mounted || reduceMotion) {
-    const Tag = as
-    return (
-      <Tag ref={ref} className={className}>
-        {children}
-      </Tag>
-    )
-  }
-
   return (
-    <Component
-      ref={ref}
+    <Tag
+      ref={ref as React.RefObject<HTMLDivElement> & React.RefObject<HTMLElement>}
       className={className}
-      initial={{ opacity: 0, y: 8 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-      transition={{ duration: 0.15, delay, ease: [0.4, 0, 0.2, 1] }}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(8px)',
+        transition: visible
+          ? `opacity 0.15s ease ${delay}s, transform 0.15s ease ${delay}s`
+          : 'none',
+      }}
     >
       {children}
-    </Component>
+    </Tag>
   )
 }

@@ -217,8 +217,12 @@ const nextConfig = {
           // Remove CORS headers - not needed for same-origin requests
           // Only add CORS if you have specific API endpoints that need cross-origin access
           {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
             key: 'Cross-Origin-Embedder-Policy',
-            value: 'credentialless', // More compatible than require-corp, still provides protection
+            value: 'credentialless',
           },
           {
             key: 'Cross-Origin-Resource-Policy',

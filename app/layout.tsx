@@ -2,11 +2,9 @@ import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { PerformanceOptimizer } from '@/components/ui/performance-optimizer'
-import { ConsoleHttpCat } from '@/components/ui/console-cat'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { WebVitals, PerformanceBudget } from '@/components/ui/web-vitals'
-import { ServiceWorkerRegister, PWAInstallPrompt } from '@/components/ui/service-worker-register'
+import ThemeProvider from '@/components/theme-provider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -106,11 +104,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Aryan Raj - Machine Learning Engineer & Backend Developer',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },
@@ -120,7 +118,7 @@ export const metadata: Metadata = {
     description:
       'Portfolio of Aryan Raj - ML Engineer & Backend Developer specializing in AI solutions, LLMs, computer vision, and scalable web applications.',
     creator: '@aryanraj2713',
-    images: ['/og-image.jpg'],
+    images: ['/twitter-image'],
   },
   verification: {
     google: 'cRgIWr43Ax_DNTaFQ8VOkdNWt6jkjmG5jpqJYm5tAn0',
@@ -395,7 +393,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       },
       speakable: {
         '@type': 'SpeakableSpecification',
-        cssSelector: ['h1', '.gradient-text', '.section-title'],
+        cssSelector: ['h1', 'h2'],
       },
     },
     {
@@ -478,7 +476,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   ]
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         {/* PWA Support */}
         <link rel="manifest" href="/manifest.json" />
@@ -525,7 +523,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//github.com" />
         <link rel="dns-prefetch" href="//cal.com" />
 
-        {/* Preload LCP image */}
+        {/* Preload LCP image + resume */}
         <link
           rel="preload"
           href="/aryan_image.jpeg"
@@ -533,58 +531,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="image/jpeg"
           fetchPriority="high"
         />
+        <link rel="prefetch" href="/Aryan_Raj.pdf" as="document" />
 
-        {/* Inline critical CSS for above-the-fold content */}
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.className=t}catch(e){}})()`,
+          }}
+        />
         <style
           dangerouslySetInnerHTML={{
-            __html: `
-              /* Critical CSS for initial render - Expanded for LCP optimization */
-              *,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}
-              html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}
-              body { 
-                margin: 0; 
-                padding: 0;
-                background: #0f172a; 
-                color: #fff;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-family: system-ui, -apple-system, sans-serif;
-              }
-              /* Gradient text - critical for hero */
-              .gradient-text {
-                background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-              }
-              /* Layout - prevent shift */
-              main { 
-                min-height: 100vh; 
-                padding-top: 6rem;
-                padding-bottom: 2rem;
-              }
-              /* Container */
-              .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
-              /* Text center */
-              .text-center { text-align: center; }
-              /* Margin bottom */
-              .mb-4 { margin-bottom: 1rem; }
-              .mb-6 { margin-bottom: 1.5rem; }
-              .mb-12 { margin-bottom: 3rem; }
-              /* Text sizes - hero section */
-              .text-5xl { font-size: 3rem; line-height: 1; }
-              .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-              /* Font weights */
-              .font-bold { font-weight: 700; }
-              /* Flex */
-              .flex { display: flex; }
-              .justify-center { justify-content: center; }
-              .items-center { align-items: center; }
-              /* Hide on small screens */
-              @media (max-width: 768px) {
-                .text-5xl { font-size: 2.25rem; }
-              }
-            `,
+            __html: `body{margin:0;padding:0;-webkit-font-smoothing:antialiased}.dark body{background:#0a0a0b;color:#fafafa}.light body{background:#f8f8f8;color:#1a1a1a}`,
           }}
         />
 
@@ -599,14 +556,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ))}
       </head>
       <body className={inter.className}>
-        <PerformanceOptimizer />
-        <SpeedInsights />
-        <WebVitals />
-        <PerformanceBudget />
-        <ServiceWorkerRegister />
-        <PWAInstallPrompt />
-        <ConsoleHttpCat statusCode={496} />
-        {children}
+        <ThemeProvider>
+          <SpeedInsights />
+          <WebVitals />
+          <PerformanceBudget />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -66,12 +66,12 @@ Software Engineer (AI/ML) at Valuelabs (December 2025 - Present)
 
 ## Website Structure
 - Home: https://www.aryanraj.cv/
-- Education: https://www.aryanraj.cv/#education
-- Experience: https://www.aryanraj.cv/#experience
+- Work (Experience & Internships): https://www.aryanraj.cv/#work
 - Projects: https://www.aryanraj.cv/#projects
-- Skills: https://www.aryanraj.cv/#skills
-- Publications: https://www.aryanraj.cv/#publications
+- Engineering (Skills, Education, Publications, Achievements, Community): https://www.aryanraj.cv/#engineering
 - Contact: https://www.aryanraj.cv/#contact
+- Blog: https://www.aryanraj.cv/blog
+- Resume: https://www.aryanraj.cv/Aryan_Raj.pdf
 
 ## Sitemap
 https://www.aryanraj.cv/sitemap.xml

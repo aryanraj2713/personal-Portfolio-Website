@@ -7,25 +7,13 @@ module.exports = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  // Safelist for dynamic classes and animations
-  safelist: [
-    {
-      pattern: /animate-(blob|wave|pulse|spin|bounce)/,
-      variants: ['hover', 'focus', 'group-hover'],
-    },
-    'gradient-text',
-    'glass',
-    'glass-light',
-    'fancy-card',
-    'skill-tag',
-    'section-title',
-  ],
+  safelist: ['gradient-text'],
   theme: {
     container: {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1120px',
       },
     },
     extend: {

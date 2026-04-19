@@ -1,10 +1,12 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useState, useEffect, useCallback } from 'react'
 import Nav from '@/components/nav'
-import CommandPalette from '@/components/command-palette'
-import SectionIndicator from '@/components/section-indicator'
-import CopyEffect from '@/components/copy-effect'
+
+const CommandPalette = dynamic(() => import('@/components/command-palette'), { ssr: false })
+const SectionIndicator = dynamic(() => import('@/components/section-indicator'), { ssr: false })
+const CopyEffect = dynamic(() => import('@/components/copy-effect'), { ssr: false })
 
 export default function HomeShell({ children }: { children: React.ReactNode }) {
   const [commandOpen, setCommandOpen] = useState(false)

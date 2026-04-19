@@ -54,6 +54,11 @@ export default function Nav({ onCommandPalette }: NavProps) {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
+      const section = el.closest('section') || el.parentElement
+      if (section) {
+        section.style.opacity = '1'
+        section.style.transform = 'none'
+      }
       const offset = parseInt(layout.navHeight) + 16
       const top = el.offsetTop - offset
       window.scrollTo({ top, behavior: 'smooth' })

@@ -518,6 +518,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* AI Visibility - LLMs.txt */}
         <link rel="llms.txt" href="/llms.txt" />
 
+        {/* Preconnect to font origin for faster LCP */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* DNS prefetch for external links users might click */}
         <link rel="dns-prefetch" href="//www.linkedin.com" />
         <link rel="dns-prefetch" href="//github.com" />

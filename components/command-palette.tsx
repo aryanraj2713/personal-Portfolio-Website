@@ -27,6 +27,11 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
       setTimeout(() => {
         const el = document.getElementById(id)
         if (el) {
+          const section = el.closest('section') || el.parentElement
+          if (section) {
+            section.style.opacity = '1'
+            section.style.transform = 'none'
+          }
           const top = el.offsetTop - 72
           window.scrollTo({ top, behavior: 'smooth' })
         }

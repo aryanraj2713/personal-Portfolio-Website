@@ -129,9 +129,9 @@ const AboutMe = () => {
                   <span className="text-emerald-400 font-semibold">ValueLabs</span> on building
                   scalable AI solutions to drive growth. In my current role, I work on building{' '}
                   <span className="text-white font-medium">AI/ML solutions</span> and contributing
-                  to developer tooling and analytics infrastructure. Previously, I've worked on
-                  autonomous AI agents, prompt engineering frameworks, and scalable machine learning
-                  systems that reduce manual effort and improve performance.
+                  to developer tooling and analytics infrastructure. I've worked on autonomous AI
+                  agents, prompt engineering frameworks, and scalable machine learning systems that
+                  reduce manual effort and improve performance.
                 </motion.p>
 
                 <motion.p

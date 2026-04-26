@@ -31,7 +31,7 @@ Aryan Raj is a Machine Learning Engineer and Backend Developer with expertise in
 - High School (CBSE X and XII) Non Medical Sciences from Ganga International School, New Delhi, India
 
 ## Current Position
-Software Engineer (AI/ML) at Valuelabs (December 2025 - Present)
+Software Engineer (AI/ML) at ValueLabs (December 2025 - Present)
 
 ## Previous Experience
 - Machine Learning Engineer at SEOstack (September 2025 - December 2025), Hyderabad, India

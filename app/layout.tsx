@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     'Portfolio',
     'SRM Institute',
     'Ganga International School',
-    'Valuelabs',
+    'ValueLabs',
     'SEOstack',
     'HyperVerge',
     'Emendo AI',
@@ -210,7 +210,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       worksFor: [
         {
           '@type': 'Organization',
-          name: 'Valuelabs',
+          name: 'ValueLabs',
           jobTitle: 'Software Engineer (AI/ML)',
           startDate: '2025-12',
           address: {

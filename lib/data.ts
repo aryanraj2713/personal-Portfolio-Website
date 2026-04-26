@@ -82,7 +82,7 @@ export interface BlogArticle {
 
 export const personalInfo: PersonalInfo = {
   name: 'Aryan Raj',
-  title: 'Software Engineer (AI/ML) at Valuelabs',
+  title: 'Software Engineer (AI/ML) at ValueLabs',
   subtitle:
     'Building deep learning solutions, generative AI products, and data infrastructure at scale.',
   email: 'aryanraj2713@gmail.com',
@@ -121,8 +121,8 @@ export const education: Education[] = [
 export const experience: Experience[] = [
   {
     title: 'Software Engineer (AI/ML)',
-    company: 'Valuelabs',
-    companyUrl: 'https://www.valuelabs.com',
+    company: 'ValueLabs',
+    companyUrl: 'https://www.ValueLabs.com',
     location: 'Hyderabad, IN',
     period: 'Dec 2025 - Present',
     type: 'job',

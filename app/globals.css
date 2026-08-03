@@ -20,7 +20,7 @@
   --secondary: 0 0% 14.9%;
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 63.9%;
+  --muted-foreground: 0 0% 70%;
   --accent: 0 0% 14.9%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
@@ -32,10 +32,10 @@
 
   --surface: #0a0a0b;
   --surface-elevated: #141415;
-  --text-primary: #fafafa;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --text-faint: rgba(255, 255, 255, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --text-faint: rgba(255, 255, 255, 0.48);
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-muted: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.1);
@@ -54,7 +54,7 @@
   --secondary: 0 0% 93%;
   --secondary-foreground: 0 0% 9%;
   --muted: 0 0% 93%;
-  --muted-foreground: 0 0% 40%;
+  --muted-foreground: 0 0% 33%;
   --accent: 0 0% 93%;
   --accent-foreground: 0 0% 9%;
   --destructive: 0 84% 60%;
@@ -65,10 +65,10 @@
 
   --surface: #f8f8f8;
   --surface-elevated: #ffffff;
-  --text-primary: #111111;
-  --text-secondary: rgba(0, 0, 0, 0.7);
-  --text-muted: rgba(0, 0, 0, 0.5);
-  --text-faint: rgba(0, 0, 0, 0.25);
+  --text-primary: #090909;
+  --text-secondary: rgba(0, 0, 0, 0.76);
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-faint: rgba(0, 0, 0, 0.54);
   --border-subtle: rgba(0, 0, 0, 0.08);
   --border-muted: rgba(0, 0, 0, 0.12);
   --border-default: rgba(0, 0, 0, 0.18);

@@ -2,7 +2,7 @@ import { personalInfo } from '@/lib/data'
 
 export default function Footer() {
   return (
-    <footer className="border-t b-subtle pt-12 pb-8 mt-16">
+    <footer className="border-t b-subtle pt-12 mt-16 overflow-visible">
       {/* Top row: social icons + link columns */}
       <div className="flex flex-col md:flex-row md:justify-between gap-10 mb-10">
         {/* Left: social icons + legal */}
@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
 
         {/* Right: link columns */}
-        <div className="flex gap-16">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
           <div className="space-y-3">
             <a
               href={`mailto:${personalInfo.email}`}
@@ -85,7 +85,7 @@ export default function Footer() {
               Schedule a Call
             </a>
           </div>
-          <div className="space-y-3 border-l b-muted pl-10">
+          <div className="space-y-3 border-t b-muted pt-6 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-10">
             <a
               href="/blog"
               className="block text-sm t-secondary hover:text-emerald-500 transition-colors"
@@ -106,6 +106,12 @@ export default function Footer() {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="border-t b-subtle pt-6 sm:pt-8 px-1 -mx-1 overflow-visible">
+        <p className="t-primary text-[clamp(3.35rem,17vw,13rem)] font-black tracking-[-0.075em] leading-[0.95] whitespace-nowrap pb-[0.22em]">
+          Aryan Raj
+        </p>
       </div>
     </footer>
   )

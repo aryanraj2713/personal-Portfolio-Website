@@ -5,19 +5,18 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 type Theme = 'dark' | 'light'
 
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
-  theme: 'dark',
+  theme: 'light',
   toggle: () => {},
 })
 
 export const useTheme = () => useContext(ThemeContext)
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
     const stored = localStorage.getItem('theme') as Theme | null
-    const preferred =
-      stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+    const preferred = stored || 'light'
     setTheme(preferred)
     document.documentElement.classList.toggle('dark', preferred === 'dark')
     document.documentElement.classList.toggle('light', preferred === 'light')

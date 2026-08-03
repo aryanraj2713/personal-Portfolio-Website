@@ -471,7 +471,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   ]
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <head>
         {/* PWA Support */}
         <link rel="manifest" href="/manifest.json" />
@@ -525,7 +525,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.className=t}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.className=t}catch(e){}})()`,
           }}
         />
         <style

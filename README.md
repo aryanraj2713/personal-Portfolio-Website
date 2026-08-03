@@ -8,7 +8,7 @@ A modern, minimalistic portfolio website built with Next.js, Tailwind CSS, and g
 - 📱 Fully responsive layout
 - ⚡ Built with Next.js 14 and Tailwind CSS
 - 🎯 Professional resume layout
-- 🌙 Dark theme with gradient accents
+- ☀️ Light theme by default, with an optional dark-mode toggle
 - ✨ Smooth animations and transitions
 
 ## Getting Started

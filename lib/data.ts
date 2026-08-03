@@ -127,14 +127,14 @@ export const experience: Experience[] = [
     period: 'Dec 2025 - Present',
     type: 'job',
     bullets: [
-      'Building deep learning and generative AI proof-of-concepts (POCs) and MVPs for client projects, delivering compelling product demos and driving internal AI adoption initiatives across the organization.',
-      'Contributing to the flagship product AiDE and its subsidiary tools, architecting integrations with various productivity platforms to enhance developer workflows and increase team efficiency.',
-      'Architecting data analytics solutions, data warehousing infrastructure, and lakehouse architectures to support company-wide KPIs and metrics adoption, enabling data-driven decision making at scale.',
+      'Architecting and delivering enterprise-scale generative AI solutions, including ValueLabs\' flagship AiDE Conversational Insights, using advanced multi-agent architectures to generate scalable insights and support enterprise deployments.',
+      'Designing and implementing modern data platforms—including data warehouses, lakehouse architectures, and schema-level migration strategies—to enable scalable analytics and organization-wide KPI reporting.',
+      'Building and integrating internal AI-powered productivity tools, including a company-wide intelligent search platform, to streamline developer workflows, accelerate knowledge discovery, and reduce software licensing costs by 50%.',
     ],
   },
   {
     title: 'Machine Learning Engineer',
-    company: 'SEOstack',
+    company: 'SEO Stack',
     companyUrl: 'https://www.seo-stack.io',
     location: 'Hyderabad, IN',
     period: 'Sep 2025 - Dec 2025',

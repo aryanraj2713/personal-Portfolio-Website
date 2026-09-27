@@ -793,3 +793,501 @@ main p {
     gap: 8px;
   }
 }
+
+/* Engineering: distinct content treatments within consistent disclosure groups. */
+.engineering-groups {
+  border-top: 1px solid var(--border-default);
+}
+.engineering-group {
+  border-bottom: 1px solid var(--border-default);
+}
+.engineering-group > summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.engineering-group > summary::-webkit-details-marker {
+  display: none;
+}
+.engineering-group > summary:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+.engineering-number {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-ink);
+}
+.engineering-group h3 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.engineering-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.engineering-group > summary > svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.engineering-group[open] > summary > svg {
+  transform: rotate(180deg);
+}
+.engineering-group > summary:hover h3 {
+  color: var(--accent-ink);
+}
+.engineering-content {
+  padding-bottom: 32px;
+}
+.engineering-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.engineering-skill {
+  padding: 24px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-muted);
+  border-radius: 10px;
+}
+.engineering-skill h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.engineering-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.engineering-tags li {
+  border: 1px solid var(--border-muted);
+  background: var(--surface);
+  color: var(--text-secondary);
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  border-radius: 5px;
+}
+.engineering-paper {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--accent-ink);
+  padding: 30px;
+  border-radius: 0 12px 12px 0;
+}
+.engineering-paper + .engineering-paper {
+  margin-top: 16px;
+}
+.engineering-paper-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--accent-ink);
+  margin-bottom: 16px;
+}
+.engineering-paper-meta svg {
+  flex-shrink: 0;
+}
+.engineering-paper h4 {
+  max-width: 780px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.45;
+}
+.engineering-paper h4 svg {
+  display: inline;
+  margin-left: 8px;
+  color: var(--accent-ink);
+}
+.engineering-paper a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.engineering-authors {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.engineering-authors strong {
+  color: var(--text-primary);
+  font-weight: 650;
+}
+.engineering-paper-description {
+  max-width: 78ch;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.85;
+  margin-top: 20px;
+}
+.engineering-volume {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+.engineering-paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding-top: 16px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border-muted);
+}
+.engineering-paper-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+.engineering-paper-links .engineering-doi {
+  margin-left: auto;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.engineering-paper-links svg {
+  flex-shrink: 0;
+}
+.engineering-achievements {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+}
+.engineering-achievements li {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  padding: 20px 0;
+}
+.engineering-award-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.engineering-achievements p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+.engineering-community {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.engineering-community > li {
+  border: 1px solid var(--border-muted);
+  border-radius: 10px;
+  padding: 24px;
+}
+.engineering-community-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.engineering-community h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.engineering-community h4 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.engineering-community h4 a:hover {
+  color: var(--accent-ink);
+}
+.engineering-community h4 svg {
+  flex-shrink: 0;
+  color: var(--accent-ink);
+}
+.engineering-community-heading > span {
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.engineering-role {
+  margin-top: 8px;
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.engineering-community-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+@media (max-width: 767px) {
+  .engineering-group > summary {
+    gap: 10px;
+    padding: 22px 0;
+  }
+  .engineering-group h3 {
+    font-size: 17px;
+  }
+  .engineering-count {
+    font-size: 10px;
+  }
+  .engineering-skills,
+  .engineering-achievements,
+  .engineering-community {
+    grid-template-columns: 1fr;
+  }
+  .engineering-skill,
+  .engineering-paper,
+  .engineering-community > li {
+    padding: 20px;
+  }
+  .engineering-paper h4 {
+    font-size: 20px;
+  }
+  .engineering-paper-links {
+    gap: 4px 20px;
+  }
+  .engineering-paper-links .engineering-doi {
+    margin-left: 0;
+  }
+  .engineering-achievements li {
+    padding: 16px 0;
+  }
+  .engineering-achievements li + li {
+    border-top: 1px solid var(--border-muted);
+  }
+  .engineering-community-heading {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.education-card {
+  display: flex;
+  align-items: start;
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  background: var(--surface-elevated);
+}
+.education-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.education-body {
+  flex: 1;
+  min-width: 0;
+}
+.education-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+}
+.education-heading h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+.education-heading a:hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.education-heading svg {
+  display: inline;
+  margin-left: 8px;
+  color: var(--accent-ink);
+}
+.education-period {
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.education-degree {
+  max-width: 68ch;
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.education-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-muted);
+}
+.education-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.education-location svg {
+  flex-shrink: 0;
+}
+.education-grade {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.education-grade strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .education-card {
+    padding: 20px;
+    gap: 14px;
+    flex-direction: column;
+  }
+  .education-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .education-heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .education-heading h3 {
+    font-size: 18px;
+  }
+  .education-degree {
+    font-size: 14px;
+  }
+  .education-meta {
+    gap: 12px 16px;
+    margin-top: 16px;
+  }
+}
+
+.meeting-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 40px;
+  padding: 36px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-top: 3px solid var(--accent-ink);
+  border-radius: 12px;
+}
+.meeting-copy h2 {
+  font-size: 36px;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+.meeting-description {
+  max-width: 52ch;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.8;
+}
+.meeting-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.meeting-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.meeting-book {
+  min-height: 52px;
+}
+.meeting-booking-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.meeting-email {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.meeting-email span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+.meeting-email:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .meeting-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 24px;
+    gap: 24px;
+  }
+  .meeting-copy h2 {
+    font-size: 30px;
+  }
+  .meeting-description {
+    font-size: 15px;
+  }
+  .meeting-actions {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-muted);
+  }
+  .meeting-book {
+    width: 100%;
+    padding: 0 12px;
+  }
+  .meeting-email {
+    margin-top: 8px;
+  }
+}

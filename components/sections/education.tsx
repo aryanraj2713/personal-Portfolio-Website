@@ -1,5 +1,4 @@
-'use client'
-
+import { ArrowUpRight, GraduationCap, MapPin } from 'lucide-react'
 import FadeIn from '@/components/fade-in'
 import { education } from '@/lib/data'
 
@@ -7,27 +6,42 @@ export default function Education() {
   return (
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="education">
-        <h2 className="text-2xl md:text-3xl font-semibold t-primary mb-10">Education</h2>
-        <div className="space-y-8">
+        <div className="collection-heading">
+          <div>
+            <p className="section-eyebrow">Academic foundation</p>
+            <h2>Education</h2>
+          </div>
+        </div>
+        <div className="education-list">
           {education.map(ed => (
-            <div key={ed.institution}>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <a
-                  href={ed.institutionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base font-medium t-primary hover:text-emerald-500 transition-colors underline underline-offset-4 decoration-current/20 hover:decoration-emerald-400/40"
-                >
-                  {ed.institution}
-                </a>
-                {ed.period && <span className="text-sm t-muted">{ed.period}</span>}
+            <article key={ed.institution} className="education-card">
+              <span className="education-icon">
+                <GraduationCap size={22} aria-hidden="true" />
+              </span>
+              <div className="education-body">
+                <div className="education-heading">
+                  <h3>
+                    <a href={ed.institutionUrl} target="_blank" rel="noopener noreferrer">
+                      {ed.institution}
+                      <ArrowUpRight size={18} aria-hidden="true" />
+                    </a>
+                  </h3>
+                  {ed.period && <p className="education-period">{ed.period}</p>}
+                </div>
+                <p className="education-degree">{ed.degree}</p>
+                <div className="education-meta">
+                  <span className="education-location">
+                    <MapPin size={15} aria-hidden="true" />
+                    {ed.location}
+                  </span>
+                  {ed.gpa && (
+                    <span className="education-grade">
+                      CGPA <strong>{ed.gpa}</strong>
+                    </span>
+                  )}
+                </div>
               </div>
-              <p className="text-sm t-secondary mt-2">{ed.degree}</p>
-              <div className="flex items-center gap-3 mt-1">
-                <span className="text-sm t-muted">{ed.location}</span>
-                {ed.gpa && <span className="text-sm t-muted">CGPA: {ed.gpa}</span>}
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

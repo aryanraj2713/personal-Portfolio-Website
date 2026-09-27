@@ -1,209 +1,142 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
-import { layout } from '@/lib/design-tokens'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, Sun, Moon, ArrowUpRight, Search } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
+import { personalInfo } from '@/lib/data'
 
 const navItems = [
   { id: 'about', label: 'About' },
   { id: 'work', label: 'Work' },
-  { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
   { id: 'writing', label: 'Writing' },
-  { id: 'engineering', label: 'Engineering' },
   { id: 'contact', label: 'Contact' },
 ]
 
-interface NavProps {
-  onCommandPalette: () => void
-}
-
-export default function Nav({ onCommandPalette }: NavProps) {
+export default function Nav({ onCommandPalette }: { onCommandPalette: () => void }) {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { theme, toggle: toggleTheme } = useTheme()
+  const menuButton = useRef<HTMLButtonElement>(null)
+  const navRef = useRef<HTMLElement>(null)
+  const { theme, toggle } = useTheme()
 
-  const handleScroll = useCallback(() => {
-    const sections = [
-      'home',
-      'about',
-      'meeting',
-      'work',
-      'education',
-      'projects',
-      'writing',
-      'engineering',
-      'contact',
-    ]
-    const scrollY = window.scrollY + 100
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const el = document.getElementById(sections[i])
-      if (el && el.offsetTop <= scrollY) {
-        setActiveSection(sections[i])
-        break
+  useEffect(() => {
+    const update = () => {
+      let current = 'home'
+      for (const item of navItems) {
+        const el = document.getElementById(item.id)
+        if (el && el.getBoundingClientRect().top <= 120) current = item.id
       }
+      setActiveSection(current)
     }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
   }, [])
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
-
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      const section = el.closest('section') || el.parentElement
-      if (section) {
-        section.style.opacity = '1'
-        section.style.transform = 'none'
+    if (!mobileOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false)
+        menuButton.current?.focus()
       }
-      const offset = parseInt(layout.navHeight) + 16
-      const top = el.offsetTop - offset
-      window.scrollTo({ top, behavior: 'smooth' })
     }
-    setMobileOpen(false)
-  }
+    const closeOutside = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) setMobileOpen(false)
+    }
+    const desktop = window.matchMedia('(min-width: 768px)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMobileOpen(false)
+    }
+    document.addEventListener('keydown', closeOnEscape)
+    document.addEventListener('pointerdown', closeOutside)
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      document.removeEventListener('pointerdown', closeOutside)
+      desktop.removeEventListener('change', closeOnDesktop)
+    }
+  }, [mobileOpen])
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 h-14 border-b b-subtle bg-surface/80 backdrop-blur-md transition-colors"
-      role="navigation"
-    >
-      <div
-        className="mx-auto h-full flex items-center justify-between px-6"
-        style={{ maxWidth: layout.maxWidth }}
-      >
-        <button
-          onClick={() => scrollTo('home')}
-          className="text-sm font-semibold t-primary transition-colors"
-        >
-          Aryan Raj
-        </button>
-
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+    <nav ref={navRef} className="site-nav" aria-label="Main navigation">
+      <div className="nav-inner">
+        <a href="#home" className="nav-brand" onClick={() => setMobileOpen(false)}>
+          Aryan Raj<span className="t-accent">.</span>
+        </a>
+        <div className="desktop-nav">
           {navItems.map(item => (
-            <button
+            <a
               key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className={`text-sm transition-colors ${
-                activeSection === item.id ? 'text-emerald-500' : 't-secondary hover:t-primary'
-              }`}
+              href={`#${item.id}`}
+              className="nav-link"
+              aria-current={activeSection === item.id ? 'location' : undefined}
             >
               {item.label}
-            </button>
+            </a>
           ))}
-          <button
-            onClick={toggleTheme}
-            className="t-primary hover:text-emerald-500 transition-colors p-1"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-            ) : (
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            )}
-          </button>
-          <button
-            onClick={onCommandPalette}
-            className="text-xs t-muted hover:t-secondary transition-colors border b-muted rounded px-2 py-1"
-          >
-            <kbd>⌘K</kbd>
-          </button>
         </div>
-
-        {/* Mobile: theme toggle + hamburger */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="nav-controls">
           <button
-            onClick={toggleTheme}
-            className="t-primary hover:text-emerald-500 transition-colors p-2"
-            aria-label="Toggle theme"
+            onClick={toggle}
+            className="nav-icon"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
+              <Sun size={19} aria-hidden="true" />
             ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
+              <Moon size={19} aria-hidden="true" />
             )}
           </button>
           <button
-            className="t-secondary hover:t-primary p-2"
+            ref={menuButton}
+            className="nav-icon mobile-menu-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {mobileOpen ? (
+              <X size={22} aria-hidden="true" />
+            ) : (
+              <Menu size={22} aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
-
-      {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="md:hidden border-b b-subtle bg-surface px-6 py-4 space-y-3">
+        <div id="mobile-navigation" className="mobile-navigation">
           {navItems.map(item => (
-            <button
+            <a
               key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className={`block w-full text-left text-sm ${
-                activeSection === item.id ? 'text-emerald-500' : 't-secondary'
-              }`}
+              href={`#${item.id}`}
+              className="nav-link"
+              aria-current={activeSection === item.id ? 'location' : undefined}
+              onClick={() => setMobileOpen(false)}
             >
               {item.label}
-            </button>
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
           ))}
-          <button
-            onClick={() => {
-              onCommandPalette()
-              setMobileOpen(false)
-            }}
-            className="block text-sm t-muted pt-2 border-t b-subtle"
-          >
-            Search <kbd className="text-xs">⌘K</kbd>
-          </button>
+          <div className="mobile-nav-footer">
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+            >
+              View resume <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+            <button
+              onClick={() => {
+                onCommandPalette()
+                setMobileOpen(false)
+              }}
+            >
+              <Search size={16} aria-hidden="true" /> Search
+            </button>
+          </div>
         </div>
       )}
     </nav>

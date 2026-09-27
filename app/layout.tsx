@@ -1,12 +1,12 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import './globals.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { WebVitals, PerformanceBudget } from '@/components/ui/web-vitals'
 import ThemeProvider from '@/components/theme-provider'
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap', // Improve font loading performance
   preload: true,
@@ -21,7 +21,7 @@ const inter = Inter({
     'sans-serif',
   ],
   adjustFontFallback: true, // Match system font metrics to reduce CLS
-  variable: '--font-inter', // CSS variable for better control
+  variable: '--font-manrope', // CSS variable for better control
 })
 
 export const viewport: Viewport = {
@@ -471,7 +471,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   ]
 
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         {/* PWA Support */}
         <link rel="manifest" href="/manifest.json" />
@@ -525,7 +525,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.className=t}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.className=t}catch(e){}})()`,
           }}
         />
         <style
@@ -544,7 +544,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         ))}
       </head>
-      <body className={inter.className}>
+      <body className={manrope.className}>
         <ThemeProvider>
           <SpeedInsights />
           <WebVitals />

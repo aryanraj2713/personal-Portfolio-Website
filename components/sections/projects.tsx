@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpRight, ChevronDown, Trophy, Layers } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, ChevronRight, Trophy } from 'lucide-react'
 import FadeIn from '@/components/fade-in'
 import { projects } from '@/lib/data'
 
@@ -14,13 +14,8 @@ export default function Projects() {
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="projects">
         <div className="collection-heading">
-          <div>
-            <p className="section-eyebrow">Ideas into applications</p>
-            <h2>Projects</h2>
-          </div>
-          <span className="collection-count">
-            {String(projects.length).padStart(2, '0')} projects
-          </span>
+          <h2>Projects</h2>
+          <span className="collection-count">{projects.length} projects</span>
         </div>
         <div className="collection-desktop">
           <div className="collection-list" aria-label="Choose a project">
@@ -32,12 +27,11 @@ export default function Projects() {
                 aria-pressed={selected === i}
                 aria-controls="project-detail"
               >
-                <span className="collection-index">{String(i + 1).padStart(2, '0')}</span>
                 <span>
                   <span className="collection-title">{p.name}</span>
                   <span className="collection-summary">{p.description}</span>
                 </span>
-                <ArrowUpRight size={16} aria-hidden="true" />
+                <ChevronRight size={16} aria-hidden="true" />
               </button>
             ))}
           </div>
@@ -47,10 +41,6 @@ export default function Projects() {
             aria-live="polite"
             aria-atomic="true"
           >
-            <div className="detail-kicker">
-              <Layers size={16} aria-hidden="true" /> Project{' '}
-              {String(selected + 1).padStart(2, '0')}
-            </div>
             <h3>{project.name}</h3>
             <p className="detail-description">{project.description}</p>
             <ProjectDetails project={project} />

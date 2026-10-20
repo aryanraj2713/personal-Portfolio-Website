@@ -6,9 +6,7 @@ export default function About() {
   return (
     <FadeIn as="section" className="py-12 border-t b-subtle">
       <div id="about">
-        <h2 className="text-2xl md:text-3xl font-semibold t-primary mb-4">
-          Building AI Solutions that Matter
-        </h2>
+        <h2 className="section-title mb-5">Building AI solutions that matter</h2>
         <div className="space-y-5 text-base t-muted leading-relaxed">
           <p>
             I am a <span className="t-secondary">Machine Learning Engineer</span> and{' '}

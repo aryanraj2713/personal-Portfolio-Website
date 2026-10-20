@@ -10,7 +10,6 @@ export default function Hero() {
     <FadeIn as="section" className="hero-section">
       <div id="home" className="hero-layout">
         <div className="hero-copy">
-          <p className="hero-eyebrow">AI / ML &amp; Backend Engineering</p>
           <h1 className="hero-name">
             {personalInfo.name}
             <span className="t-accent">.</span>

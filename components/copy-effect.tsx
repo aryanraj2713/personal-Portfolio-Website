@@ -38,12 +38,13 @@ export default function CopyEffect() {
           animate={{ opacity: 1, y: -8, scale: 1 }}
           exit={{ opacity: 0, y: -16, scale: 0.95 }}
           transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          role="status"
           className="fixed z-[100] pointer-events-none"
           style={{ left: toast.x, top: toast.y, transform: 'translateX(-50%)' }}
         >
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-400/20 backdrop-blur-md">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-elevated border b-muted shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
             <svg
-              className="w-3.5 h-3.5 text-emerald-400 shrink-0"
+              className="w-3.5 h-3.5 t-accent shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -55,7 +56,7 @@ export default function CopyEffect() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            <span className="text-xs text-emerald-300 whitespace-nowrap">Copied</span>
+            <span className="text-xs t-primary whitespace-nowrap">Copied</span>
           </div>
         </motion.div>
       )}

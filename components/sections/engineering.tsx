@@ -4,12 +4,10 @@ import FadeIn from '@/components/fade-in'
 import { skills, publications, achievements, clubs } from '@/lib/data'
 
 function EngineeringGroup({
-  number,
   title,
   count,
   children,
 }: {
-  number: string
   title: string
   count: string
   children: ReactNode
@@ -17,9 +15,6 @@ function EngineeringGroup({
   return (
     <details open className="engineering-group">
       <summary>
-        <span className="engineering-number" aria-hidden="true">
-          {number}
-        </span>
         <h3>{title}</h3>
         <span className="engineering-count">{count}</span>
         <ChevronDown size={18} aria-hidden="true" />
@@ -34,17 +29,10 @@ export default function Engineering() {
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="engineering">
         <div className="collection-heading">
-          <div>
-            <p className="section-eyebrow">Tools, research &amp; community</p>
-            <h2>Engineering</h2>
-          </div>
+          <h2>Engineering</h2>
         </div>
         <div className="engineering-groups">
-          <EngineeringGroup
-            number="01"
-            title="Technical skills"
-            count={`${skills.length} disciplines`}
-          >
+          <EngineeringGroup title="Technical skills" count={`${skills.length} disciplines`}>
             <div className="engineering-skills">
               {skills.map(category => (
                 <div key={category.category} className="engineering-skill">
@@ -59,7 +47,6 @@ export default function Engineering() {
             </div>
           </EngineeringGroup>
           <EngineeringGroup
-            number="02"
             title="Publications"
             count={`${publications.length} paper${publications.length === 1 ? '' : 's'}`}
           >
@@ -106,11 +93,7 @@ export default function Engineering() {
               </article>
             ))}
           </EngineeringGroup>
-          <EngineeringGroup
-            number="03"
-            title="Achievements"
-            count={`${achievements.length} highlights`}
-          >
+          <EngineeringGroup title="Achievements" count={`${achievements.length} highlights`}>
             <ul className="engineering-achievements">
               {achievements.map(a => (
                 <li key={a.text}>
@@ -126,7 +109,7 @@ export default function Engineering() {
               ))}
             </ul>
           </EngineeringGroup>
-          <EngineeringGroup number="04" title="Community" count={`${clubs.length} communities`}>
+          <EngineeringGroup title="Community" count={`${clubs.length} communities`}>
             <ul className="engineering-community">
               {clubs.map(c => (
                 <li key={c.name}>

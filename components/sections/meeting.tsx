@@ -7,7 +7,6 @@ export default function Meeting() {
     <FadeIn as="section" className="py-12 border-t b-subtle">
       <div id="meeting" className="meeting-panel">
         <div className="meeting-copy">
-          <p className="section-eyebrow">Start a conversation</p>
           <h2>
             Let&apos;s talk<span className="t-accent">.</span>
           </h2>

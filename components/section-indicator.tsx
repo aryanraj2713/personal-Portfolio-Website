@@ -33,12 +33,15 @@ export default function SectionIndicator() {
   }, [handleScroll])
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-2">
+    <div
+      aria-hidden="true"
+      className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-2"
+    >
       {sections.map(s => (
         <div
           key={s}
           className={`w-1.5 h-1.5 rounded-full transition-colors ${
-            active === s ? 'bg-emerald-400' : 'bg-white/10'
+            active === s ? 'bg-[var(--accent-ink)]' : 'bg-[var(--border-default)]'
           }`}
         />
       ))}

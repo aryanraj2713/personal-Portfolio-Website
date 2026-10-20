@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpRight, BookOpen } from 'lucide-react'
+import { ArrowUpRight, BookOpen, ChevronRight } from 'lucide-react'
 import FadeIn from '@/components/fade-in'
 import { blogArticles } from '@/lib/data'
 
@@ -13,13 +13,8 @@ export default function Writing() {
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="writing">
         <div className="collection-heading">
-          <div>
-            <p className="section-eyebrow">Notes from the work</p>
-            <h2>Writing</h2>
-          </div>
-          <span className="collection-count">
-            {String(blogArticles.length).padStart(2, '0')} articles
-          </span>
+          <h2>Writing</h2>
+          <span className="collection-count">{blogArticles.length} articles</span>
         </div>
         <div className="collection-desktop">
           <div className="collection-list" aria-label="Choose an article">
@@ -31,14 +26,13 @@ export default function Writing() {
                 aria-pressed={selected === i}
                 aria-controls="article-detail"
               >
-                <span className="collection-index">{String(i + 1).padStart(2, '0')}</span>
                 <span>
                   <span className="collection-title">{a.title}</span>
                   <span className="collection-meta">
                     {a.date} · {a.readTime}
                   </span>
                 </span>
-                <ArrowUpRight size={16} aria-hidden="true" />
+                <ChevronRight size={16} aria-hidden="true" />
               </button>
             ))}
           </div>

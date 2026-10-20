@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { MessageSquare, Send } from 'lucide-react'
 import FadeIn from '@/components/fade-in'
 import { personalInfo } from '@/lib/data'
 
@@ -12,16 +13,17 @@ export default function Contact() {
   const [message, setMessage] = useState('')
   const reduceMotion = useReducedMotion()
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     const subject = `Message from ${name}`
-    const body = `From: ${name} (${email})\n\n${message}`
+    const body = `From: ${name}${email ? ` (${email})` : ''}\n\n${message}`
     window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="contact">
-        <h2 className="text-2xl md:text-3xl font-semibold t-primary mb-3">Get in touch</h2>
+        <h2 className="section-title mb-4">Get in touch</h2>
         <a
           href={`mailto:${personalInfo.email}`}
           className="text-emerald-400 hover:text-emerald-300 transition-colors text-lg underline underline-offset-4 decoration-emerald-400/30"
@@ -62,8 +64,11 @@ export default function Contact() {
         <div className="mt-6">
           <button
             onClick={() => setShowForm(!showForm)}
-            className="text-sm t-faint hover:t-muted transition-colors"
+            className="hero-button hero-button-secondary"
+            aria-expanded={showForm}
+            aria-controls="contact-form"
           >
+            <MessageSquare size={17} aria-hidden="true" />
             {showForm ? 'Close form' : 'Send a message'}
           </button>
 
@@ -76,40 +81,54 @@ export default function Contact() {
                 transition={
                   reduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
                 }
-                className="overflow-hidden"
+                className="overflow-hidden -mx-1 px-1 pb-1"
               >
-                <div className="mt-4 max-w-md space-y-3">
-                  <div className="grid grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      value={name}
-                      onChange={e => setName(e.target.value)}
-                      className="bg-[var(--border-subtle)] border b-muted rounded-lg px-3 py-2 text-sm t-primary placeholder:t-faint focus:outline-none focus:border-emerald-500/30"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      className="bg-[var(--border-subtle)] border b-muted rounded-lg px-3 py-2 text-sm t-primary placeholder:t-faint focus:outline-none focus:border-emerald-500/30"
-                    />
+                <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
+                  <div className="contact-form-row">
+                    <label className="contact-field">
+                      Name
+                      <input
+                        type="text"
+                        name="name"
+                        autoComplete="name"
+                        required
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                      />
+                    </label>
+                    <label className="contact-field">
+                      Email (optional)
+                      <input
+                        type="email"
+                        name="email"
+                        autoComplete="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                      />
+                    </label>
                   </div>
-                  <textarea
-                    placeholder="Message"
-                    value={message}
-                    onChange={e => setMessage(e.target.value)}
-                    rows={4}
-                    className="w-full bg-[var(--border-subtle)] border b-muted rounded-lg px-3 py-2 text-sm t-primary placeholder:t-faint focus:outline-none focus:border-emerald-500/30 resize-none"
-                  />
-                  <button
-                    onClick={handleSubmit}
-                    disabled={!name || !message}
-                    className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    Send via email client
-                  </button>
-                </div>
+                  <label className="contact-field">
+                    Message
+                    <textarea
+                      name="message"
+                      required
+                      rows={5}
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
+                    />
+                  </label>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <button
+                      type="submit"
+                      disabled={!name.trim() || !message.trim()}
+                      className="hero-button hero-button-primary"
+                    >
+                      <Send size={16} aria-hidden="true" />
+                      Send via email client
+                    </button>
+                    <p className="contact-form-note">Opens your email app with this message.</p>
+                  </div>
+                </form>
               </motion.div>
             )}
           </AnimatePresence>

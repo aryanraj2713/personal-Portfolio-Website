@@ -7,10 +7,7 @@ export default function Education() {
     <FadeIn as="section" className="py-16 border-t b-subtle">
       <div id="education">
         <div className="collection-heading">
-          <div>
-            <p className="section-eyebrow">Academic foundation</p>
-            <h2>Education</h2>
-          </div>
+          <h2>Education</h2>
         </div>
         <div className="education-list">
           {education.map(ed => (

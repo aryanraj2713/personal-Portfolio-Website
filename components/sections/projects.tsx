@@ -41,9 +41,11 @@ export default function Projects() {
             aria-live="polite"
             aria-atomic="true"
           >
-            <h3>{project.name}</h3>
-            <p className="detail-description">{project.description}</p>
-            <ProjectDetails project={project} />
+            <div key={selected} className="detail-swap">
+              <h3>{project.name}</h3>
+              <p className="detail-description">{project.description}</p>
+              <ProjectDetails project={project} />
+            </div>
           </div>
         </div>
         <div className="collection-mobile">

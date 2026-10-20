@@ -83,11 +83,13 @@ export default function Nav({ onCommandPalette }: { onCommandPalette: () => void
             className="nav-icon"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
-            {theme === 'dark' ? (
-              <Sun size={19} aria-hidden="true" />
-            ) : (
-              <Moon size={19} aria-hidden="true" />
-            )}
+            <span key={theme} className="nav-icon-swap">
+              {theme === 'dark' ? (
+                <Sun size={19} aria-hidden="true" />
+              ) : (
+                <Moon size={19} aria-hidden="true" />
+              )}
+            </span>
           </button>
           <button
             ref={menuButton}

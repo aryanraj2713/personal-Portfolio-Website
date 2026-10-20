@@ -42,24 +42,26 @@ export default function Writing() {
             aria-live="polite"
             aria-atomic="true"
           >
-            <div className="detail-kicker">
-              <BookOpen size={16} aria-hidden="true" /> {article.date} · {article.readTime}
+            <div key={selected} className="detail-swap">
+              <div className="detail-kicker">
+                <BookOpen size={16} aria-hidden="true" /> {article.date} · {article.readTime}
+              </div>
+              <h3>{article.title}</h3>
+              <p className="detail-description">{article.description}</p>
+              <div className="collection-tags">
+                {article.tags.map(tag => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-button hero-button-primary article-read"
+              >
+                Read on Medium <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
             </div>
-            <h3>{article.title}</h3>
-            <p className="detail-description">{article.description}</p>
-            <div className="collection-tags">
-              {article.tags.map(tag => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-            <a
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-button hero-button-primary article-read"
-            >
-              Read on Medium <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
           </div>
         </div>
         <div className="collection-mobile">

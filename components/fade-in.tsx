@@ -46,7 +46,7 @@ export default function FadeIn({ children, delay = 0, className, as: Tag = 'div'
         opacity: visible ? 1 : 0,
         transform: visible ? 'none' : 'translateY(8px)',
         transition: visible
-          ? `opacity 0.15s ease ${delay}s, transform 0.15s ease ${delay}s`
+          ? `opacity 300ms ease ${delay}s, transform 400ms var(--ease-out) ${delay}s`
           : 'none',
       }}
     >

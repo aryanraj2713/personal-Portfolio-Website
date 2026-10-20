@@ -7,6 +7,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Motion tokens: strong custom curves; built-in CSS easings are too weak. */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 /* Dark mode (default) */
 :root {
   --background: 0 0% 3.9%;
@@ -225,10 +231,24 @@ main p {
   color: var(--text-secondary);
   border-radius: 6px;
 }
-.nav-link:hover,
+.nav-link {
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    transform 160ms var(--ease-out);
+}
 .nav-link[aria-current] {
   color: var(--accent-ink);
   background: var(--accent-soft);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover {
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+  }
+}
+.nav-link:active {
+  transform: scale(0.97);
 }
 .nav-controls {
   display: flex;
@@ -242,9 +262,33 @@ main p {
   border-radius: 50%;
   color: var(--text-secondary);
 }
-.nav-icon:hover {
-  background: var(--accent-soft);
-  color: var(--accent-ink);
+.nav-icon {
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-icon:hover {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+}
+.nav-icon:active {
+  transform: scale(0.94);
+}
+/* Theme icon swap: blur bridges the two icons so it reads as one morph. */
+.nav-icon-swap {
+  display: grid;
+  place-items: center;
+  animation: icon-swap 200ms var(--ease-out);
+}
+@keyframes icon-swap {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-30deg);
+    filter: blur(2px);
+  }
 }
 .mobile-menu-toggle,
 .mobile-navigation {
@@ -298,11 +342,11 @@ main p {
   font-size: 14px;
   font-weight: 700;
   transition:
-    background 150ms,
-    transform 150ms;
+    background-color 150ms ease,
+    transform 160ms var(--ease-out);
 }
-.hero-button:active {
-  transform: translateY(1px);
+.hero-button:not(:disabled):active {
+  transform: scale(0.97);
 }
 .hero-button:disabled {
   opacity: 0.45;
@@ -314,16 +358,20 @@ main p {
   color: var(--accent-on-fill);
   border: 1px solid transparent;
 }
-.hero-button-primary:not(:disabled):hover {
-  background: color-mix(in srgb, var(--accent-fill) 86%, var(--text-primary));
+@media (hover: hover) and (pointer: fine) {
+  .hero-button-primary:not(:disabled):hover {
+    background: color-mix(in srgb, var(--accent-fill) 86%, var(--text-primary));
+  }
 }
 .hero-button-secondary {
   border: 1px solid var(--border-default);
   background: var(--surface-elevated);
   color: var(--text-primary);
 }
-.hero-button-secondary:not(:disabled):hover {
-  background: var(--accent-soft);
+@media (hover: hover) and (pointer: fine) {
+  .hero-button-secondary:not(:disabled):hover {
+    background: var(--accent-soft);
+  }
 }
 .hero-portrait {
   transform: rotate(3deg);
@@ -373,8 +421,39 @@ main p {
   flex-wrap: wrap;
   gap: 24px;
 }
+.hero-links a {
+  transition: color 150ms ease;
+}
 .hero-links a:hover {
   color: var(--accent-ink);
+}
+
+/* Hero entrance: seen once per visit, so it can afford a short stagger.
+   Uses the standalone `translate` property so it never fights the
+   rotate() transforms on the portrait. */
+.hero-copy > *,
+.hero-portrait > *,
+.hero-links {
+  animation: hero-enter 500ms var(--ease-out) both;
+}
+.hero-copy > :nth-child(2) {
+  animation-delay: 60ms;
+}
+.hero-copy > :nth-child(3),
+.hero-portrait > * {
+  animation-delay: 120ms;
+}
+.hero-copy > :nth-child(4) {
+  animation-delay: 180ms;
+}
+.hero-links {
+  animation-delay: 240ms;
+}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -388,6 +467,8 @@ main p {
     padding: 0 20px;
   }
   .mobile-navigation {
+    transform-origin: top;
+    animation: menu-enter 180ms var(--ease-out);
     display: block;
     padding: 12px 20px 20px;
     border-bottom: 1px solid var(--border-default);
@@ -498,6 +579,33 @@ main p {
   body {
     transition: none;
   }
+  /* Keep fades that aid comprehension, drop movement. */
+  .hero-copy > *,
+  .hero-portrait > *,
+  .hero-links,
+  .mobile-navigation,
+  .nav-icon-swap,
+  .detail-swap {
+    animation-name: fade-only;
+  }
+  .nav-link:active,
+  .nav-icon:active,
+  .hero-button:not(:disabled):active,
+  .collection-option:active,
+  .mobile-project-toggle:active {
+    transform: none;
+  }
+}
+@keyframes fade-only {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
 }
 
 /* Projects and writing share a consistent, always-visible browsing layout. */
@@ -542,8 +650,38 @@ main p {
   border: 1px solid transparent;
   border-radius: 10px;
 }
-.collection-option:hover {
-  background: var(--accent-soft);
+.collection-option {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .collection-option:hover {
+    background: var(--accent-soft);
+  }
+}
+.collection-option:active {
+  transform: scale(0.98);
+}
+.collection-option > svg {
+  transition:
+    color 150ms ease,
+    transform 200ms var(--ease-out);
+}
+.collection-option[aria-pressed='true'] > svg {
+  transform: translateX(2px);
+}
+/* Detail panel content crossfades when the selection changes. */
+.detail-swap {
+  animation: detail-swap 220ms var(--ease-out);
+}
+@keyframes detail-swap {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    filter: blur(2px);
+  }
 }
 .collection-option[aria-pressed='true'] {
   background: var(--accent-soft);
@@ -733,8 +871,20 @@ main p {
     margin-top: 4px;
     color: var(--accent-ink);
   }
+  .mobile-project-toggle {
+    transition: transform 160ms var(--ease-out);
+  }
+  .mobile-project-toggle:active {
+    transform: scale(0.98);
+  }
+  .mobile-project-toggle svg {
+    transition: transform 250ms var(--ease-in-out);
+  }
   .mobile-project[data-open='true'] .mobile-project-toggle svg {
     transform: rotate(180deg);
+  }
+  .mobile-project-detail:not([hidden]) {
+    animation: detail-swap 220ms var(--ease-out);
   }
   .mobile-project-detail {
     padding: 0 20px 20px;
@@ -767,8 +917,16 @@ main p {
     font-weight: 700;
     color: var(--accent-ink);
   }
-  .mobile-article:hover {
+  .mobile-article {
+    transition: border-color 150ms ease;
+  }
+  .mobile-article:active {
     border-color: var(--accent-ink);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-article:hover {
+      border-color: var(--accent-ink);
+    }
   }
 }
 
@@ -829,6 +987,10 @@ main p {
 .engineering-group > summary > svg {
   color: var(--text-muted);
   flex-shrink: 0;
+  transition: transform 250ms var(--ease-in-out);
+}
+.engineering-group h3 {
+  transition: color 150ms ease;
 }
 .engineering-group[open] > summary > svg {
   transform: rotate(180deg);
@@ -1221,7 +1383,7 @@ main p {
   background: var(--surface-elevated);
   border: 1px solid var(--border-default);
   border-radius: 7px;
-  transition: border-color 150ms;
+  transition: border-color 150ms ease;
 }
 .contact-field textarea {
   resize: vertical;

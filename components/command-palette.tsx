@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { personalInfo, projects, blogArticles } from '@/lib/data'
 
 interface CommandItem {
@@ -19,7 +18,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
-  const reduceMotion = useReducedMotion()
 
   const scrollTo = useCallback(
     (id: string) => {
@@ -149,93 +147,81 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   let globalIndex = -1
 
   return (
-    <AnimatePresence>
-      {open && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
-            initial={reduceMotion ? undefined : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={reduceMotion ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.1 }}
-            onClick={onClose}
-          />
+    open && (
+      <>
+        {/* No open/close animation: a keyboard-summoned palette should feel instant. */}
+        {/* Backdrop */}
+        <div className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
-          {/* Dialog */}
-          <motion.div
-            className="fixed inset-x-0 top-[20%] z-[60] mx-auto w-full max-w-lg px-4"
-            initial={reduceMotion ? undefined : { opacity: 0, scale: 0.98, y: -8 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, scale: 0.98, y: -8 }}
-            transition={{ duration: 0.12 }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Command palette"
-          >
-            <div className="bg-elevated border b-muted rounded-xl shadow-2xl overflow-hidden">
-              <div className="flex items-center px-4 border-b b-subtle">
-                <svg
-                  className="w-4 h-4 t-faint shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-                <input
-                  ref={inputRef}
-                  value={query}
-                  onChange={e => setQuery(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Search..."
-                  className="w-full bg-transparent px-3 py-3 text-sm t-primary placeholder:t-muted focus:outline-none"
+        {/* Dialog */}
+        <div
+          className="fixed inset-x-0 top-[20%] z-[60] mx-auto w-full max-w-lg px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Command palette"
+        >
+          <div className="bg-elevated border b-muted rounded-xl shadow-2xl overflow-hidden">
+            <div className="flex items-center px-4 border-b b-subtle">
+              <svg
+                className="w-4 h-4 t-faint shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
-                <kbd className="text-[10px] t-faint border b-subtle rounded px-1.5 py-0.5 shrink-0">
-                  esc
-                </kbd>
-              </div>
-
-              <div className="max-h-[320px] overflow-y-auto py-2">
-                {filtered.length === 0 ? (
-                  <p className="px-4 py-6 text-sm t-faint text-center">No results</p>
-                ) : (
-                  Array.from(groups.entries()).map(([group, groupItems]) => (
-                    <div key={group}>
-                      <div className="px-4 pt-3 pb-1 text-[10px] font-medium t-faint uppercase tracking-wider">
-                        {group}
-                      </div>
-                      {groupItems.map(item => {
-                        globalIndex++
-                        const idx = globalIndex
-                        return (
-                          <button
-                            key={`${item.group}-${item.label}`}
-                            onClick={item.action}
-                            onMouseEnter={() => setActiveIndex(idx)}
-                            className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                              activeIndex === idx
-                                ? 'bg-white/[0.04] t-primary'
-                                : 't-muted hover:t-secondary'
-                            }`}
-                          >
-                            {item.label}
-                          </button>
-                        )
-                      })}
-                    </div>
-                  ))
-                )}
-              </div>
+              </svg>
+              <input
+                ref={inputRef}
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Search..."
+                className="w-full bg-transparent px-3 py-3 text-sm t-primary placeholder:t-muted focus:outline-none"
+              />
+              <kbd className="text-[10px] t-faint border b-subtle rounded px-1.5 py-0.5 shrink-0">
+                esc
+              </kbd>
             </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+
+            <div className="max-h-[320px] overflow-y-auto py-2">
+              {filtered.length === 0 ? (
+                <p className="px-4 py-6 text-sm t-faint text-center">No results</p>
+              ) : (
+                Array.from(groups.entries()).map(([group, groupItems]) => (
+                  <div key={group}>
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-medium t-faint uppercase tracking-wider">
+                      {group}
+                    </div>
+                    {groupItems.map(item => {
+                      globalIndex++
+                      const idx = globalIndex
+                      return (
+                        <button
+                          key={`${item.group}-${item.label}`}
+                          onClick={item.action}
+                          onMouseEnter={() => setActiveIndex(idx)}
+                          className={`w-full text-left px-4 py-2 text-sm ${
+                            activeIndex === idx
+                              ? 'bg-[var(--accent-soft)] t-primary'
+                              : 't-muted hover:t-secondary'
+                          }`}
+                        >
+                          {item.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      </>
+    )
   )
 }

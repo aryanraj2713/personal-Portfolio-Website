@@ -79,7 +79,7 @@ export default function Contact() {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={
-                  reduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+                  reduceMotion ? { duration: 0 } : { duration: 0.25, ease: [0.23, 1, 0.32, 1] }
                 }
                 className="overflow-hidden -mx-1 px-1 pb-1"
               >

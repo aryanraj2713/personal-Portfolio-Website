@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function CopyEffect() {
-  const [toast, setToast] = useState<{ text: string; x: number; y: number } | null>(null)
+  const [toast, setToast] = useState<{ id: number; x: number; y: number } | null>(null)
+  const hideTimer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const handleCopy = useCallback((e: ClipboardEvent) => {
     const selection = window.getSelection()
@@ -17,30 +18,37 @@ export default function CopyEffect() {
     const rect = range.getBoundingClientRect()
 
     setToast({
-      text: text.length > 40 ? text.slice(0, 40) + '...' : text,
+      id: Date.now(),
       x: Math.min(rect.left + rect.width / 2, window.innerWidth - 120),
       y: rect.top - 8,
     })
 
-    setTimeout(() => setToast(null), 1800)
+    // A new copy restarts the timer instead of being hidden by the previous one.
+    clearTimeout(hideTimer.current)
+    hideTimer.current = setTimeout(() => setToast(null), 1800)
   }, [])
 
   useEffect(() => {
     document.addEventListener('copy', handleCopy)
-    return () => document.removeEventListener('copy', handleCopy)
+    return () => {
+      document.removeEventListener('copy', handleCopy)
+      clearTimeout(hideTimer.current)
+    }
   }, [handleCopy])
 
   return (
     <AnimatePresence>
       {toast && (
         <motion.div
-          initial={{ opacity: 0, y: 4, scale: 0.95 }}
-          animate={{ opacity: 1, y: -8, scale: 1 }}
-          exit={{ opacity: 0, y: -16, scale: 0.95 }}
-          transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          key={toast.id}
+          // x lives in motion values; an inline transform would be overwritten.
+          initial={{ opacity: 0, x: '-50%', y: 4, scale: 0.95 }}
+          animate={{ opacity: 1, x: '-50%', y: -8, scale: 1 }}
+          exit={{ opacity: 0, x: '-50%', y: -12, scale: 0.97, transition: { duration: 0.15 } }}
+          transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
           role="status"
-          className="fixed z-[100] pointer-events-none"
-          style={{ left: toast.x, top: toast.y, transform: 'translateX(-50%)' }}
+          className="fixed z-[100] pointer-events-none origin-bottom"
+          style={{ left: toast.x, top: toast.y }}
         >
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-elevated border b-muted shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
             <svg

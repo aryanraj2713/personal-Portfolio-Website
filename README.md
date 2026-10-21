@@ -1,3 +1,5 @@
+
+
 # Aryan Raj - Resume Website
 
 A modern, minimalistic portfolio website built with Next.js, Tailwind CSS, and glassmorphism design.
@@ -6,7 +8,7 @@ A modern, minimalistic portfolio website built with Next.js, Tailwind CSS, and g
 
 - 🎨 Modern glassmorphism design
 - 📱 Fully responsive layout
-- ⚡ Built with Next.js 14 and Tailwind CSS
+- ⚡ Built with Next.js 16 and Tailwind CSS
 - 🎯 Professional resume layout
 - ☀️ Light theme by default, with an optional dark-mode toggle
 - ✨ Smooth animations and transitions
@@ -58,7 +60,7 @@ yarn dev
 
 ## Technologies Used
 
-- **Next.js 14** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Type-safe JavaScript
 - **Glassmorphism** - Modern UI design trend
@@ -81,4 +83,4 @@ The easiest way to deploy is to use [Vercel](https://vercel.com/):
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE). 
+This project is open source and available under the [MIT License](LICENSE).
